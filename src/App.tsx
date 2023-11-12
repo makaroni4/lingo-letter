@@ -5,7 +5,7 @@ import OpenAI from 'openai';
 
 function App() {
   const { openAIAPIKey, setOpenAIAPIKey } = useAppStore();
-  const [letter, setLetter] = useState("")
+  const { letter, setLetter } = useAppStore();
   const [checkedLetter, setCheckedLetter] = useState("")
   const [apiKeySubmitted, setApiKeySubmitted] = useState(false)
 
@@ -77,6 +77,7 @@ function App() {
 
         <div>
           <textarea
+            defaultValue={letter}
             onChange={(e) => setLetter(e.target.value) }
             name="" id="" cols={30} rows={10}></textarea>
 
