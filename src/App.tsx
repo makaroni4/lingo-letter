@@ -6,8 +6,9 @@ import OpenAI from 'openai';
 function App() {
   const { openAIAPIKey, setOpenAIAPIKey } = useAppStore();
   const { letter, setLetter } = useAppStore();
-  const [checkedLetter, setCheckedLetter] = useState("")
   const [apiKeySubmitted, setApiKeySubmitted] = useState(false)
+  const [originalSentences, setOriginalSentences] = useState<string[]>([])
+  const [verifiedSentences, setVerifiedSentences] = useState<string[]>([])
 
   useEffect(() => {
     if(openAIAPIKey) {
@@ -35,6 +36,8 @@ function App() {
       return;
     }
 
+    setOriginalSentences(splitTextIntoSentences(letter))
+
     const message = `
       Fix German grammar in the following text:
 
@@ -48,7 +51,9 @@ function App() {
 
     const responseText = chatCompletion.choices[0].message.content || ""
 
-    setCheckedLetter(responseText)
+    const fixedSentences = splitTextIntoSentences(responseText)
+
+    setVerifiedSentences(fixedSentences)
   }
 
   const openai = new OpenAI({
@@ -87,15 +92,15 @@ function App() {
         <div className='flex flex-row gap-12'>
           <div className=''>
             <ul>
-              { splitTextIntoSentences(letter).map(sentence => {
+              { originalSentences && originalSentences.map((sentence, index) => {
                 return (<li>{sentence}</li>)
               })}
             </ul>
           </div>
           <div>
             <ul>
-              { checkedLetter && splitTextIntoSentences(checkedLetter).map(sentence => {
-                return (<li>{sentence}</li>)
+              { verifiedSentences && verifiedSentences.map((sentence, index) => {
+                return (<li className={`${ sentence === originalSentences[index] ? 'bg-teal-400' : 'bg-rose-400' }`}>{sentence}</li>)
               })}
             </ul>
           </div>
