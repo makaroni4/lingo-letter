@@ -109,17 +109,17 @@ function App() {
       </div>
 
       <div className='flex flex-row gap-12'>
-        <div className=''>
+        <div className='text-left'>
           <ul>
             { originalSentences && originalSentences.map((sentence, index) => {
-              return (<li>{sentence}</li>)
+              return (<li className='text-left'>{sentence}</li>)
             })}
           </ul>
         </div>
         <div>
           <ul>
             { verifiedSentences && verifiedSentences.map((sentence, index) => {
-              return (<li className={`${ sentence === originalSentences[index] ? 'bg-teal-400' : 'bg-rose-400' }`}>{sentence}</li>)
+              return (<li className={`text-left ${ sentence === originalSentences[index] ? 'bg-teal-400' : 'bg-rose-400' }`}>{sentence}</li>)
             })}
           </ul>
         </div>
