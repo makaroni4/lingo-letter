@@ -30,6 +30,16 @@ function App() {
     setApiKeySubmitted(true)
   }
 
+  const handleClear = () => {
+    const result = window.confirm("Are you sure you want to clear your text?");
+
+    if (result) {
+      setLetter("")
+      setOriginalSentences([])
+      setVerifiedSentences([])
+    }
+  }
+
   const handleFormSubmit = async () => {
     if(!letter) {
       console.log("--> empty handleFormSubmit")
@@ -39,7 +49,7 @@ function App() {
     setOriginalSentences(splitTextIntoSentences(letter))
 
     const message = `
-      Fix German grammar in the following text:
+      Fix German grammar in the following text. If a sentence is grammatically correct, leave it as is.
 
       ${letter}
     `;
@@ -62,50 +72,58 @@ function App() {
   });
 
   return (
-    <div className="App">
-      <header className="App-header">
-        {apiKeySubmitted && (
-          <div>
-            <button onClick={() => setApiKeySubmitted(false)}>Reset API token</button>
-          </div>
-        )}
-
-        {!apiKeySubmitted && (
-          <div>
-            <input
-              onChange={(e) => setOpenAIAPIKey(e.target.value) }
-              type="text" />
-
-            <button onClick={handleApiKeySubmit}>SUBMIT</button>
-          </div>
-        )}
-
+    <div className="App py-24 px-12">
+      {apiKeySubmitted && (
         <div>
-          <textarea
-            defaultValue={letter}
-            onChange={(e) => setLetter(e.target.value) }
-            name="" id="" cols={30} rows={10}></textarea>
-
-          <button onClick={handleFormSubmit}>SUBMIT</button>
+          <button
+            className="py-2 px-4 bg-indigo-500 rounded-md fixed right-4 top-4"
+            onClick={() => setApiKeySubmitted(false)}>Reset API token</button>
         </div>
+      )}
 
-        <div className='flex flex-row gap-12'>
-          <div className=''>
-            <ul>
-              { originalSentences && originalSentences.map((sentence, index) => {
-                return (<li>{sentence}</li>)
-              })}
-            </ul>
-          </div>
-          <div>
-            <ul>
-              { verifiedSentences && verifiedSentences.map((sentence, index) => {
-                return (<li className={`${ sentence === originalSentences[index] ? 'bg-teal-400' : 'bg-rose-400' }`}>{sentence}</li>)
-              })}
-            </ul>
-          </div>
+      {!apiKeySubmitted && (
+        <div>
+          <input
+            onChange={(e) => setOpenAIAPIKey(e.target.value) }
+            type="text" />
+
+          <button
+            className="py-2 px-4 bg-indigo-500 rounded-md"
+            onClick={handleApiKeySubmit}>SUBMIT</button>
         </div>
-      </header>
+      )}
+
+      <div>
+        <textarea
+          className="p-4 text-base w-full border-2 border-indigo-500 radius-4 rounded-md	"
+          value={letter}
+          onChange={(e) => setLetter(e.target.value) }
+          name="" id="" cols={30} rows={10}></textarea>
+
+        <button
+          className="py-2 px-4 bg-indigo-500 rounded-md mr-4"
+          onClick={handleFormSubmit}>SUBMIT</button>
+        <button
+          className="py-2 px-4 bg-indigo-500 rounded-md"
+          onClick={handleClear}>CLEAR</button>
+      </div>
+
+      <div className='flex flex-row gap-12'>
+        <div className=''>
+          <ul>
+            { originalSentences && originalSentences.map((sentence, index) => {
+              return (<li>{sentence}</li>)
+            })}
+          </ul>
+        </div>
+        <div>
+          <ul>
+            { verifiedSentences && verifiedSentences.map((sentence, index) => {
+              return (<li className={`${ sentence === originalSentences[index] ? 'bg-teal-400' : 'bg-rose-400' }`}>{sentence}</li>)
+            })}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
