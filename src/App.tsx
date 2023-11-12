@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import { useAppStore } from './store';
 import { useState } from 'react';
@@ -6,17 +5,36 @@ import OpenAI from 'openai';
 
 function App() {
   const { openAIAPIKey, setOpenAIAPIKey } = useAppStore();
-  const [prompt, setPrompt] = useState("")
+  const [letter, setLetter] = useState("")
+  const [checkedLetter, setCheckedLetter] = useState("")
+
+  const splitTextIntoSentences = (text: string): string[] => {
+    let sentences = text.match(/[^\.!\?]+[\.!\?]+/g)?.filter(function(sentence) {
+      return sentence.trim() !== '';
+    });
+
+    if(!sentences) return []
+
+    return sentences;
+  }
+
   const handleFormSubmit = async () => {
-    console.log(prompt);
+    const message = `
+      Fix German grammar in the following text:
+
+      ${letter}
+    `;
 
     const chatCompletion = await openai.chat.completions.create({
-      messages: [{ role: 'user', content: prompt }],
+      messages: [{ role: 'user', content: message }],
       model: 'gpt-3.5-turbo',
     });
 
-    console.log(chatCompletion)
+    const responseText = chatCompletion.choices[0].message.content || ""
+
+    setCheckedLetter(responseText)
   }
+
   const openai = new OpenAI({
     apiKey: openAIAPIKey,
     dangerouslyAllowBrowser: true
@@ -35,9 +53,29 @@ function App() {
 
         <div>
           <textarea
-            onChange={(e) => setPrompt(e.target.value) }
+            onChange={(e) => setLetter(e.target.value) }
             name="" id="" cols={30} rows={10}></textarea>
+
           <button onClick={handleFormSubmit}>SUBMIT</button>
+        </div>
+
+        <div>
+          {checkedLetter}
+        </div>
+
+        <div>
+          <div>
+            <ul>
+              { splitTextIntoSentences(letter).map(sentence => {
+                return (<li>{sentence}</li>)
+              })}
+            </ul>
+          </div>
+          <div>
+            { checkedLetter && splitTextIntoSentences(checkedLetter).map(sentence => {
+              return (<li>{sentence}</li>)
+            })}
+          </div>
         </div>
       </header>
     </div>
