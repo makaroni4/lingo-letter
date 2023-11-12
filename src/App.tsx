@@ -1,12 +1,19 @@
 import './App.css';
 import { useAppStore } from './store';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import OpenAI from 'openai';
 
 function App() {
   const { openAIAPIKey, setOpenAIAPIKey } = useAppStore();
   const [letter, setLetter] = useState("")
   const [checkedLetter, setCheckedLetter] = useState("")
+  const [apiKeySubmitted, setApiKeySubmitted] = useState(false)
+
+  useEffect(() => {
+    if(openAIAPIKey) {
+      setApiKeySubmitted(true)
+    }
+  }, [])
 
   const splitTextIntoSentences = (text: string): string[] => {
     let sentences = text.match(/[^\.!\?]+[\.!\?]+/g)?.filter(function(sentence) {
@@ -18,7 +25,16 @@ function App() {
     return sentences;
   }
 
+  const handleApiKeySubmit = () => {
+    setApiKeySubmitted(true)
+  }
+
   const handleFormSubmit = async () => {
+    if(!letter) {
+      console.log("--> empty handleFormSubmit")
+      return;
+    }
+
     const message = `
       Fix German grammar in the following text:
 
@@ -43,13 +59,21 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div>
-          Key: {openAIAPIKey}
-        </div>
+        {apiKeySubmitted && (
+          <div>
+            <button onClick={() => setApiKeySubmitted(false)}>Reset API token</button>
+          </div>
+        )}
 
-        <input
-          onChange={(e) => setOpenAIAPIKey(e.target.value) }
-          type="text" />
+        {!apiKeySubmitted && (
+          <div>
+            <input
+              onChange={(e) => setOpenAIAPIKey(e.target.value) }
+              type="text" />
+
+            <button onClick={handleApiKeySubmit}>SUBMIT</button>
+          </div>
+        )}
 
         <div>
           <textarea
@@ -59,12 +83,8 @@ function App() {
           <button onClick={handleFormSubmit}>SUBMIT</button>
         </div>
 
-        <div>
-          {checkedLetter}
-        </div>
-
-        <div>
-          <div>
+        <div className='flex flex-row gap-12'>
+          <div className=''>
             <ul>
               { splitTextIntoSentences(letter).map(sentence => {
                 return (<li>{sentence}</li>)
@@ -72,9 +92,11 @@ function App() {
             </ul>
           </div>
           <div>
-            { checkedLetter && splitTextIntoSentences(checkedLetter).map(sentence => {
-              return (<li>{sentence}</li>)
-            })}
+            <ul>
+              { checkedLetter && splitTextIntoSentences(checkedLetter).map(sentence => {
+                return (<li>{sentence}</li>)
+              })}
+            </ul>
           </div>
         </div>
       </header>
