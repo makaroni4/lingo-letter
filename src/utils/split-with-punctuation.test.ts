@@ -61,4 +61,23 @@ describe('splitWithPunctuation', () => {
       ])
     })
   })
+
+  describe('when a sentence contains a hyphen', () => {
+    test('does NOT split a hyphen into a separate word', () => {
+      const sentence = "The well-known actor starred brilliantly."
+
+      const result = splitWithPunctuation(sentence)
+
+      console.log("--> result: ", result)
+
+      expect(result).toEqual([
+        "The",
+        "well-known",
+        "actor",
+        "starred",
+        "brilliantly",
+        ".",
+      ])
+    })
+  })
 })
