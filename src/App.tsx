@@ -3,6 +3,7 @@ import { useAppStore } from './store';
 import { useEffect, useState } from 'react';
 import OpenAI from 'openai';
 import { splitWithPunctuation } from './utils/split-with-punctuation';
+import { compareSentences } from './utils/compare-sentences';
 
 function App() {
   const { openAIAPIKey, setOpenAIAPIKey } = useAppStore();
@@ -12,26 +13,11 @@ function App() {
   const [verifiedSentences, setVerifiedSentences] = useState<string[]>([])
 
   const highlightErrorsInSentece = (original: string, corrected: string): { __html: string } => {
-    const originalWords = splitWithPunctuation(original);
-    const correctedWords = splitWithPunctuation(corrected);
-
-    let result = '';
-
-    let i = 0;
-    while (i < originalWords.length || i < correctedWords.length) {
-      if (originalWords[i] && correctedWords[i]) {
-        if (originalWords[i].trim() === correctedWords[i].trim()) {
-          result += '<span class="bg-teal-300">' + correctedWords[i] + '</span> ';
-        } else {
-          result += '<span class="bg-amber-300">' + correctedWords[i] + '</span> ';
-        }
-      }
-
-      i++;
-    }
-
     return {
-      __html: result.trim()
+      __html: compareSentences({
+        originalSentence: original,
+        fixedSentence: corrected
+      })
     }
   }
 
@@ -40,16 +26,6 @@ function App() {
       setApiKeySubmitted(true)
     }
   }, [])
-
-  const splitTextIntoSentences = (text: string): string[] => {
-    let sentences = text.match(/[^\.!\?]+[\.!\?]+/g)?.filter(function(sentence) {
-      return sentence.trim() !== '';
-    });
-
-    if(!sentences) return []
-
-    return sentences;
-  }
 
   const handleApiKeySubmit = () => {
     setApiKeySubmitted(true)
@@ -71,8 +47,8 @@ function App() {
       return;
     }
 
-    console.log(splitTextIntoSentences(letter))
-    setOriginalSentences(splitTextIntoSentences(letter))
+    console.log(splitWithPunctuation(letter))
+    setOriginalSentences(splitWithPunctuation(letter))
 
     const message = `
       Fix German grammar in the following text. If a sentence is grammatically correct, leave it as is.
@@ -87,7 +63,7 @@ function App() {
 
     const responseText = chatCompletion.choices[0].message.content || ""
 
-    const fixedSentences = splitTextIntoSentences(responseText)
+    const fixedSentences = splitWithPunctuation(responseText)
 
     setVerifiedSentences(fixedSentences)
   }
@@ -144,7 +120,7 @@ function App() {
             </div>
             <div
               key={verifiedSentence}
-              className='text-left w-50 corrected-sentence'
+              className='text-left w-50 corrected-sentence flex flex-wrap'
               dangerouslySetInnerHTML={highlightErrorsInSentece(originalSentences[index], verifiedSentence)} ></div>
           </div>
         ))}
