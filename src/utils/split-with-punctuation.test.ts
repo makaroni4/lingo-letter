@@ -116,4 +116,22 @@ describe('splitWithPunctuation', () => {
     })
   })
 
+  describe('when a sentence contains numbers', () => {
+    test('splits numbers to individual words', () => {
+      const sentence = "3 of them were born in 1968."
+
+      const result = splitWithPunctuation(sentence)
+
+      expect(result).toEqual([
+        "3",
+        "of",
+        "them",
+        "were",
+        "born",
+        "in",
+        "1968",
+        ".",
+      ])
+    })
+  })
 })
