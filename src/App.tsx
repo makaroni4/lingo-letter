@@ -10,6 +10,30 @@ function App() {
   const [originalSentences, setOriginalSentences] = useState<string[]>([])
   const [verifiedSentences, setVerifiedSentences] = useState<string[]>([])
 
+  const highlightErrorsInSentece = (original: string, corrected: string): { __html: string } => {
+    const originalWords = original.split(' ');
+    const correctedWords = corrected.split(' ');
+
+    let result = '';
+
+    let i = 0;
+    while (i < originalWords.length || i < correctedWords.length) {
+      if (originalWords[i] && correctedWords[i]) {
+        if (originalWords[i].trim() === correctedWords[i].trim()) {
+          result += '<span class="bg-teal-300">' + correctedWords[i] + '</span> ';
+        } else {
+          result += '<span class="bg-amber-300">' + correctedWords[i] + '</span> ';
+        }
+      }
+
+      i++;
+    }
+
+    return {
+      __html: result.trim()
+    }
+  }
+
   useEffect(() => {
     if(openAIAPIKey) {
       setApiKeySubmitted(true)
@@ -46,6 +70,7 @@ function App() {
       return;
     }
 
+    console.log(splitTextIntoSentences(letter))
     setOriginalSentences(splitTextIntoSentences(letter))
 
     const message = `
@@ -93,7 +118,7 @@ function App() {
         </div>
       )}
 
-      <div>
+      <div className='mb-12'>
         <textarea
           className="p-4 text-base w-full border-2 border-indigo-500 radius-4 rounded-md	"
           value={letter}
@@ -108,21 +133,20 @@ function App() {
           onClick={handleClear}>CLEAR</button>
       </div>
 
-      <div className='flex flex-row gap-12'>
-        <div className='text-left'>
-          <ul>
-            { originalSentences && originalSentences.map((sentence, index) => {
-              return (<li className='text-left'>{sentence}</li>)
-            })}
-          </ul>
-        </div>
-        <div>
-          <ul>
-            { verifiedSentences && verifiedSentences.map((sentence, index) => {
-              return (<li className={`text-left ${ sentence === originalSentences[index] ? 'bg-teal-400' : 'bg-rose-400' }`}>{sentence}</li>)
-            })}
-          </ul>
-        </div>
+      <div className=''>
+        { verifiedSentences && verifiedSentences.map((verifiedSentence, index) => (
+          <div className='grid grid-cols-2 gap-4 mb-4'>
+            <div
+              key={originalSentences[index]}
+              className='text-left w-50'>
+              {originalSentences[index]}
+            </div>
+            <div
+              key={verifiedSentence}
+              className='text-left w-50 corrected-sentence'
+              dangerouslySetInnerHTML={highlightErrorsInSentece(originalSentences[index], verifiedSentence)} ></div>
+          </div>
+        ))}
       </div>
     </div>
   );
