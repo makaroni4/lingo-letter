@@ -1,5 +1,5 @@
 export const splitWithPunctuation = (inputString: string): string[] => {
-  const regex = /([\w-]+|[^\w\s])/g;
+  const regex = /([\p{L}-]+|[^\p{L}\s])/gu;
 
   const result = inputString.match(regex) || [];
 

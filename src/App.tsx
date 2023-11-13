@@ -2,6 +2,7 @@ import './App.css';
 import { useAppStore } from './store';
 import { useEffect, useState } from 'react';
 import OpenAI from 'openai';
+import { splitWithPunctuation } from './utils/split-with-punctuation';
 
 function App() {
   const { openAIAPIKey, setOpenAIAPIKey } = useAppStore();
@@ -11,8 +12,8 @@ function App() {
   const [verifiedSentences, setVerifiedSentences] = useState<string[]>([])
 
   const highlightErrorsInSentece = (original: string, corrected: string): { __html: string } => {
-    const originalWords = original.split(' ');
-    const correctedWords = corrected.split(' ');
+    const originalWords = splitWithPunctuation(original);
+    const correctedWords = splitWithPunctuation(corrected);
 
     let result = '';
 

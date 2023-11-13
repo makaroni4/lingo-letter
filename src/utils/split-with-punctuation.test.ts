@@ -100,4 +100,20 @@ describe('splitWithPunctuation', () => {
       ])
     })
   })
+
+  describe('when a sentence contains non-latin letters', () => {
+    test('does NOT split words in halfs by non-latic letters', () => {
+      const sentence = "Das war großartig!"
+
+      const result = splitWithPunctuation(sentence)
+
+      expect(result).toEqual([
+        "Das",
+        "war",
+        "großartig",
+        "!",
+      ])
+    })
+  })
+
 })
