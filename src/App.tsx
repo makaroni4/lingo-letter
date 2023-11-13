@@ -48,6 +48,9 @@ function App() {
       return;
     }
 
+    setOriginalSentences([])
+    setVerifiedSentences([])
+
     setOriginalSentences(splitIntoSentences(letter))
 
     const message = `
@@ -64,6 +67,8 @@ function App() {
     const responseText = chatCompletion.choices[0].message.content || ""
 
     const fixedSentences = splitIntoSentences(responseText)
+
+    console.log(fixedSentences)
 
     setVerifiedSentences(fixedSentences)
   }
