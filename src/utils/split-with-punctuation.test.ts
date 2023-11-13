@@ -68,14 +68,34 @@ describe('splitWithPunctuation', () => {
 
       const result = splitWithPunctuation(sentence)
 
-      console.log("--> result: ", result)
-
       expect(result).toEqual([
         "The",
         "well-known",
         "actor",
         "starred",
         "brilliantly",
+        ".",
+      ])
+    })
+  })
+
+  describe('when a sentence contains a colon', () => {
+    test('splits a colon into a separate word', () => {
+      const sentence = "The recipe requires the following ingredients: flour, sugar."
+
+      const result = splitWithPunctuation(sentence)
+
+      expect(result).toEqual([
+        "The",
+        "recipe",
+        "requires",
+        "the",
+        "following",
+        "ingredients",
+        ":",
+        "flour",
+        ",",
+        "sugar",
         ".",
       ])
     })
