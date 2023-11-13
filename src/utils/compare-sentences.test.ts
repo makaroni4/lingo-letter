@@ -34,4 +34,32 @@ describe('when two sentences do NOT match', () => {
       expect(result).toBe(`--You]]++are]]++the]]++best]]++!]]`)
     });
   })
+
+  describe('when all words have mistake', () => {
+    test('wraps all words into a red bg span', () => {
+      const originalSentence = "Yu ar te bst!"
+      const fixedSentence = "You are the best!"
+
+      const result = replaceSpans(compareSentences({
+        originalSentence,
+        fixedSentence
+      }))
+
+      expect(result).toBe(`--You]]--are]]--the]]--best]]++!]]`)
+    });
+  })
+
+  describe('when a comma was dropped in the fixed sentence', () => {
+    test('adds a red bg no-breaking-space in place of comma', () => {
+      const originalSentence = "Natürlich, habe ich mein Deutsch verbessert."
+      const fixedSentence = "Natürlich habe ich mein Deutsch verbessert."
+
+      const result = replaceSpans(compareSentences({
+        originalSentence,
+        fixedSentence
+      }))
+
+      expect(result).toBe(`++Natürlich]]--&nbsp;]]++habe]]++ich]]++mein]]++Deutsch]]++verbessert]]++.]]`)
+    });
+  })
 })

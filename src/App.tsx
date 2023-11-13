@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import OpenAI from 'openai';
 import { splitWithPunctuation } from './utils/split-with-punctuation';
 import { compareSentences } from './utils/compare-sentences';
+import { splitIntoSentences } from './utils/split-into-sentences';
 
 function App() {
   const { openAIAPIKey, setOpenAIAPIKey } = useAppStore();
@@ -47,8 +48,7 @@ function App() {
       return;
     }
 
-    console.log(splitWithPunctuation(letter))
-    setOriginalSentences(splitWithPunctuation(letter))
+    setOriginalSentences(splitIntoSentences(letter))
 
     const message = `
       Fix German grammar in the following text. If a sentence is grammatically correct, leave it as is.
@@ -63,7 +63,7 @@ function App() {
 
     const responseText = chatCompletion.choices[0].message.content || ""
 
-    const fixedSentences = splitWithPunctuation(responseText)
+    const fixedSentences = splitIntoSentences(responseText)
 
     setVerifiedSentences(fixedSentences)
   }
