@@ -19,3 +19,19 @@ describe('when two sentences match', () => {
     expect(result).toBe(`++What]]++a]]++day]]++!]]`)
   });
 })
+
+describe('when two sentences do NOT match', () => {
+  describe('when only the first word had a mistake', () => {
+    test('only wraps the first word in a red bg span', () => {
+      const originalSentence = "Yu are the best!"
+      const fixedSentence = "You are the best!"
+
+      const result = replaceSpans(compareSentences({
+        originalSentence,
+        fixedSentence
+      }))
+
+      expect(result).toBe(`--You]]++are]]++the]]++best]]++!]]`)
+    });
+  })
+})
