@@ -38,4 +38,27 @@ describe('splitWithPunctuation', () => {
       ])
     })
   })
+
+  describe('when a sentence contains a semicolon', () => {
+    test('splits a semicolon into a separate word', () => {
+      const sentence = "She finished her work; then, she left the office."
+
+      const result = splitWithPunctuation(sentence)
+
+      expect(result).toEqual([
+        "She",
+        "finished",
+        "her",
+        "work",
+        ";",
+        "then",
+        ",",
+        "she",
+        "left",
+        "the",
+        "office",
+        ".",
+      ])
+    })
+  })
 })
