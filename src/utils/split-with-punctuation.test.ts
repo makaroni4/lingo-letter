@@ -7,8 +7,6 @@ describe('splitWithPunctuation', () => {
 
       const result = splitWithPunctuation(sentence)
 
-      console.log("--> result: ", result)
-
       expect(result).toEqual([
         "I",
         "went",
@@ -17,6 +15,27 @@ describe('splitWithPunctuation', () => {
         "walk",
         "."
       ])
-    });
+    })
+  })
+
+  describe('when a sentence contains a comma', () => {
+    test('splits commas into separate words', () => {
+      const sentence = "The sun was setting, casting a warm glow."
+
+      const result = splitWithPunctuation(sentence)
+
+      expect(result).toEqual([
+        "The",
+        "sun",
+        "was",
+        "setting",
+        ",",
+        "casting",
+        "a",
+        "warm",
+        "glow",
+        ".",
+      ])
+    })
   })
 })
