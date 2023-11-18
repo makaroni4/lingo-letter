@@ -2,7 +2,6 @@ import './App.css';
 import { useAppStore } from './store';
 import { useEffect, useState } from 'react';
 import OpenAI from 'openai';
-import { splitWithPunctuation } from './utils/split-with-punctuation';
 import { compareSentences } from './utils/compare-sentences';
 import { splitIntoSentences } from './utils/split-into-sentences';
 
