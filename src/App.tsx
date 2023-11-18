@@ -11,6 +11,37 @@ function App() {
   const [apiKeySubmitted, setApiKeySubmitted] = useState(false)
   const [originalSentences, setOriginalSentences] = useState<string[]>([])
   const [verifiedSentences, setVerifiedSentences] = useState<string[]>([])
+  const [incomingEmail, setIncomingEmail] = useState("")
+  const [responseTopics, setResponseTopics] = useState<string[]>([])
+
+  const openai = new OpenAI({
+    apiKey: openAIAPIKey,
+    dangerouslyAllowBrowser: true
+  });
+
+  const generateIncomingEmail = async () => {
+    const message = `
+      You're testing writing skills in German. You'll give me a 8-10 sentences informal E-mail in German and 4 topics I should mention in my response (also in German). Afterward I'll submit you my response in German and you'll correct the grammar in my E-mail.
+
+      So now give me the 8-10 sentences informal E-mail and a list of 4 topics I should cover on in my response. Make sure the author of the emails asks 2 or 3 question to which I'll need to write answers.
+
+      Use the JSON format for email and topics like so:
+
+      {
+        "email: "",
+        "topics": [""]
+      }
+    `;
+
+    const chatCompletion = await openai.chat.completions.create({
+      messages: [{ role: 'user', content: message }],
+      model: 'gpt-3.5-turbo',
+    });
+
+    const response = JSON.parse(chatCompletion.choices[0].message.content || "{}")
+
+    return response
+  }
 
   const highlightErrorsInSentece = (original: string, corrected: string): { __html: string } => {
     return {
@@ -24,6 +55,12 @@ function App() {
   useEffect(() => {
     if(openAIAPIKey) {
       setApiKeySubmitted(true)
+      generateIncomingEmail().then(response => {
+        console.log("--> response: ", response)
+
+        setIncomingEmail(response.email)
+        setResponseTopics(response.topics)
+      })
     }
   }, [])
 
@@ -72,11 +109,6 @@ function App() {
     setVerifiedSentences(fixedSentences)
   }
 
-  const openai = new OpenAI({
-    apiKey: openAIAPIKey,
-    dangerouslyAllowBrowser: true
-  });
-
   return (
     <div className="App py-24 px-12">
       {apiKeySubmitted && (
@@ -98,6 +130,20 @@ function App() {
             onClick={handleApiKeySubmit}>SUBMIT</button>
         </div>
       )}
+
+      <div className='mb-12'>
+        { incomingEmail }
+      </div>
+
+      <div className='mb-12'>
+        { responseTopics.map((topic, index) => {
+          return (
+            <div>
+              {index + 1}. { topic }
+            </div>
+          )
+        }) }
+      </div>
 
       <div className='mb-12'>
         <textarea
