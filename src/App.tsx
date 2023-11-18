@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import OpenAI from 'openai';
 import { compareSentences } from './utils/compare-sentences';
 import { splitIntoSentences } from './utils/split-into-sentences';
+import diff from 'fast-diff'
 
 function App() {
   const { openAIAPIKey, setOpenAIAPIKey } = useAppStore();
@@ -44,6 +45,7 @@ function App() {
   }
 
   const highlightErrorsInSentece = (original: string, corrected: string): { __html: string } => {
+    console.log("--> myers diff: ", diff(original, corrected))
     return {
       __html: compareSentences({
         originalSentence: original,
