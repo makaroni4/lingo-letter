@@ -131,7 +131,7 @@ function App() {
         </div>
       )}
 
-      <div className='mb-12'>
+      <div className='incoming-email mb-12'>
         { incomingEmail }
       </div>
 
