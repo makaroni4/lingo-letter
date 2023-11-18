@@ -172,14 +172,14 @@ function App() {
 
       <div className=''>
         { verifiedSentences && verifiedSentences.map((verifiedSentence, index) => (
-          <div className='grid grid-cols-2 gap-4 mb-4'>
+          <div
+            key={`original-sentence-${originalSentences[index]}`}
+            className='grid grid-cols-2 gap-4 mb-4'>
             <div
-              key={originalSentences[index]}
               className='text-left w-50'>
               {originalSentences[index]}
             </div>
             <div
-              key={verifiedSentence}
               className='text-left w-50 corrected-sentence flex flex-wrap'
               dangerouslySetInnerHTML={highlightErrorsInSentece(originalSentences[index], verifiedSentence)} ></div>
           </div>
