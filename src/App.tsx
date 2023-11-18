@@ -11,8 +11,8 @@ function App() {
   const [apiKeySubmitted, setApiKeySubmitted] = useState(false)
   const [originalSentences, setOriginalSentences] = useState<string[]>([])
   const [verifiedSentences, setVerifiedSentences] = useState<string[]>([])
-  const [incomingEmail, setIncomingEmail] = useState("")
-  const [responseTopics, setResponseTopics] = useState<string[]>([])
+  const { incomingEmail, setIncomingEmail } = useAppStore()
+  const { responseTopics, setResponseTopics } = useAppStore()
 
   const openai = new OpenAI({
     apiKey: openAIAPIKey,
@@ -55,12 +55,15 @@ function App() {
   useEffect(() => {
     if(openAIAPIKey) {
       setApiKeySubmitted(true)
-      generateIncomingEmail().then(response => {
-        console.log("--> response: ", response)
 
-        setIncomingEmail(response.email)
-        setResponseTopics(response.topics)
-      })
+      if (!incomingEmail) {
+        generateIncomingEmail().then(response => {
+          setIncomingEmail(response.email)
+          setResponseTopics(response.topics)
+        })
+      } else {
+        console.log("--> Skipping email generation")
+      }
     }
   }, [])
 
@@ -68,13 +71,20 @@ function App() {
     setApiKeySubmitted(true)
   }
 
-  const handleClear = () => {
+  const handleRestart = async () => {
     const result = window.confirm("Are you sure you want to clear your text?");
 
     if (result) {
       setLetter("")
       setOriginalSentences([])
       setVerifiedSentences([])
+      setIncomingEmail("")
+      setResponseTopics([])
+
+      const { email, topics } = await generateIncomingEmail()
+
+      setIncomingEmail(email)
+      setResponseTopics(topics)
     }
   }
 
@@ -138,7 +148,7 @@ function App() {
       <div className='mb-12'>
         { responseTopics.map((topic, index) => {
           return (
-            <div>
+            <div key={topic}>
               {index + 1}. { topic }
             </div>
           )
@@ -157,7 +167,7 @@ function App() {
           onClick={handleFormSubmit}>SUBMIT</button>
         <button
           className="py-2 px-4 bg-indigo-500 rounded-md"
-          onClick={handleClear}>CLEAR</button>
+          onClick={handleRestart}>RESTART</button>
       </div>
 
       <div className=''>
