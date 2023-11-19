@@ -1,6 +1,11 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
+export interface ChatMessage {
+  role: string
+  content: string
+}
+
 interface AppStore {
   openAIAPIKey: string
   setOpenAIAPIKey: (key: string) => void
@@ -9,8 +14,7 @@ interface AppStore {
   incomingEmail: string
   setIncomingEmail: (key: string) => void,
   responseTopics: string[],
-  setResponseTopics: (key: string[]) => void,
-
+  setResponseTopics: (key: string[]) => void
 }
 
 export const useAppStore = create<AppStore>()(
@@ -23,7 +27,7 @@ export const useAppStore = create<AppStore>()(
       incomingEmail: "",
       setIncomingEmail: (text) => set({ incomingEmail: text }),
       responseTopics: [],
-      setResponseTopics: (arr) => set({ responseTopics: arr }),
+      setResponseTopics: (arr) => set({ responseTopics: arr })
     }),
     {
       name: 'email-writing-exam-storage',

@@ -7,13 +7,17 @@ import { splitIntoSentences } from './utils/split-into-sentences';
 import diff from 'fast-diff'
 
 function App() {
-  const { openAIAPIKey, setOpenAIAPIKey } = useAppStore();
-  const { letter, setLetter } = useAppStore();
+  const {
+    openAIAPIKey, setOpenAIAPIKey,
+    letter, setLetter,
+    incomingEmail, setIncomingEmail,
+    responseTopics, setResponseTopics
+  } = useAppStore();
+
   const [apiKeySubmitted, setApiKeySubmitted] = useState(false)
   const [originalSentences, setOriginalSentences] = useState<string[]>([])
   const [verifiedSentences, setVerifiedSentences] = useState<string[]>([])
-  const { incomingEmail, setIncomingEmail } = useAppStore()
-  const { responseTopics, setResponseTopics } = useAppStore()
+  const [topicsVerification, setTopicsVerification] = useState({})
 
   const openai = new OpenAI({
     apiKey: openAIAPIKey,
@@ -21,31 +25,34 @@ function App() {
   });
 
   const generateIncomingEmail = async () => {
-    const message = `
-      You're testing writing skills in German. You'll give me a 8-10 sentences informal E-mail in German and 4 topics I should mention in my response (also in German). Afterward I'll submit you my response in German and you'll correct the grammar in my E-mail.
-
-      So now give me the 8-10 sentences informal E-mail and a list of 4 topics I should cover on in my response. Make sure the author of the emails asks 2 or 3 question to which I'll need to write answers.
-
-      Use the JSON format for email and topics like so:
-
-      {
-        "email: "",
-        "topics": [""]
-      }
-    `;
-
     const chatCompletion = await openai.chat.completions.create({
-      messages: [{ role: 'user', content: message }],
+      messages: [{
+        role: "user",
+        content: `Forget everything that we've discussed before. We're starting from scratch.
+
+        You're a teacher. You're teaching writing E-mails in German.
+
+        Give me the 8-10 sentences informal E-mail and a list of 4 topics I should cover on in my response. E-mail and topics must be in German. Make sure the author of the emails asks 2 or 3 question to which I'll need to write answers. Make sure you're using a real human name for author and recepient names.
+
+        Use the JSON format for email and topics like so:
+
+        {
+          "email: "",
+          "topics": [""]
+        }`
+      }],
       model: 'gpt-3.5-turbo',
     });
 
-    const response = JSON.parse(chatCompletion.choices[0].message.content || "{}")
+    const responseMessage = chatCompletion.choices[0].message
 
-    return response
+    // TODO: retry in case the message isn't a JSON with email/topics fields
+
+    return JSON.parse(responseMessage.content || "{}")
   }
 
   const highlightErrorsInSentece = (original: string, corrected: string): { __html: string } => {
-    console.log("--> myers diff: ", diff(original, corrected))
+    // console.log("--> myers diff: ", diff(original, corrected))
     return {
       __html: compareSentences({
         originalSentence: original,
@@ -82,6 +89,7 @@ function App() {
       setVerifiedSentences([])
       setIncomingEmail("")
       setResponseTopics([])
+      setTopicsVerification({})
 
       const { email, topics } = await generateIncomingEmail()
 
@@ -98,27 +106,62 @@ function App() {
 
     setOriginalSentences([])
     setVerifiedSentences([])
+    setTopicsVerification({})
 
     setOriginalSentences(splitIntoSentences(letter))
 
-    const message = `
-      Fix German grammar in the following text. If a sentence is grammatically correct, leave it as is.
-
-      ${letter}
-    `;
+    // Correct email
 
     const chatCompletion = await openai.chat.completions.create({
-      messages: [{ role: 'user', content: message }],
+      messages: [{
+        role: 'user',
+        content: `
+          Fix German grammar in the following text. Respond only with corrected text. If a sentence in the submission is grammatically correct, leave it as is:
+
+          ${letter}
+        `
+      }],
       model: 'gpt-3.5-turbo',
     });
 
-    const responseText = chatCompletion.choices[0].message.content || ""
+    const responseMessage = chatCompletion.choices[0].message
 
-    const fixedSentences = splitIntoSentences(responseText)
+    console.log("--> Fixed text response: ", responseMessage.content)
 
-    console.log(fixedSentences)
+    const fixedSentences = splitIntoSentences(responseMessage.content || "")
 
     setVerifiedSentences(fixedSentences)
+
+    // Ask for topics
+
+    const topicsChatCompletion = await openai.chat.completions.create({
+      messages: [{
+        role: 'user',
+        content: `
+        I have a German letter here between ''' symbols:
+
+        '''${letter}'''
+
+
+        Are the following topics directly covered in the letter: ${responseTopics.join(', ')}? Rate each topic on the following scale:
+
+        0 – not covered at all.
+        1 - the topic is briefly mentioned in the letter.
+        2 - there're at least one sentence with 2 parts in the letter about the topic. There're also 1-2 not so complex sentences around the topic.
+
+        Respond in the JSON format:
+
+        {
+          TOPIC: 0/1/2
+        }
+      `
+      }],
+      model: 'gpt-3.5-turbo',
+    });
+
+    const topicsResponseMessage = topicsChatCompletion.choices[0].message
+    setTopicsVerification(JSON.parse(topicsResponseMessage.content || "{}"))
+    console.log("--> Topics check: ", topicsResponseMessage || "")
   }
 
   return (
@@ -186,6 +229,12 @@ function App() {
               dangerouslySetInnerHTML={highlightErrorsInSentece(originalSentences[index], verifiedSentence)} ></div>
           </div>
         ))}
+      </div>
+
+      <div>
+        <pre>
+          <code>{JSON.stringify(topicsVerification, null, 2)}</code>
+        </pre>
       </div>
     </div>
   );
