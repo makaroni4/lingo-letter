@@ -56,8 +56,9 @@ function App() {
     console.log(sentenceDiff)
 
     const sentence = sentenceDiff.filter(d => d[0] === 0 || d[0] === -1).map(d => {
-      const className = d[0] === -1 ? "bg-amber-300" : ""
-      return `<span class="${className}">${d[1]}</span>`
+      console.log(d)
+      const className = d[1] !== "\n" && d[0] === -1 ? "bg-red-300 mistake-highlight" : ""
+      return `<span class="${className}">${d[1].replace("\n", "<br>")}</span>`
     }).join("")
 
     console.log("--> sentence: ", sentence)
@@ -71,8 +72,8 @@ function App() {
     const sentenceDiff = diff(original, corrected);
 
     const sentence = sentenceDiff.filter(d => d[0] === 0 || d[0] === 1).map(d => {
-      const className = d[0] === 1 ? "bg-amber-300" : ""
-      return `<span class="${className}">${d[1]}</span>`
+      const className = d[0] === 1 ? "bg-red-300 mistake-highlight" : ""
+      return `<span class="${className}">${d[1].replace("\n", "<br>")}</span>`
     }).join("")
 
     return {
@@ -135,7 +136,7 @@ function App() {
       messages: [{
         role: 'user',
         content: `
-          Fix German grammar in the following text. Respond only with corrected text. If a sentence in the submission is grammatically correct, leave it as is:
+          Fix German grammar in the following text. Respond only with corrected text. Keep original line break symbols. If a sentence in the submission is grammatically correct, leave it as is:
 
           ${letter}
         `
@@ -235,6 +236,11 @@ function App() {
       </div>
 
       <div className=''>
+        <div
+          className='grid grid-cols-2 gap-4 mb-4'>
+          <div><h3 className="text-left text-2xl">Original sentence</h3></div>
+          <div><h3 className="text-left text-2xl">Corrected sentence</h3></div>
+        </div>
         { verifiedSentences && verifiedSentences.map((verifiedSentence, index) => (
           <div
             key={`original-sentence-${originalSentences[index]}`}
@@ -242,9 +248,12 @@ function App() {
             <div
               className='text-left w-50'
               dangerouslySetInnerHTML={highlightedOriginalSentence(originalSentences[index], verifiedSentence)} ></div>
-            <div
-              className='text-left w-50 corrected-sentence flex flex-wrap'
-              dangerouslySetInnerHTML={highlightedFixedSentence(originalSentences[index], verifiedSentence)} ></div>
+
+            <div>
+              <div
+                className='text-left w-50 corrected-sentence'
+                dangerouslySetInnerHTML={highlightedFixedSentence(originalSentences[index], verifiedSentence)} ></div>
+            </div>
           </div>
         ))}
       </div>
