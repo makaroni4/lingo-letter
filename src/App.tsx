@@ -2,7 +2,6 @@ import './App.css';
 import { useAppStore } from './store';
 import { useEffect, useState } from 'react';
 import OpenAI from 'openai';
-import { compareSentences } from './utils/compare-sentences';
 import { splitIntoSentences } from './utils/split-into-sentences';
 import diff from 'fast-diff'
 
@@ -51,13 +50,33 @@ function App() {
     return JSON.parse(responseMessage.content || "{}")
   }
 
-  const highlightErrorsInSentece = (original: string, corrected: string): { __html: string } => {
-    // console.log("--> myers diff: ", diff(original, corrected))
+  const highlightedOriginalSentence = (original: string, corrected: string): { __html: string } => {
+    const sentenceDiff = diff(original, corrected);
+
+    console.log(sentenceDiff)
+
+    const sentence = sentenceDiff.filter(d => d[0] === 0 || d[0] === -1).map(d => {
+      const className = d[0] === -1 ? "bg-amber-300" : ""
+      return `<span class="${className}">${d[1]}</span>`
+    }).join("")
+
+    console.log("--> sentence: ", sentence)
+
     return {
-      __html: compareSentences({
-        originalSentence: original,
-        fixedSentence: corrected
-      })
+      __html: sentence
+    }
+  }
+
+  const highlightedFixedSentence = (original: string, corrected: string): { __html: string } => {
+    const sentenceDiff = diff(original, corrected);
+
+    const sentence = sentenceDiff.filter(d => d[0] === 0 || d[0] === 1).map(d => {
+      const className = d[0] === 1 ? "bg-amber-300" : ""
+      return `<span class="${className}">${d[1]}</span>`
+    }).join("")
+
+    return {
+      __html: sentence
     }
   }
 
@@ -221,12 +240,11 @@ function App() {
             key={`original-sentence-${originalSentences[index]}`}
             className='grid grid-cols-2 gap-4 mb-4'>
             <div
-              className='text-left w-50'>
-              {originalSentences[index]}
-            </div>
+              className='text-left w-50'
+              dangerouslySetInnerHTML={highlightedOriginalSentence(originalSentences[index], verifiedSentence)} ></div>
             <div
               className='text-left w-50 corrected-sentence flex flex-wrap'
-              dangerouslySetInnerHTML={highlightErrorsInSentece(originalSentences[index], verifiedSentence)} ></div>
+              dangerouslySetInnerHTML={highlightedFixedSentence(originalSentences[index], verifiedSentence)} ></div>
           </div>
         ))}
       </div>
