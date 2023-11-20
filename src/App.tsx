@@ -16,7 +16,7 @@ function App() {
   const [apiKeySubmitted, setApiKeySubmitted] = useState(false)
   const [originalSentences, setOriginalSentences] = useState<string[]>([])
   const [verifiedSentences, setVerifiedSentences] = useState<string[]>([])
-  const [topicsVerification, setTopicsVerification] = useState({})
+  const [topicsVerification, setTopicsVerification] = useState<{[name: string]: { grade: number, comment: string}}>({})
 
   const openai = new OpenAI({
     apiKey: openAIAPIKey,
@@ -46,22 +46,15 @@ function App() {
     const responseMessage = chatCompletion.choices[0].message
 
     // TODO: retry in case the message isn't a JSON with email/topics fields
-
     return JSON.parse(responseMessage.content || "{}")
   }
 
   const highlightedOriginalSentence = (original: string, corrected: string): { __html: string } => {
     const sentenceDiff = diff(original, corrected);
-
-    console.log(sentenceDiff)
-
     const sentence = sentenceDiff.filter(d => d[0] === 0 || d[0] === -1).map(d => {
-      console.log(d)
       const className = d[1] !== "\n" && d[0] === -1 ? "bg-red-300 mistake-highlight" : ""
       return `<span class="${className}">${d[1].replace("\n", "<br>")}</span>`
     }).join("")
-
-    console.log("--> sentence: ", sentence)
 
     return {
       __html: sentence
@@ -70,7 +63,6 @@ function App() {
 
   const highlightedFixedSentence = (original: string, corrected: string): { __html: string } => {
     const sentenceDiff = diff(original, corrected);
-
     const sentence = sentenceDiff.filter(d => d[0] === 0 || d[0] === 1).map(d => {
       const className = d[0] === 1 ? "bg-red-300 mistake-highlight" : ""
       return `<span class="${className}">${d[1].replace("\n", "<br>")}</span>`
@@ -90,8 +82,6 @@ function App() {
           setIncomingEmail(response.email)
           setResponseTopics(response.topics)
         })
-      } else {
-        console.log("--> Skipping email generation")
       }
     }
   }, [])
@@ -145,9 +135,6 @@ function App() {
     });
 
     const responseMessage = chatCompletion.choices[0].message
-
-    console.log("--> Fixed text response: ", responseMessage.content)
-
     const fixedSentences = splitIntoSentences(responseMessage.content || "")
 
     setVerifiedSentences(fixedSentences)
@@ -169,10 +156,13 @@ function App() {
         1 - the topic is briefly mentioned in the letter.
         2 - there're at least one sentence with 2 parts in the letter about the topic. There're also 1-2 not so complex sentences around the topic.
 
-        Respond in the JSON format:
+        Respond in the JSON format and comment on what could I have done better for each topic:
 
         {
-          TOPIC: 0/1/2
+          TOPIC: {
+            grade: 0/1/2,
+            comment: ""
+          }
         }
       `
       }],
@@ -181,15 +171,26 @@ function App() {
 
     const topicsResponseMessage = topicsChatCompletion.choices[0].message
     setTopicsVerification(JSON.parse(topicsResponseMessage.content || "{}"))
-    console.log("--> Topics check: ", topicsResponseMessage || "")
   }
 
+  const topicGradeBgColor = (grade: number | undefined): string => {
+    let className = "py-1 px-3 rounded-xl "
+    if (grade === 0) {
+      className += "bg-red-300"
+    } else if (grade === 1) {
+      className += "bg-amber-300"
+    } else if (grade === 2) {
+      className += "bg-emerald-400"
+    }
+
+    return className
+  }
   return (
     <div className="App py-24 px-12">
       {apiKeySubmitted && (
         <div>
           <button
-            className="py-2 px-4 bg-indigo-500 rounded-md fixed right-4 top-4"
+            className="py-2 px-4 bg-indigo-500 text-white rounded-md fixed right-4 top-4"
             onClick={() => setApiKeySubmitted(false)}>Reset API token</button>
         </div>
       )}
@@ -201,7 +202,7 @@ function App() {
             type="text" />
 
           <button
-            className="py-2 px-4 bg-indigo-500 rounded-md"
+            className="py-2 px-4 bg-indigo-500 text-white rounded-md"
             onClick={handleApiKeySubmit}>SUBMIT</button>
         </div>
       )}
@@ -228,10 +229,10 @@ function App() {
           name="" id="" cols={30} rows={10}></textarea>
 
         <button
-          className="py-2 px-4 bg-indigo-500 rounded-md mr-4"
+          className="py-2 px-4 bg-indigo-500 text-white rounded-md mr-4"
           onClick={handleFormSubmit}>SUBMIT</button>
         <button
-          className="py-2 px-4 bg-indigo-500 rounded-md"
+          className="py-2 px-4 bg-indigo-500 text-white rounded-md"
           onClick={handleRestart}>RESTART</button>
       </div>
 
@@ -256,12 +257,27 @@ function App() {
             </div>
           </div>
         ))}
-      </div>
+        <div
+          className='grid grid-cols-2 gap-4 mb-4'>
+          <div></div>
+          <div className="text-left">
+            <h3 className="text-xl mb-4">
+              Topics coverage
+            </h3>
 
-      <div>
-        <pre>
-          <code>{JSON.stringify(topicsVerification, null, 2)}</code>
-        </pre>
+            <div>
+              { Object.keys(topicsVerification).length > 0 && responseTopics.map((topic) => {
+                return (
+                  <div
+                    className='mb-4'
+                    key={topic}>
+                    <strong className={topicGradeBgColor(topicsVerification[topic]?.grade)}>{ topic }</strong> { topicsVerification[topic]?.comment }
+                  </div>
+                )
+              }) }
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
