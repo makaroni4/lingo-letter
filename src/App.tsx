@@ -236,30 +236,34 @@ function App() {
           onClick={handleRestart}>RESTART</button>
       </div>
 
-      <div className=''>
-        <div
-          className='grid grid-cols-2 gap-4 mb-4'>
-          <div><h3 className="text-left text-2xl">Original sentence</h3></div>
-          <div><h3 className="text-left text-2xl">Corrected sentence</h3></div>
-        </div>
-        { verifiedSentences && verifiedSentences.map((verifiedSentence, index) => (
-          <div
-            key={`original-sentence-${originalSentences[index]}`}
-            className='grid grid-cols-2 gap-4 mb-4'>
-            <div
-              className='text-left w-50'
-              dangerouslySetInnerHTML={highlightedOriginalSentence(originalSentences[index], verifiedSentence)} ></div>
-
-            <div>
-              <div
-                className='text-left w-50 corrected-sentence'
-                dangerouslySetInnerHTML={highlightedFixedSentence(originalSentences[index], verifiedSentence)} ></div>
-            </div>
+      { verifiedSentences.length > 0 && (
+        <div>
+          <div className='grid grid-cols-2 gap-4 mb-4'>
+            <div><h3 className="text-left text-2xl">Original sentence</h3></div>
+            <div><h3 className="text-left text-2xl">Corrected sentence</h3></div>
           </div>
-        ))}
+
+          { verifiedSentences.map((verifiedSentence, index) => (
+            <div
+              key={`original-sentence-${originalSentences[index]}`}
+              className='grid grid-cols-2 gap-4 mb-4'>
+              <div
+                className='text-left w-50'
+                dangerouslySetInnerHTML={highlightedOriginalSentence(originalSentences[index], verifiedSentence)} ></div>
+
+              <div>
+                <div
+                  className='text-left w-50 corrected-sentence'
+                  dangerouslySetInnerHTML={highlightedFixedSentence(originalSentences[index], verifiedSentence)} ></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      { Object.keys(topicsVerification).length > 0 && (
         <div
           className='grid grid-cols-2 gap-4 mb-4'>
-          <div></div>
           <div className="text-left">
             <h3 className="text-xl mb-4">
               Topics coverage
@@ -278,7 +282,7 @@ function App() {
             </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
