@@ -201,21 +201,42 @@ function App() {
         )}
       </nav>
 
-      <div className="py-24 px-12">
-
-        <div className='incoming-email mb-12'>
-          { incomingEmail }
-        </div>
+      <div className="pb-24 px-12">
 
         <div className='mb-12'>
-          { responseTopics.map((topic, index) => {
-            return (
-              <div key={topic}>
-                {index + 1}. { topic }
-              </div>
-            )
-          }) }
+          <h2 className="text-2xl font-bold mb-3">Schriftlicher Ausdruck</h2>
+
+          <div className="mb-4">
+            Sie haben von einer Freundin folgende E-Mail erhalten:
+          </div>
+
+          <div className="p-8 leading-8 bg-slate-100 incoming-email mb-8">
+            { incomingEmail }
+          </div>
+
+          <div className="mb-5">
+            Antworten Sie auf die E-Mail. Schreiben Sie etwas zu allen vier Punkten:
+          </div>
+
+          <div className='mb-10'>
+            <ul className='list-disc'>
+              { responseTopics.map((topic) => {
+                return (
+                  <li
+                    className="mb-4 last:mb-0"
+                    key={topic}>
+                    { topic }
+                  </li>
+                )
+              }) }
+            </ul>
+          </div>
+
+          <div>
+            Überlegen Sie sich vor dem Schreiben eine passende Reihenfolge der Punkte, einen passenden Betreff, eine passende Anrede, Einleitung und einen passenden Schluss.
+          </div>
         </div>
+
 
         <div className='mb-12'>
           <textarea
