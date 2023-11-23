@@ -7,8 +7,10 @@ export interface ChatMessage {
 }
 
 interface AppStore {
-  openAIAPIKey: string
-  setOpenAIAPIKey: (key: string) => void
+  openAIAPIKey: string | undefined
+  setOpenAIAPIKey: (key: string | undefined) => void
+  settingsVisible: boolean
+  setSettingsVisible: (key: boolean) => void
   letter: string
   setLetter: (key: string) => void
   incomingEmail: string
@@ -22,6 +24,8 @@ export const useAppStore = create<AppStore>()(
     (set, get) => ({
       openAIAPIKey: "",
       setOpenAIAPIKey: (key) => set({ openAIAPIKey: key }),
+      settingsVisible: false,
+      setSettingsVisible: (key) => set({ settingsVisible: key }),
       letter: "",
       setLetter: (text) => set({ letter: text }),
       incomingEmail: "",

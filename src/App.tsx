@@ -4,24 +4,30 @@ import { useEffect, useState } from 'react';
 import OpenAI from 'openai';
 import { splitIntoSentences } from './utils/split-into-sentences';
 import diff from 'fast-diff'
+import { Cog6ToothIcon } from '@heroicons/react/24/solid'
+import Settings from "./components/Settings"
 
 function App() {
   const {
     openAIAPIKey, setOpenAIAPIKey,
     letter, setLetter,
     incomingEmail, setIncomingEmail,
-    responseTopics, setResponseTopics
+    responseTopics, setResponseTopics,
+    settingsVisible, setSettingsVisible
   } = useAppStore();
 
-  const [apiKeySubmitted, setApiKeySubmitted] = useState(false)
   const [originalSentences, setOriginalSentences] = useState<string[]>([])
   const [verifiedSentences, setVerifiedSentences] = useState<string[]>([])
   const [topicsVerification, setTopicsVerification] = useState<{[name: string]: { grade: number, comment: string}}>({})
 
-  const openai = new OpenAI({
-    apiKey: openAIAPIKey,
-    dangerouslyAllowBrowser: true
-  });
+  let openai: any;
+
+  if (openAIAPIKey) {
+    openai = new OpenAI({
+      apiKey: openAIAPIKey,
+      dangerouslyAllowBrowser: true
+    });
+  }
 
   const generateIncomingEmail = async () => {
     const chatCompletion = await openai.chat.completions.create({
@@ -74,21 +80,13 @@ function App() {
   }
 
   useEffect(() => {
-    if(openAIAPIKey) {
-      setApiKeySubmitted(true)
-
-      if (!incomingEmail) {
-        generateIncomingEmail().then(response => {
-          setIncomingEmail(response.email)
-          setResponseTopics(response.topics)
-        })
-      }
+    if(openAIAPIKey && !incomingEmail) {
+      generateIncomingEmail().then(response => {
+        setIncomingEmail(response.email)
+        setResponseTopics(response.topics)
+      })
     }
   }, [])
-
-  const handleApiKeySubmit = () => {
-    setApiKeySubmitted(true)
-  }
 
   const handleRestart = async () => {
     const result = window.confirm("Are you sure you want to clear your text?");
@@ -187,24 +185,14 @@ function App() {
   }
   return (
     <div className="App py-24 px-12">
-      {apiKeySubmitted && (
-        <div>
-          <button
-            className="py-2 px-4 bg-indigo-500 text-white rounded-md fixed right-4 top-4"
-            onClick={() => setApiKeySubmitted(false)}>Reset API token</button>
-        </div>
+      { settingsVisible && (
+        <Settings />
       )}
 
-      {!apiKeySubmitted && (
-        <div>
-          <input
-            onChange={(e) => setOpenAIAPIKey(e.target.value) }
-            type="text" />
-
-          <button
-            className="py-2 px-4 bg-indigo-500 text-white rounded-md"
-            onClick={handleApiKeySubmit}>SUBMIT</button>
-        </div>
+      { !settingsVisible && (
+        <Cog6ToothIcon
+          className="fixed top-4 right-4 w-8 cursor-pointer"
+          onClick={() => setSettingsVisible(true) } />
       )}
 
       <div className='incoming-email mb-12'>
