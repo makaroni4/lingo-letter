@@ -184,93 +184,99 @@ function App() {
     return className
   }
   return (
-    <div className="App py-24 px-12">
+    <div className="App">
       { settingsVisible && (
         <Settings />
       )}
 
-      { !settingsVisible && (
-        <Cog6ToothIcon
-          className="fixed top-4 right-4 w-8 cursor-pointer"
-          onClick={() => setSettingsVisible(true) } />
-      )}
-
-      <div className='incoming-email mb-12'>
-        { incomingEmail }
-      </div>
-
-      <div className='mb-12'>
-        { responseTopics.map((topic, index) => {
-          return (
-            <div key={topic}>
-              {index + 1}. { topic }
-            </div>
-          )
-        }) }
-      </div>
-
-      <div className='mb-12'>
-        <textarea
-          className="p-4 text-base w-full border-2 border-indigo-500 radius-4 rounded-md	"
-          value={letter}
-          onChange={(e) => setLetter(e.target.value) }
-          name="" id="" cols={30} rows={10}></textarea>
-
+      <nav className="flex items-center justify-end	 p-8">
         <button
-          className="py-2 px-4 bg-indigo-500 text-white rounded-md mr-4"
-          onClick={handleFormSubmit}>SUBMIT</button>
-        <button
-          className="py-2 px-4 bg-indigo-500 text-white rounded-md"
+          className="py-2 px-4 bg-indigo-500 text-white rounded-md mr-8"
           onClick={handleRestart}>RESTART</button>
-      </div>
 
-      { verifiedSentences.length > 0 && (
-        <div>
-          <div className='grid grid-cols-2 gap-4 mb-4'>
-            <div><h3 className="text-left text-2xl">Original sentence</h3></div>
-            <div><h3 className="text-left text-2xl">Corrected sentence</h3></div>
-          </div>
+        { !settingsVisible && (
+          <Cog6ToothIcon
+            className="w-8 cursor-pointer"
+            onClick={() => setSettingsVisible(true) } />
+        )}
+      </nav>
 
-          { verifiedSentences.map((verifiedSentence, index) => (
-            <div
-              key={`original-sentence-${originalSentences[index]}`}
-              className='grid grid-cols-2 gap-4 mb-4'>
+      <div className="py-24 px-12">
+
+        <div className='incoming-email mb-12'>
+          { incomingEmail }
+        </div>
+
+        <div className='mb-12'>
+          { responseTopics.map((topic, index) => {
+            return (
+              <div key={topic}>
+                {index + 1}. { topic }
+              </div>
+            )
+          }) }
+        </div>
+
+        <div className='mb-12'>
+          <textarea
+            className="p-4 text-base w-full border-2 border-indigo-500 radius-4 rounded-md	"
+            value={letter}
+            onChange={(e) => setLetter(e.target.value) }
+            name="" id="" cols={30} rows={10}></textarea>
+
+          <button
+            className="py-2 px-4 bg-indigo-500 text-white rounded-md mr-4"
+            onClick={handleFormSubmit}>SUBMIT</button>
+        </div>
+
+        { verifiedSentences.length > 0 && (
+          <div>
+            <div className='grid grid-cols-2 gap-4 mb-4'>
+              <div><h3 className="text-left text-2xl">Original sentence</h3></div>
+              <div><h3 className="text-left text-2xl">Corrected sentence</h3></div>
+            </div>
+
+            { verifiedSentences.map((verifiedSentence, index) => (
               <div
-                className='text-left w-50'
-                dangerouslySetInnerHTML={highlightedOriginalSentence(originalSentences[index], verifiedSentence)} ></div>
+                key={`original-sentence-${originalSentences[index]}`}
+                className='grid grid-cols-2 gap-4 mb-4'>
+                <div
+                  className='text-left w-50'
+                  dangerouslySetInnerHTML={highlightedOriginalSentence(originalSentences[index], verifiedSentence)} ></div>
+
+                <div>
+                  <div
+                    className='text-left w-50 corrected-sentence'
+                    dangerouslySetInnerHTML={highlightedFixedSentence(originalSentences[index], verifiedSentence)} ></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        { Object.keys(topicsVerification).length > 0 && (
+          <div
+            className='grid grid-cols-2 gap-4 mb-4'>
+            <div className="text-left">
+              <h3 className="text-xl mb-4">
+                Topics coverage
+              </h3>
 
               <div>
-                <div
-                  className='text-left w-50 corrected-sentence'
-                  dangerouslySetInnerHTML={highlightedFixedSentence(originalSentences[index], verifiedSentence)} ></div>
+                { Object.keys(topicsVerification).length > 0 && responseTopics.map((topic) => {
+                  return (
+                    <div
+                      className='mb-4'
+                      key={topic}>
+                      <strong className={topicGradeBgColor(topicsVerification[topic]?.grade)}>{ topic }</strong> { topicsVerification[topic]?.comment }
+                    </div>
+                  )
+                }) }
               </div>
             </div>
-          ))}
-        </div>
-      )}
-
-      { Object.keys(topicsVerification).length > 0 && (
-        <div
-          className='grid grid-cols-2 gap-4 mb-4'>
-          <div className="text-left">
-            <h3 className="text-xl mb-4">
-              Topics coverage
-            </h3>
-
-            <div>
-              { Object.keys(topicsVerification).length > 0 && responseTopics.map((topic) => {
-                return (
-                  <div
-                    className='mb-4'
-                    key={topic}>
-                    <strong className={topicGradeBgColor(topicsVerification[topic]?.grade)}>{ topic }</strong> { topicsVerification[topic]?.comment }
-                  </div>
-                )
-              }) }
-            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
