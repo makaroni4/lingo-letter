@@ -245,9 +245,11 @@ function App() {
             onChange={(e) => setLetter(e.target.value) }
             name="" id="" cols={30} rows={10}></textarea>
 
-          <button
-            className="py-2 px-4 bg-indigo-500 text-white rounded-md mr-4"
-            onClick={handleFormSubmit}>SUBMIT</button>
+          <div className='flex justify-end'>
+            <button
+              className="py-2 px-4 bg-indigo-500 text-white rounded-md"
+              onClick={handleFormSubmit}>SUBMIT</button>
+          </div>
         </div>
 
         { verifiedSentences.length > 0 && (
