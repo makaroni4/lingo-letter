@@ -6,6 +6,7 @@ import { splitIntoSentences } from './utils/split-into-sentences';
 import diff from 'fast-diff'
 import { Cog6ToothIcon } from '@heroicons/react/24/solid'
 import Settings from "./components/Settings"
+import Twemoji from './components/Twemoji';
 
 function App() {
   const {
@@ -190,9 +191,19 @@ function App() {
       )}
 
       <nav className="flex items-center justify-end	 p-8">
+        <div className="mr-4">
+          <Twemoji
+            countryCode="us" />
+        </div>
+
+        <div className="mr-8">
+          <Twemoji
+            countryCode="de" />
+        </div>
+
         <button
           className="py-2 px-4 bg-indigo-500 text-white rounded-md mr-8"
-          onClick={handleRestart}>RESTART</button>
+          onClick={handleRestart}>Reset examg</button>
 
         { !settingsVisible && (
           <Cog6ToothIcon
@@ -248,7 +259,7 @@ function App() {
           <div className='flex justify-end'>
             <button
               className="py-2 px-4 bg-indigo-500 text-white rounded-md"
-              onClick={handleFormSubmit}>SUBMIT</button>
+              onClick={handleFormSubmit}>Submit</button>
           </div>
         </div>
 
