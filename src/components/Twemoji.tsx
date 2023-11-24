@@ -8,10 +8,10 @@ const getEmojiCode = (key: keyof EmojiCountryCodes): any => {
 }
 
 export default function Twemoji({
-  countryCode
+  countryCode, className = ""
 }: {
-  countryCode
-  : keyof EmojiCountryCodes
+  countryCode: keyof EmojiCountryCodes,
+  className?: string
 }) {
   const emojiCode = getEmojiCode(countryCode)
 
@@ -19,7 +19,7 @@ export default function Twemoji({
     <img
       src={`https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/${emojiCode}.svg`}
       alt={`Flag ${countryCode.toUpperCase()}`}
-      className="w-8"
+      className={`w-8 ${className}`}
     />
   )
 }

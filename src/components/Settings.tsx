@@ -1,10 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useAppStore } from '../store';
-import { XMarkIcon } from '@heroicons/react/24/solid'
+import { XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/solid'
+import Twemoji from './Twemoji';
+import { useTranslation } from "react-i18next";
 
 export default function Settings() {
+  const { t } = useTranslation();
+
   const {
-    openAIAPIKey, setOpenAIAPIKey, setSettingsVisible
+    openAIAPIKey, setOpenAIAPIKey,
+    setSettingsVisible,
+    userLanguage, setUserLanguage,
+    emailLanguage, setEmailLanguage
   } = useAppStore();
 
   return (
@@ -13,7 +20,7 @@ export default function Settings() {
         className="w-8 cursor-pointer absolute top-4 right-4"
         onClick={ () => setSettingsVisible(false) } />
 
-      <div className="text-left">
+      <div className="mb-6">
         <label
           htmlFor=""
           className="font-bold mb-1 block">
@@ -25,6 +32,34 @@ export default function Settings() {
           value={openAIAPIKey}
           placeholder='sk-K8x7I4PX2R8HHkEEehV3AZZ3TIhi1WAdZT7oRzxGbbtlasTZ'
           type="text" />
+      </div>
+
+      <div className="flex items-center mb-6">
+        <div
+          className="font-bold mb-1 block mr-4">
+          I know { t(`languages.${userLanguage}`) }
+        </div>
+        <div className="flex items-center p-1 border-[1px] border-slate-200 rounded-md cursor-pointer">
+          <Twemoji
+            className="mr-3"
+            countryCode={userLanguage} />
+
+          <ChevronDownIcon className='w-4 '/>
+        </div>
+      </div>
+
+      <div className="flex items-center">
+        <div
+          className="font-bold mb-1 block mr-4">
+          I learn { t(`languages.${emailLanguage}`) }
+        </div>
+
+        <div className="flex items-center p-1 border-[1px] border-slate-200 rounded-md cursor-pointer">
+          <Twemoji
+            className="mr-3"
+            countryCode={emailLanguage} />
+          <ChevronDownIcon className='w-4 '/>
+        </div>
       </div>
     </div>
   )

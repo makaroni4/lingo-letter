@@ -40,16 +40,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="flex items-center justify-end	 p-8">
-      <div className="mr-4">
-        <Twemoji
-          countryCode={userLanguage} />
-      </div>
-      <div className="mr-8">
-        <Twemoji
-          countryCode={emailLanguage} />
-      </div>
-
+    <nav className="flex items-center justify-end	p-8">
       <button
         className="py-2 px-4 bg-indigo-500 text-white rounded-md mr-8"
         onClick={handleRestart}>{ t("reset_exam") }</button>
