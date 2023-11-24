@@ -4,22 +4,21 @@ import { useEffect, useState } from 'react';
 import OpenAI from 'openai';
 import { splitIntoSentences } from './utils/split-into-sentences';
 import diff from 'fast-diff'
-import { Cog6ToothIcon } from '@heroicons/react/24/solid'
 import Settings from "./components/Settings"
-import Twemoji from './components/Twemoji';
+import Navbar from './components/Navbar';
+import { generateIncomingEmail } from './utils/generate-incoming-email';
 
 function App() {
   const {
-    openAIAPIKey, setOpenAIAPIKey,
+    openAIAPIKey,
     letter, setLetter,
     incomingEmail, setIncomingEmail,
     responseTopics, setResponseTopics,
-    settingsVisible, setSettingsVisible
+    settingsVisible,
+    originalSentences, setOriginalSentences,
+    verifiedSentences, setVerifiedSentences,
+    topicsVerification, setTopicsVerification
   } = useAppStore();
-
-  const [originalSentences, setOriginalSentences] = useState<string[]>([])
-  const [verifiedSentences, setVerifiedSentences] = useState<string[]>([])
-  const [topicsVerification, setTopicsVerification] = useState<{[name: string]: { grade: number, comment: string}}>({})
 
   let openai: any;
 
@@ -30,31 +29,7 @@ function App() {
     });
   }
 
-  const generateIncomingEmail = async () => {
-    const chatCompletion = await openai.chat.completions.create({
-      messages: [{
-        role: "user",
-        content: `Forget everything that we've discussed before. We're starting from scratch.
 
-        You're a teacher. You're teaching writing E-mails in German.
-
-        Give me the 8-10 sentences informal E-mail and a list of 4 topics I should cover on in my response. E-mail and topics must be in German. Make sure the author of the emails asks 2 or 3 question to which I'll need to write answers. Make sure you're using a real human name for author and recepient names.
-
-        Use the JSON format for email and topics like so:
-
-        {
-          "email: "",
-          "topics": [""]
-        }`
-      }],
-      model: 'gpt-3.5-turbo',
-    });
-
-    const responseMessage = chatCompletion.choices[0].message
-
-    // TODO: retry in case the message isn't a JSON with email/topics fields
-    return JSON.parse(responseMessage.content || "{}")
-  }
 
   const highlightedOriginalSentence = (original: string, corrected: string): { __html: string } => {
     const sentenceDiff = diff(original, corrected);
@@ -82,30 +57,12 @@ function App() {
 
   useEffect(() => {
     if(openAIAPIKey && !incomingEmail) {
-      generateIncomingEmail().then(response => {
+      generateIncomingEmail({ apiKey: openAIAPIKey }).then(response => {
         setIncomingEmail(response.email)
         setResponseTopics(response.topics)
       })
     }
   }, [])
-
-  const handleRestart = async () => {
-    const result = window.confirm("Are you sure you want to clear your text?");
-
-    if (result) {
-      setLetter("")
-      setOriginalSentences([])
-      setVerifiedSentences([])
-      setIncomingEmail("")
-      setResponseTopics([])
-      setTopicsVerification({})
-
-      const { email, topics } = await generateIncomingEmail()
-
-      setIncomingEmail(email)
-      setResponseTopics(topics)
-    }
-  }
 
   const handleFormSubmit = async () => {
     if(!letter) {
@@ -190,27 +147,7 @@ function App() {
         <Settings />
       )}
 
-      <nav className="flex items-center justify-end	 p-8">
-        <div className="mr-4">
-          <Twemoji
-            countryCode="us" />
-        </div>
-
-        <div className="mr-8">
-          <Twemoji
-            countryCode="de" />
-        </div>
-
-        <button
-          className="py-2 px-4 bg-indigo-500 text-white rounded-md mr-8"
-          onClick={handleRestart}>Reset examg</button>
-
-        { !settingsVisible && (
-          <Cog6ToothIcon
-            className="w-8 cursor-pointer"
-            onClick={() => setSettingsVisible(true) } />
-        )}
-      </nav>
+      <Navbar />
 
       <div className="pb-24 px-12">
 
