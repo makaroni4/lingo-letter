@@ -46,8 +46,7 @@ export default function Settings() {
         </div>
         <div
           className="flex items-center p-1 border-[1px] border-slate-200 rounded-md cursor-pointer relative"
-          onMouseEnter={ () => setUserLanguageMenuVisible(true) }
-          onMouseLeave={ () => setUserLanguageMenuVisible(false) } >
+          onClick={ () => setUserLanguageMenuVisible(!userLanguageMenuVisible) }>
           <Twemoji
             className="mr-3"
             countryCode={userLanguage} />
@@ -74,15 +73,15 @@ export default function Settings() {
 
         <div
           className="flex items-center p-1 border-[1px] border-slate-200 rounded-md cursor-pointer relative"
-          onMouseEnter={ () => setEmailLanguageMenuVisible(true) }
-          onMouseLeave={ () => setEmailLanguageMenuVisible(false) }>
+          onClick={ () => setEmailLanguageMenuVisible(!emailLanguageMenuVisible) }>
           <Twemoji
             className="mr-3"
             countryCode={emailLanguage} />
           <ChevronDownIcon className='w-4 '/>
 
           { emailLanguageMenuVisible && (
-            <div className="absolute top-0 left-0">
+            <div className="absolute top-full left-0 flex items-center p-1 border-[1px] border-slate-200 rounded-md
+            bg-white z-30 mt-[-4px] border-t-0">
               <LanguageMenu
                 excludeLanguage={emailLanguage}
                 languageSelected={(language: keyof EmojiCountryCodes) => setEmailLanguage(language)} />
