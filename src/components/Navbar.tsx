@@ -3,8 +3,11 @@ import { useEffect, useState } from 'react';
 import Twemoji from './Twemoji';
 import { Cog6ToothIcon } from '@heroicons/react/24/solid'
 import { generateIncomingEmail } from '../utils/generate-incoming-email';
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
+  const { t } = useTranslation();
+
   const {
     openAIAPIKey, setOpenAIAPIKey,
     letter, setLetter,
@@ -13,7 +16,9 @@ export default function Navbar() {
     settingsVisible, setSettingsVisible,
     originalSentences, setOriginalSentences,
     verifiedSentences, setVerifiedSentences,
-    topicsVerification, setTopicsVerification
+    topicsVerification, setTopicsVerification,
+    userLanguage,
+    emailLanguage
   } = useAppStore();
 
   const handleRestart = async () => {
@@ -38,17 +43,16 @@ export default function Navbar() {
     <nav className="flex items-center justify-end	 p-8">
       <div className="mr-4">
         <Twemoji
-          countryCode="us" />
+          countryCode={userLanguage} />
       </div>
-
       <div className="mr-8">
         <Twemoji
-          countryCode="de" />
+          countryCode={emailLanguage} />
       </div>
 
       <button
         className="py-2 px-4 bg-indigo-500 text-white rounded-md mr-8"
-        onClick={handleRestart}>Reset exam</button>
+        onClick={handleRestart}>{ t("reset_exam") }</button>
 
       { !settingsVisible && (
         <Cog6ToothIcon

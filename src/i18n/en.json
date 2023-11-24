@@ -1,0 +1,14 @@
+{
+  "translation": {
+    "reset_exam": "Reset exam",
+    "submit": "Submit",
+    "languages": {
+      "en": "English",
+      "es": "Spanish",
+      "fr": "French",
+      "de": "German",
+      "it": "Italian",
+      "pt": "Portuguese"
+    }
+  }
+}

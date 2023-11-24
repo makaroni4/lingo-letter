@@ -81,6 +81,7 @@ export default interface EmojiCountryCodes {
   fr: string
   ga: string
   gb: string
+  en: string
   gd: string
   ge: string
   gf: string

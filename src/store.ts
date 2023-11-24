@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
+import EmojiCountryCodes from './data/interface';
 
 export interface TopicVerifications {
   [key: string]: {
@@ -11,10 +12,10 @@ export interface TopicVerifications {
 interface AppStore {
   openAIAPIKey: string | undefined
   setOpenAIAPIKey: (key: string | undefined) => void
-  userLanguage: string
-  setUserLanguage: (key: string) => void
-  emailLanguage: string
-  setEmailLanguage: (key: string) => void
+  userLanguage: keyof EmojiCountryCodes
+  setUserLanguage: (key: keyof EmojiCountryCodes) => void
+  emailLanguage: keyof EmojiCountryCodes
+  setEmailLanguage: (key: keyof EmojiCountryCodes) => void
   settingsVisible: boolean
   setSettingsVisible: (key: boolean) => void
   letter: string

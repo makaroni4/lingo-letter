@@ -7,8 +7,11 @@ import diff from 'fast-diff'
 import Settings from "./components/Settings"
 import Navbar from './components/Navbar';
 import { generateIncomingEmail } from './utils/generate-incoming-email';
+import { useTranslation } from "react-i18next";
 
 function App() {
+  const { t } = useTranslation();
+
   const {
     openAIAPIKey,
     letter, setLetter,
@@ -28,8 +31,6 @@ function App() {
       dangerouslyAllowBrowser: true
     });
   }
-
-
 
   const highlightedOriginalSentence = (original: string, corrected: string): { __html: string } => {
     const sentenceDiff = diff(original, corrected);
@@ -141,6 +142,7 @@ function App() {
 
     return className
   }
+
   return (
     <div className="App">
       { settingsVisible && (
@@ -196,7 +198,7 @@ function App() {
           <div className='flex justify-end'>
             <button
               className="py-2 px-4 bg-indigo-500 text-white rounded-md"
-              onClick={handleFormSubmit}>Submit</button>
+              onClick={handleFormSubmit}>{ t("submit") }</button>
           </div>
         </div>
 
