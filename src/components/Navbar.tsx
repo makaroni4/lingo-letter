@@ -43,7 +43,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="flex items-center justify-end	p-8">
+    <nav className="flex items-center justify-end	p-8 pt-12">
       <button
         className="py-2 px-4 bg-indigo-500 text-white rounded-md mr-8"
         onClick={handleRestart}>{ t("reset_exam") }</button>
