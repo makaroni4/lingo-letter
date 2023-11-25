@@ -183,7 +183,7 @@ function App() {
         </div>
 
         { verifiedSentences.length > 0 && (
-          <div>
+          <div className="mb-16">
             <div className='grid grid-cols-2 gap-4 mb-4'>
               <div><h3 className="text-left text-2xl">{ t("original_sentences") }</h3></div>
               <div><h3 className="text-left text-2xl">{ t("fixed_sentences") }</h3></div>
@@ -210,10 +210,13 @@ function App() {
         { Object.keys(topicsVerification).length > 0 && (
           <div
             className='grid grid-cols-2 gap-4 mb-4'>
+            <div>
+
+            </div>
             <div className="text-left">
-              <h3 className="text-xl mb-4">
+              <h2 className="text-2xl mb-6">
                 Your coverage of topics
-              </h3>
+              </h2>
 
               <div>
                 { Object.keys(topicsVerification).length > 0 && responseTopics.map((topic) => {
