@@ -4,6 +4,7 @@ import Twemoji from './Twemoji';
 import { Cog6ToothIcon } from '@heroicons/react/24/solid'
 import { generateIncomingEmail } from '../utils/generate-incoming-email';
 import { useTranslation } from "react-i18next";
+import Button from './Button';
 
 export default function Navbar() {
   const { t } = useTranslation();
@@ -44,9 +45,11 @@ export default function Navbar() {
 
   return (
     <nav className="flex items-center justify-end	p-8 pt-12">
-      <button
-        className="py-2 px-4 bg-indigo-500 text-white rounded-md mr-8"
-        onClick={handleRestart}>{ t("reset_exam") }</button>
+      <Button
+        className="mr-8"
+        onClick={handleRestart}>
+        { t("reset_exam") }
+      </Button>
 
       { !settingsVisible && (
         <Cog6ToothIcon

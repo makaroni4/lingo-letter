@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 import WelcomeBanner from './components/WelcomeBanner';
 import GithubCorner from './components/GithubCorner';
 import Footer from './components/Footer';
+import Button from './components/Button';
 
 function App() {
   const { t } = useTranslation();
@@ -180,9 +181,10 @@ function App() {
             name="" id="" cols={30} rows={10}></textarea>
 
           <div className='flex justify-end'>
-            <button
-              className="py-2 px-4 bg-indigo-500 text-white rounded-md"
-              onClick={handleFormSubmit}>{ t("submit") }</button>
+            <Button
+              onClick={handleFormSubmit}>
+              { t("submit") }
+            </Button>
           </div>
         </div>
 
