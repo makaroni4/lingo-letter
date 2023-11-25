@@ -22,7 +22,9 @@ function App() {
     settingsVisible,
     originalSentences, setOriginalSentences,
     verifiedSentences, setVerifiedSentences,
-    topicsVerification, setTopicsVerification
+    topicsVerification, setTopicsVerification,
+    userLanguage,
+    emailLanguage
   } = useAppStore();
 
   let openai: any;
@@ -60,7 +62,10 @@ function App() {
 
   useEffect(() => {
     if(openAIAPIKey && !incomingEmail) {
-      generateIncomingEmail({ apiKey: openAIAPIKey }).then(response => {
+      generateIncomingEmail({
+        apiKey: openAIAPIKey,
+        emailLanguage: t(`languages.${emailLanguage}`)
+      }).then(response => {
         setIncomingEmail(response.email)
         setResponseTopics(response.topics)
       })
@@ -81,7 +86,8 @@ function App() {
 
     verifyEmailSubmission({
       apiKey: openAIAPIKey,
-      letter
+      letter,
+      emailLanguage: t(`languages.${emailLanguage}`)
     }).then(verifiedEmail => {
       const fixedSentences = splitIntoSentences(verifiedEmail)
       setVerifiedSentences(fixedSentences)

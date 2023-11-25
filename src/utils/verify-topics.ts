@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
 
-export const verifyTopics = async ({ apiKey, letter, topics }: { apiKey: string | undefined, letter: string, topics: string[] }) => {
+export const verifyTopics = async ({ apiKey, letter, topics, emailLanguage }: { apiKey: string | undefined, letter: string, topics: string[], emailLanguage: string }) => {
   if (!apiKey) {
     alert("Please, set Open AI API key")
   }
@@ -14,7 +14,7 @@ export const verifyTopics = async ({ apiKey, letter, topics }: { apiKey: string 
     messages: [{
       role: 'user',
       content: `
-      I have a German letter here between ''' symbols:
+      I have a ${emailLanguage} letter here between ''' symbols:
 
       '''${letter}'''
 

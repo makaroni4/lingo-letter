@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
 
-export const verifyEmailSubmission = async ({ apiKey, letter }: { apiKey: string | undefined, letter: string }) => {
+export const verifyEmailSubmission = async ({ apiKey, letter, emailLanguage }: { apiKey: string | undefined, letter: string, emailLanguage: string }) => {
   if (!apiKey) {
     alert("Please, set Open AI API key")
   }
@@ -14,7 +14,7 @@ export const verifyEmailSubmission = async ({ apiKey, letter }: { apiKey: string
     messages: [{
       role: 'user',
       content: `
-        Fix German grammar in the following text. Respond only with corrected text. Keep original line break symbols. If a sentence in the submission is grammatically correct, leave it as is:
+        Fix ${emailLanguage} grammar in the following text. Respond only with corrected text. Keep original line break symbols. If a sentence in the submission is grammatically correct, leave it as is:
 
         ${letter}
       `

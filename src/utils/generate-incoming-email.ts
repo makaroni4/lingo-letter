@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
 
-export const generateIncomingEmail = async ({ apiKey }: { apiKey: string | undefined }) => {
+export const generateIncomingEmail = async ({ apiKey, emailLanguage }: { apiKey: string | undefined, emailLanguage: string }) => {
   if (!apiKey) {
     alert("Please, set Open AI API key")
   }
@@ -15,9 +15,9 @@ export const generateIncomingEmail = async ({ apiKey }: { apiKey: string | undef
       role: "user",
       content: `Forget everything that we've discussed before. We're starting from scratch.
 
-      You're a teacher. You're teaching writing E-mails in German.
+      You're a teacher. You're teaching writing E-mails in ${emailLanguage}.
 
-      Give me the 8-10 sentences informal E-mail and a list of 4 topics I should cover on in my response. E-mail and topics must be in German. Make sure the author of the emails asks 2 or 3 question to which I'll need to write answers. Make sure you're using a real human name for author and recepient names.
+      Give me the 8-10 sentences informal E-mail and a list of 4 topics I should cover on in my response. E-mail and topics must be in ${emailLanguage}. Make sure the author of the emails asks 2 or 3 question to which I'll need to write answers. Make sure you're using a real human name for author and recepient names.
 
       Use the JSON format for email and topics like so:
 

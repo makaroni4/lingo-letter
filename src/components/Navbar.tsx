@@ -32,7 +32,10 @@ export default function Navbar() {
       setResponseTopics([])
       setTopicsVerification({})
 
-      const { email, topics } = await generateIncomingEmail({ apiKey: openAIAPIKey })
+      const { email, topics } = await generateIncomingEmail({
+        apiKey: openAIAPIKey,
+        emailLanguage: t(`languages.${emailLanguage}`)
+      })
 
       setIncomingEmail(email)
       setResponseTopics(topics)
