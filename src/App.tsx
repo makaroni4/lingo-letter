@@ -127,10 +127,10 @@ function App() {
       <div className="pb-24 px-12">
 
         <div className='mb-12'>
-          <h2 className="text-2xl font-bold mb-3">Schriftlicher Ausdruck</h2>
+          <h2 className="text-2xl font-bold mb-3">{ t("writing_test") }</h2>
 
           <div className="mb-4">
-            Sie haben von einer Freundin folgende E-Mail erhalten:
+            { t("you_have_received_an_email") }
           </div>
 
           <div className="p-8 leading-8 bg-slate-100 incoming-email mb-8">
@@ -138,7 +138,7 @@ function App() {
           </div>
 
           <div className="mb-5">
-            Antworten Sie auf die E-Mail. Schreiben Sie etwas zu allen vier Punkten:
+            { t("answer_the_email_and_cover_topics") }
           </div>
 
           <div className='mb-10'>
@@ -156,7 +156,7 @@ function App() {
           </div>
 
           <div>
-            Überlegen Sie sich vor dem Schreiben eine passende Reihenfolge der Punkte, einen passenden Betreff, eine passende Anrede, Einleitung und einen passenden Schluss.
+            { t("writing_instructions") }
           </div>
         </div>
 
@@ -178,8 +178,8 @@ function App() {
         { verifiedSentences.length > 0 && (
           <div>
             <div className='grid grid-cols-2 gap-4 mb-4'>
-              <div><h3 className="text-left text-2xl">Original sentence</h3></div>
-              <div><h3 className="text-left text-2xl">Corrected sentence</h3></div>
+              <div><h3 className="text-left text-2xl">{ t("original_sentences") }</h3></div>
+              <div><h3 className="text-left text-2xl">{ t("fixed_sentences") }</h3></div>
             </div>
 
             { verifiedSentences.map((verifiedSentence, index) => (
@@ -205,7 +205,7 @@ function App() {
             className='grid grid-cols-2 gap-4 mb-4'>
             <div className="text-left">
               <h3 className="text-xl mb-4">
-                Topics coverage
+                Your coverage of topics
               </h3>
 
               <div>

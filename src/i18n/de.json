@@ -1,0 +1,24 @@
+{
+  "translation": {
+    "reset_exam": "Prüfung zurücksetzen",
+    "writing_test": "Schriftlicher Ausdruck",
+    "you_have_received_an_email": "Sie haben folgende E-Mail erhalten:",
+    "answer_the_email_and_cover_topics": "Antworten Sie auf die E-Mail. Schreiben Sie etwas zu allen Themen:",
+    "writing_instructions": "Überlegen Sie sich vor dem Schreiben eine passende Reihenfolge der Themen, einen passenden Betreff, eine passende Anrede, Einleitung und einen passenden Schluss.",
+    "submit": "Senden",
+    "original_sentences": "Originalsätze",
+    "fixed_sentences": "Korrigierte Sätze",
+    "feedback_on_topics": "Feedback zu Themen",
+    "i_know": "Ich kann",
+    "i_learn": "Ich lerne",
+    "open_ai_api_key": "OpenAI-API-Schlüssel",
+    "languages": {
+      "en": "Englisch",
+      "es": "Spanisch",
+      "fr": "Französisch",
+      "de": "Deutsch",
+      "it": "Italienisch",
+      "pt": "Portugiesisch"
+    }
+  }
+}

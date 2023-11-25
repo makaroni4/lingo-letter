@@ -29,7 +29,7 @@ export default function Settings() {
         <label
           htmlFor=""
           className="font-bold mb-1 block">
-          Open AI API Key
+          { t("open_ai_api_key") }
         </label>
         <input
           className='w-full rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700'
@@ -42,7 +42,7 @@ export default function Settings() {
       <div className="flex items-center mb-6">
         <div
           className="font-bold mb-1 block mr-4">
-          I know
+          { t("i_know") }
         </div>
         <div
           className="flex items-center p-1 border-[1px] border-slate-200 rounded-md cursor-pointer relative"
@@ -68,7 +68,7 @@ export default function Settings() {
       <div className="flex items-center">
         <div
           className="font-bold mb-1 block mr-4">
-          I learn
+          { t("i_learn") }
         </div>
 
         <div

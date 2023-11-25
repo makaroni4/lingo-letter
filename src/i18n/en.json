@@ -1,7 +1,17 @@
 {
   "translation": {
     "reset_exam": "Reset exam",
+    "writing_test": "Writing exam",
+    "you_have_received_an_email": "You have received the following email:",
+    "answer_the_email_and_cover_topics": "Reply to the email. Write something about all following topics:",
+    "writing_instructions": "Before writing, think about a suitable order of topics, a suitable subject, a suitable salutation, introduction and a suitable conclusion.",
     "submit": "Submit",
+    "original_sentences": "Original sentences",
+    "fixed_sentences": "Fixed sentences",
+    "feedback_on_topics": "Feedback on topics",
+    "i_know": "I know",
+    "i_learn": "I learn",
+    "open_ai_api_key": "OpenAI API Key",
     "languages": {
       "en": "English",
       "es": "Spanish",

@@ -5,14 +5,16 @@ import reportWebVitals from './reportWebVitals';
 import { I18nextProvider } from "react-i18next";
 import i18next from "i18next";
 
-import enTranlsations from "./i18n/en.json"
+import enTranslations from "./i18n/en.json"
+import deTranslations from "./i18n/de.json"
 
 i18next
   .init({
     fallbackLng: 'en',
     debug: true,
     resources: {
-      en: enTranlsations
+      en: enTranslations,
+      de: deTranslations
     }
   });
 
