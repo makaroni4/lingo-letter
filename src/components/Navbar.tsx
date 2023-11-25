@@ -5,6 +5,7 @@ import { Cog6ToothIcon } from '@heroicons/react/24/solid'
 import { generateIncomingEmail } from '../utils/generate-incoming-email';
 import { useTranslation } from "react-i18next";
 import Button from './Button';
+import Logo from './Logo';
 
 export default function Navbar() {
   const { t } = useTranslation();
@@ -44,18 +45,24 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="flex items-center justify-end	p-8 pt-12">
-      <Button
-        className="mr-8"
-        onClick={handleRestart}>
-        { t("reset_exam") }
-      </Button>
+    <nav className="flex items-center justify-between	pt-16 p-12">
+      <div>
+        <Logo emailLanguage={emailLanguage} />
+      </div>
 
-      { !settingsVisible && (
-        <Cog6ToothIcon
-          className="w-8 cursor-pointer hover:opacity-70"
-          onClick={() => setSettingsVisible(true) } />
-      )}
+      <div className="flex items-center">
+        <Button
+          className="mr-8"
+          onClick={handleRestart}>
+          { t("reset_exam") }
+        </Button>
+
+        { !settingsVisible && (
+          <Cog6ToothIcon
+            className="w-8 cursor-pointer hover:opacity-70"
+            onClick={() => setSettingsVisible(true) } />
+        )}
+      </div>
     </nav>
   )
 }
