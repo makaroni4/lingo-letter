@@ -7,7 +7,7 @@ import LanguageMenu from './LanguageMenu';
 import EmojiCountryCodes from '../data/interface';
 
 export default function Settings() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [userLanguageMenuVisible, setUserLanguageMenuVisible] = useState(false)
   const [emailLanguageMenuVisible, setEmailLanguageMenuVisible] = useState(false)
@@ -59,7 +59,7 @@ export default function Settings() {
               bg-white z-30 mt-[-4px] border-t-0">
               <LanguageMenu
                 excludeLanguage={userLanguage}
-                languageSelected={(language: keyof EmojiCountryCodes) => setUserLanguage(language)} />
+                languageSelected={(language: keyof EmojiCountryCodes) => { setUserLanguage(language); i18n.changeLanguage(language); }} />
             </div>
           )}
         </div>
