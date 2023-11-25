@@ -3,12 +3,12 @@ export default function Footer() {
     <footer
       className="flex justify-between px-8 py-4 pb-6">
       <div>
-        © Made with ❤️ by Anatoli Makarevich
+        © Made with ❤️ by <a className="underline" href="https://twitter.com/makaroni4">Anatoli Makarevich</a>
       </div>
 
       <div>
         <a
-          className='underline'
+          className='underline font-bold'
           href="https://makaroni4.com">makaroni4.com</a>
       </div>
     </footer>
