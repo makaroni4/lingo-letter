@@ -96,7 +96,8 @@ function App() {
     verifyTopics({
       apiKey: openAIAPIKey,
       topics: responseTopics,
-      letter
+      letter,
+      emailLanguage: t(`languages.${emailLanguage}`)
     }).then(verifiedTopics => {
       setTopicsVerification(verifiedTopics);
     })
