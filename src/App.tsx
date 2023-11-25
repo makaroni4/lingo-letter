@@ -7,6 +7,7 @@ import diff from 'fast-diff'
 import Settings from "./components/Settings"
 import Navbar from './components/Navbar';
 import { generateIncomingEmail } from './utils/generate-incoming-email';
+import { verifyEmailSubmission } from './utils/verify-email-submission';
 import { useTranslation } from "react-i18next";
 
 function App() {
@@ -77,22 +78,11 @@ function App() {
 
     setOriginalSentences(splitIntoSentences(letter))
 
-    // Correct email
-
-    const chatCompletion = await openai.chat.completions.create({
-      messages: [{
-        role: 'user',
-        content: `
-          Fix German grammar in the following text. Respond only with corrected text. Keep original line break symbols. If a sentence in the submission is grammatically correct, leave it as is:
-
-          ${letter}
-        `
-      }],
-      model: 'gpt-3.5-turbo',
-    });
-
-    const responseMessage = chatCompletion.choices[0].message
-    const fixedSentences = splitIntoSentences(responseMessage.content || "")
+    const verifiedEmail = await verifyEmailSubmission({
+      apiKey: openAIAPIKey,
+      letter
+    })
+    const fixedSentences = splitIntoSentences(verifiedEmail)
 
     setVerifiedSentences(fixedSentences)
 
