@@ -46,3 +46,7 @@ code {
 .incoming-email {
   font-family: 'Playpen Sans', cursive;
 }
+
+a:hover {
+  opacity: 0.7;
+}

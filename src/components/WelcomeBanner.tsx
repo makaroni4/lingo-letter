@@ -13,7 +13,7 @@ export default function WelcomeBanner() {
     <div className='p-6 bg-amber-100 rounded-md relative'>
       <XMarkIcon
         onClick={() => { setShowWelcomeBanner(false) }}
-        className="w-6 absolute right-2 top-2 cursor-pointer" />
+        className="w-6 absolute right-2 top-2 cursor-pointer hover:opacity-70" />
       <p>
         { t("welcome_banner_copy") }
       </p>
