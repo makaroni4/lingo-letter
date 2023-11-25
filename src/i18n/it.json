@@ -1,0 +1,24 @@
+{
+  "translation": {
+    "reset_exam": "Resetta esame",
+    "writing_test": "Esame di scrittura",
+    "you_have_received_an_email": "Hai ricevuto la seguente email:",
+    "answer_the_email_and_cover_topics": "Rispondi all'email. Scrivi qualcosa su tutti i seguenti argomenti:",
+    "writing_instructions": "Prima di scrivere, pensa a un ordine adeguato degli argomenti, un soggetto adatto, un saluto adeguato, un'introduzione adeguata e una conclusione adeguata.",
+    "submit": "Invia",
+    "original_sentences": "Frasi originali",
+    "fixed_sentences": "Frasi corrette",
+    "feedback_on_topics": "Feedback sugli argomenti",
+    "i_know": "So",
+    "i_learn": "Apprendo",
+    "open_ai_api_key": "Chiave API di OpenAI",
+    "languages": {
+      "en": "Inglese",
+      "es": "Spagnolo",
+      "fr": "Francese",
+      "de": "Tedesco",
+      "it": "Italiano",
+      "pt": "Portoghese"
+    }
+  }
+}
