@@ -10,6 +10,7 @@ import { generateIncomingEmail } from './utils/generate-incoming-email';
 import { verifyEmailSubmission } from './utils/verify-email-submission';
 import { verifyTopics } from './utils/verify-topics';
 import { useTranslation } from "react-i18next";
+import WelcomeBanner from './components/WelcomeBanner';
 
 function App() {
   const { t } = useTranslation();
@@ -24,7 +25,8 @@ function App() {
     verifiedSentences, setVerifiedSentences,
     topicsVerification, setTopicsVerification,
     userLanguage,
-    emailLanguage
+    emailLanguage,
+    showWelcomeBanner
   } = useAppStore();
 
   let openai: any;
@@ -125,6 +127,11 @@ function App() {
       <Navbar />
 
       <div className="pb-24 px-12">
+        { showWelcomeBanner && (
+          <div className="mb-12">
+            <WelcomeBanner />
+          </div>
+        ) }
 
         <div className='mb-12'>
           <h2 className="text-2xl font-bold mb-3">{ t("writing_test") }</h2>
