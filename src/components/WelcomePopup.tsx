@@ -3,6 +3,8 @@ import { useAppStore } from '../store';
 import { useTranslation } from "react-i18next";
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import Markdown from 'react-markdown';
+import twemoji from "twemoji";
+import rehypeRaw from 'rehype-raw';
 
 export default function WelcomePopup() {
   const { t } = useTranslation();
@@ -19,6 +21,15 @@ export default function WelcomePopup() {
     }
   }
 
+  const twemojify = (str: string): string => {
+    const htmlWithEmojis = twemoji.parse(str, {
+      folder: 'svg',
+      ext: '.svg'
+    });
+
+    return htmlWithEmojis
+  }
+
   return (
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-30">
       <div className="fixed top-0 left-0 w-full h-full bg-white flex items-center justify-center z-40 opacity-50"></div>
@@ -26,17 +37,14 @@ export default function WelcomePopup() {
         <XMarkIcon
           onClick={() => { setShowWelcomePopup(false) }}
           className="w-6 absolute right-2 top-2 cursor-pointer hover:opacity-70" />
-        <Markdown>
-        {stripIndent(`## Timer
+        <Markdown rehypePlugins={[rehypeRaw]}>
+        {twemojify(stripIndent(`## Timer
 
         **bold**
 
-          :sunny:
-        `)}
+          ${t("welcome_banner_copy")}
+        `))}
         </Markdown>
-        <p>
-          { t("welcome_banner_copy") }
-        </p>
       </div>
     </div>
   )
