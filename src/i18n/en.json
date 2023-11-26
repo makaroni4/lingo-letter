@@ -16,6 +16,8 @@
     "welcome_banner_copy": "Hi 👋\nWelcome to the Email Writing trainer!",
     "welcome_popup_copy": "Hi 👋\nWelcome to the Email Writing trainer!",
     "set_api_key": "Please, set Open AI API key",
+    "minuteWithCount_one": "minute left",
+    "minuteWithCount_other": "minutes left",
     "languages": {
       "en": "English",
       "es": "Spanish",

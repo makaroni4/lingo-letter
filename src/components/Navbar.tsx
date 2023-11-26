@@ -9,6 +9,9 @@ import Logo from './Logo';
 
 export default function Navbar() {
   const { t } = useTranslation();
+  const HALF_AN_HOUR = 30 * 60 // seconds
+  const [timerIsOn, setTimerIsOn] = useState(false)
+  const [timerSecondsLeft, setTimerSecondsLeft] = useState(HALF_AN_HOUR)
 
   const {
     openAIAPIKey, setOpenAIAPIKey,
@@ -22,6 +25,26 @@ export default function Navbar() {
     userLanguage,
     emailLanguage
   } = useAppStore();
+
+  useEffect(() => {
+    let timerId: number;
+
+    if (timerIsOn && timerSecondsLeft > 0) {
+      timerId = window.setInterval(() => {
+        setTimerSecondsLeft((prevTime) => prevTime - 1);
+      }, 1000);
+    }
+
+    return () => {
+      window.clearInterval(timerId);
+    };
+  }, [timerIsOn, timerSecondsLeft]);
+
+  const timeInMinutes = (seconds: number): number => {
+    const minutes = Math.ceil(seconds / 60);
+
+    return minutes;
+  };
 
   const handleRestart = async () => {
     const result = incomingEmail ? window.confirm("Are you sure you want to clear your text?") : true;
@@ -46,6 +69,9 @@ export default function Navbar() {
 
       setIncomingEmail(email)
       setResponseTopics(topics)
+
+      setTimerSecondsLeft(HALF_AN_HOUR)
+      setTimerIsOn(true)
     }
   }
 
@@ -56,6 +82,11 @@ export default function Navbar() {
       </div>
 
       <div className="flex items-center">
+        { timerIsOn && (
+          <div className='mr-8'>
+            { timeInMinutes(timerSecondsLeft) } { t("minuteWithCount", { count: timeInMinutes(timerSecondsLeft) })}
+          </div>
+        )}
         <Button
           className="mr-8"
           onClick={handleRestart}>
