@@ -93,6 +93,9 @@ export default function Navbar() {
           { incomingEmail ? t("reset_exam") : t("start_exam") }
         </Button>
 
+        <a href="https://github.com/makaroni4/email_simulator" target="_blank" rel="noreferrer">
+          <img className="w-7 mr-8" src="./github.svg" alt="Github repo" />
+        </a>
         { !settingsVisible && (
           <Cog6ToothIcon
             className="w-8 cursor-pointer hover:opacity-70"
