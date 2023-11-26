@@ -31,7 +31,9 @@ interface AppStore {
   topicsVerification: TopicVerifications
   setTopicsVerification: (obj: TopicVerifications) => void,
   showWelcomeBanner: boolean,
-  setShowWelcomeBanner: (key: boolean) => void
+  setShowWelcomeBanner: (key: boolean) => void,
+  showWelcomePopup: boolean,
+  setShowWelcomePopup: (key: boolean) => void
 }
 
 export const useAppStore = create<AppStore>()(
@@ -58,7 +60,9 @@ export const useAppStore = create<AppStore>()(
       topicsVerification: {},
       setTopicsVerification: (obj) => set({ topicsVerification: obj}),
       showWelcomeBanner: true,
-      setShowWelcomeBanner: (val) => set({ showWelcomeBanner: val })
+      setShowWelcomeBanner: (val) => set({ showWelcomeBanner: val }),
+      showWelcomePopup: false,
+      setShowWelcomePopup: (val) => set({ showWelcomePopup: val })
     }),
     {
       name: 'email-writing-exam-storage',

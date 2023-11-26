@@ -13,6 +13,7 @@ import { useTranslation } from "react-i18next";
 import WelcomeBanner from './components/WelcomeBanner';
 import Footer from './components/Footer';
 import Button from './components/Button';
+import WelcomePopup from './components/WelcomePopup';
 
 function App() {
   const { t } = useTranslation();
@@ -28,7 +29,8 @@ function App() {
     topicsVerification, setTopicsVerification,
     userLanguage,
     emailLanguage,
-    showWelcomeBanner
+    showWelcomeBanner,
+    showWelcomePopup
   } = useAppStore();
 
   let openai: any;
@@ -124,6 +126,10 @@ function App() {
     <div className="App">
       { settingsVisible && (
         <Settings />
+      )}
+
+      { showWelcomePopup && (
+        <WelcomePopup />
       )}
 
       <Navbar />
