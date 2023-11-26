@@ -24,7 +24,12 @@ export default function Navbar() {
   } = useAppStore();
 
   const handleRestart = async () => {
-    const result = window.confirm("Are you sure you want to clear your text?");
+    const result = incomingEmail ? window.confirm("Are you sure you want to clear your text?") : true;
+
+    if (!openAIAPIKey) {
+      alert(t("set_api_key"))
+      return
+    }
 
     if (result) {
       setLetter("")
@@ -54,7 +59,7 @@ export default function Navbar() {
         <Button
           className="mr-8"
           onClick={handleRestart}>
-          { t("reset_exam") }
+          { incomingEmail ? t("reset_exam") : t("start_exam") }
         </Button>
 
         { !settingsVisible && (

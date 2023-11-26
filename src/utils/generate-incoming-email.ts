@@ -1,10 +1,6 @@
 import OpenAI from 'openai';
 
 export const generateIncomingEmail = async ({ apiKey, emailLanguage }: { apiKey: string | undefined, emailLanguage: string }) => {
-  if (!apiKey) {
-    alert("Please, set Open AI API key")
-  }
-
   const openai = new OpenAI({
     apiKey,
     dangerouslyAllowBrowser: true

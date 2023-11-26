@@ -1,5 +1,6 @@
 {
   "translation": {
+    "start_exam": "Start exam",
     "reset_exam": "Reset exam",
     "writing_test": "Writing exam",
     "you_have_received_an_email": "You have received the following email:",
@@ -14,6 +15,7 @@
     "open_ai_api_key": "OpenAI API Key",
     "welcome_banner_copy": "Hi 👋\nWelcome to the Email Writing trainer!",
     "welcome_popup_copy": "Hi 👋\nWelcome to the Email Writing trainer!",
+    "set_api_key": "Please, set Open AI API key",
     "languages": {
       "en": "English",
       "es": "Spanish",
