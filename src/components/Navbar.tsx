@@ -45,9 +45,9 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="flex items-center justify-between	pt-16 p-12">
+    <nav className="flex items-center justify-between	p-12 pt-8">
       <div>
-        <Logo emailLanguage={emailLanguage} />
+        <Logo />
       </div>
 
       <div className="flex items-center">

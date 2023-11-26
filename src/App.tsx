@@ -11,7 +11,6 @@ import { verifyEmailSubmission } from './utils/verify-email-submission';
 import { verifyTopics } from './utils/verify-topics';
 import { useTranslation } from "react-i18next";
 import WelcomeBanner from './components/WelcomeBanner';
-import GithubCorner from './components/GithubCorner';
 import Footer from './components/Footer';
 import Button from './components/Button';
 
@@ -123,8 +122,6 @@ function App() {
 
   return (
     <div className="App">
-      <GithubCorner />
-
       { settingsVisible && (
         <Settings />
       )}
