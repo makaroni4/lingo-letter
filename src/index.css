@@ -50,3 +50,15 @@ code {
 a:hover {
   opacity: 0.7;
 }
+
+.markdown-copy p:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.markdown-copy ul {
+  margin-bottom: 16px;
+}
+
+.markdown-copy a {
+  text-decoration: underline;
+}
