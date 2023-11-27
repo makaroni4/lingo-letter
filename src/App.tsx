@@ -1,6 +1,6 @@
 import './App.css';
 import { useAppStore } from './store';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import OpenAI from 'openai';
 import { splitIntoSentences } from './utils/split-into-sentences';
 import diff from 'fast-diff'
@@ -22,7 +22,7 @@ function App() {
     letter, setLetter,
     incomingEmail, setIncomingEmail,
     responseTopics, setResponseTopics,
-    settingsVisible,
+    settingsVisible, setSettingsVisible,
     originalSentences, setOriginalSentences,
     verifiedSentences, setVerifiedSentences,
     topicsVerification, setTopicsVerification,
@@ -108,6 +108,18 @@ function App() {
 
     return className
   }
+
+  useEffect(() => {
+    document.addEventListener("click", (event) => {
+      const target = event.target as HTMLAnchorElement;
+      const hash = target.hash;
+
+      if (hash === '#settings') {
+        event.preventDefault();
+        setSettingsVisible(true);
+      }
+    })
+  }, [])
 
   return (
     <div className="App">
