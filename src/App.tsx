@@ -6,7 +6,6 @@ import { splitIntoSentences } from './utils/split-into-sentences';
 import diff from 'fast-diff'
 import Settings from "./components/Settings"
 import Navbar from './components/Navbar';
-import { generateIncomingEmail } from './utils/generate-incoming-email';
 import { verifyEmailSubmission } from './utils/verify-email-submission';
 import { verifyTopics } from './utils/verify-topics';
 import { useTranslation } from "react-i18next";
@@ -65,18 +64,6 @@ function App() {
       __html: sentence
     }
   }
-
-  useEffect(() => {
-    if(openAIAPIKey && !incomingEmail) {
-      generateIncomingEmail({
-        apiKey: openAIAPIKey,
-        emailLanguage: t(`languages.${emailLanguage}`)
-      }).then(response => {
-        setIncomingEmail(response.email)
-        setResponseTopics(response.topics)
-      })
-    }
-  }, [])
 
   const handleFormSubmit = async () => {
     if(!letter) {

@@ -89,7 +89,8 @@ export default function Navbar() {
         )}
         <Button
           className="mr-8"
-          onClick={handleRestart}>
+          onClick={handleRestart}
+          disabled={ !openAIAPIKey }>
           { incomingEmail ? t("reset_exam") : t("start_exam") }
         </Button>
 
