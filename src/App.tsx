@@ -157,17 +157,17 @@ function App() {
         ) }
 
         <div className='mb-12'>
-          <h2 className="text-2xl font-bold mb-3">{ t("writing_test") }</h2>
+          <h1 className="text-3xl font-bold mb-3 mt-8">{ t("writing_test") }</h1>
 
-          <div className="mb-4">
+          <div className="mb-4 text-lg">
             { t("you_have_received_an_email") }
           </div>
 
-          <div className="p-8 leading-8 bg-slate-100 incoming-email mb-8">
+          <div className="text-lg p-8 leading-8 bg-slate-100 rounded-md font-serif mb-8">
             { incomingEmail }
           </div>
 
-          <div className="mb-5">
+          <div className="mb-5 text-lg">
             { t("answer_the_email_and_cover_topics") }
           </div>
 
@@ -176,7 +176,7 @@ function App() {
               { responseTopics.map((topic) => {
                 return (
                   <li
-                    className="mb-4 last:mb-0"
+                    className="text-lg mb-4 last:mb-0"
                     key={topic}>
                     { topic }
                   </li>
@@ -185,7 +185,7 @@ function App() {
             </ul>
           </div>
 
-          <div>
+          <div className='text-lg'>
             { t("writing_instructions") }
           </div>
         </div>
@@ -193,7 +193,7 @@ function App() {
 
         <div className='mb-12'>
           <textarea
-            className="p-4 text-base w-full border-2 border-indigo-500 radius-4 rounded-md	"
+            className="p-4 text-lg w-full shadow-sm sm:text-md focus:outline-none focus:ring-2 focus:ring-sky-500 ring-1 ring-gray-300 rounded-md font-serif"
             value={letter}
             onChange={(e) => setLetter(e.target.value) }
             name="" id="" cols={30} rows={10}></textarea>

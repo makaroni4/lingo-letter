@@ -10,11 +10,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 .corrected-sentence {
   font-size: 0;
 }
@@ -38,10 +33,6 @@ code {
   z-index: -1;
 
   background-color: rgb(252 165 165);
-}
-
-.incoming-email {
-  font-family: 'Libre Baskerville', serif;
 }
 
 a:hover {
