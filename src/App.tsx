@@ -13,6 +13,7 @@ import WelcomeBanner from './components/WelcomeBanner';
 import Footer from './components/Footer';
 import Button from './components/Button';
 import WelcomePopup from './components/WelcomePopup';
+import TextareaAutosize from 'react-textarea-autosize';
 
 function App() {
   const { t } = useTranslation();
@@ -192,11 +193,11 @@ function App() {
 
 
         <div className='mb-12'>
-          <textarea
+          <TextareaAutosize
             className="p-4 text-lg w-full shadow-sm sm:text-md focus:outline-none focus:ring-2 focus:ring-sky-500 ring-1 ring-gray-300 rounded-md font-serif"
             value={letter}
-            onChange={(e) => setLetter(e.target.value) }
-            name="" id="" cols={30} rows={10}></textarea>
+            minRows={8}
+            onChange={(e) => setLetter(e.target.value) } />
 
           <div className='flex justify-end'>
             <Button
