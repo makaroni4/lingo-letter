@@ -17,6 +17,7 @@
     "set_api_key": "Please, set Open AI API key",
     "minuteWithCount_one": "minute left",
     "minuteWithCount_other": "minutes left",
+    "restart_alert_question": "Are you sure you want to restart the exam?",
     "languages": {
       "en": "English",
       "es": "Spanish",

@@ -47,7 +47,7 @@ export default function Navbar() {
   };
 
   const handleRestart = async () => {
-    const result = incomingEmail ? window.confirm("Are you sure you want to clear your text?") : true;
+    const result = incomingEmail ? window.confirm(t("restart_alert_question")) : true;
 
     if (!openAIAPIKey) {
       alert(t("set_api_key"))
