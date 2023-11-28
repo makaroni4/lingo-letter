@@ -110,7 +110,7 @@ export default function Navbar() {
         </a>
         { !settingsVisible && (
           <Cog6ToothIcon
-            className="w-8 cursor-pointer hover:opacity-70"
+            className="w-8 cursor-pointer hover:opacity-70 js-settings-icon"
             onClick={() => setSettingsVisible(true) } />
         )}
       </div>
