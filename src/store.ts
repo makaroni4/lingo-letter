@@ -33,7 +33,9 @@ interface AppStore {
   showWelcomeBanner: boolean,
   setShowWelcomeBanner: (key: boolean) => void,
   showWelcomePopup: boolean,
-  setShowWelcomePopup: (key: boolean) => void
+  setShowWelcomePopup: (key: boolean) => void,
+  welcomeBannerCopy: string,
+  setWelcomeBannerCopy: (key: string) => void,
 }
 
 export const useAppStore = create<AppStore>()(
@@ -62,7 +64,9 @@ export const useAppStore = create<AppStore>()(
       showWelcomeBanner: true,
       setShowWelcomeBanner: (val) => set({ showWelcomeBanner: val }),
       showWelcomePopup: false,
-      setShowWelcomePopup: (val) => set({ showWelcomePopup: val })
+      setShowWelcomePopup: (val) => set({ showWelcomePopup: val }),
+      welcomeBannerCopy: "",
+      setWelcomeBannerCopy: (key) => set({ welcomeBannerCopy: key }),
     }),
     {
       name: 'email-writing-exam-storage',

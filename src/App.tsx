@@ -26,6 +26,7 @@ function App() {
     originalSentences, setOriginalSentences,
     verifiedSentences, setVerifiedSentences,
     topicsVerification, setTopicsVerification,
+    welcomeBannerCopy, setWelcomeBannerCopy,
     userLanguage,
     emailLanguage,
     showWelcomeBanner,
@@ -120,6 +121,21 @@ function App() {
       }
     })
   }, [])
+
+  useEffect(() => {
+    const loadTranslations = async () => {
+      try {
+        const response = await fetch(`/i18n/welcome_banner/${userLanguage}.md`);
+        const markdown = await response.text();
+
+        setWelcomeBannerCopy(markdown);
+      } catch (error) {
+        console.error('Error loading translations', error);
+      }
+    };
+
+    loadTranslations();
+  }, [userLanguage]);
 
   return (
     <div className="App">
