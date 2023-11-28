@@ -13,7 +13,9 @@ export const generateIncomingEmail = async ({ apiKey, emailLanguage }: { apiKey:
 
       You're a teacher. You're teaching writing E-mails in ${emailLanguage}.
 
-      Give me the 8-10 sentences informal E-mail and a list of 4 topics I should cover on in my response. E-mail and topics must be in ${emailLanguage}. Make sure the author of the emails asks 2 or 3 question to which I'll need to write answers. Make sure you're using a real human name for author and recepient names.
+      Give me the 8-10 sentences informal E-mail on one of the following topics: Vacation Plans, Birthday Invitation, Movie Night, Book Recommendation, Leisure Activities, Language Learning Progress, Music Recommendations, Weekend Plans, Hobby, Job Application or a relevant topic of your choice.
+
+      Also create a list of 4 topics I should cover on in my response. E-mail and topics must be in ${emailLanguage}. Make sure the author of the emails asks 2 or 3 question to which I'll need to write answers. Make sure you're using a real human name for author and recepient names. Format the letter nicely using line breaks. Add 2-3 relevant emojies throughout the text.
 
       Use the JSON format for email and topics like so:
 

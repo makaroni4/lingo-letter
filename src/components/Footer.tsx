@@ -7,9 +7,6 @@ export default function Footer() {
       </div>
 
       <div>
-        <a
-          className='underline font-bold'
-          href="https://makaroni4.com">makaroni4.com</a>
       </div>
     </footer>
   )

@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import Button from './components/Button';
 import WelcomePopup from './components/WelcomePopup';
 import TextareaAutosize from 'react-textarea-autosize';
+import Markdownify from './components/Markdownify';
 
 function App() {
   const { t } = useTranslation();
@@ -160,12 +161,14 @@ function App() {
         <div className='mb-12'>
           <h1 className="text-3xl font-bold mb-3 mt-8">{ t("writing_test") }</h1>
 
-          <div className="mb-4 text-lg">
+          <div className="mb-8 text-lg">
             { t("you_have_received_an_email") }
           </div>
 
           <div className="text-lg p-8 leading-8 bg-slate-100 rounded-md font-serif mb-8">
-            { incomingEmail }
+            <Markdownify>
+              { incomingEmail }
+            </Markdownify>
           </div>
 
           <div className="mb-5 text-lg">
@@ -173,7 +176,7 @@ function App() {
           </div>
 
           <div className='mb-10'>
-            <ul className='list-disc'>
+            <ul className='list-disc list-inside'>
               { responseTopics.map((topic) => {
                 return (
                   <li
@@ -194,7 +197,7 @@ function App() {
 
         <div className='mb-12'>
           <TextareaAutosize
-            className="p-4 text-lg w-full shadow-sm sm:text-md focus:outline-none focus:ring-2 focus:ring-sky-500 ring-1 ring-gray-300 rounded-md font-serif"
+            className="mb-3 p-4 text-lg w-full shadow-sm sm:text-md focus:outline-none focus:ring-2 focus:ring-sky-500 ring-1 ring-gray-300 rounded-md font-serif"
             value={letter}
             minRows={8}
             onChange={(e) => setLetter(e.target.value) } />
