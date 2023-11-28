@@ -35,7 +35,7 @@ export default function Settings() {
           className='w-full rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700'
           onChange={(e) => setOpenAIAPIKey(e.target.value) }
           value={openAIAPIKey}
-          placeholder='sk-K8x7I4PX2R8HHkEEehV3AZZ3TIhi1WAdZT7oRzxGbbtlasTZ'
+          placeholder='sk-XXXXXXXXXX...'
           type="text" />
       </div>
 

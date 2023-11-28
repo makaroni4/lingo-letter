@@ -86,4 +86,29 @@ a:hover {
   .markdown-copy a {
     @apply underline;
   }
+
+  button:disabled {
+    @apply bg-indigo-400;
+  }
+
+  button:disabled:hover {
+    @apply bg-indigo-400;
+  }
+}
+
+.tooltip-arrow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-100%) translateY(-100%);
+  width: 0;
+  height: 0;
+}
+
+.tooltip {
+  display: none;
+}
+
+.tooltip-wrapper:hover .tooltip {
+  display: inline-block;
 }
