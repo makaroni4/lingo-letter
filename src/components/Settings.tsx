@@ -22,7 +22,7 @@ export default function Settings() {
 
       <div className="mb-6">
         <label
-          className="text-base font-bold mb-1 block">
+          className="text-base font-medium mb-1 block">
           { t("open_ai_api_key") }
         </label>
         <input
@@ -35,7 +35,7 @@ export default function Settings() {
 
       <div className="flex items-center mb-6">
         <div
-          className="text-base font-bold mb-1 block mr-4">
+          className="text-base font-medium mb-1 block mr-4">
           { t("i_know") }
         </div>
 
@@ -48,7 +48,7 @@ export default function Settings() {
 
       <div className="flex items-center">
         <div
-          className="text-base font-bold mb-1 block mr-4">
+          className="text-base font-medium mb-1 block mr-4">
           { t("i_learn") }
         </div>
 
@@ -57,6 +57,20 @@ export default function Settings() {
             excludeLanguage={emailLanguage}
             languageSelected={(language: keyof EmojiCountryCodes) => setEmailLanguage(language)} />
         </div>
+      </div>
+
+      <div className='absolute bottom-6 right-6 flex'>
+        <a
+          className="underline mr-6 font-medium"
+          target="_blank" rel="noreferrer"
+          href="https://github.com/makaroni4/lingo-email/issues">Feedback</a>
+        <a
+          className="underline flex items-center font-medium"
+          target="_blank" rel="noreferrer"
+          href="https://github.com/makaroni4/lingo-email">
+          <img className="w-5 mr-2" src="./github.svg" alt="Github repo" />
+          Source code
+        </a>
       </div>
     </div>
   )
