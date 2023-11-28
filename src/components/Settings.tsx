@@ -1,17 +1,11 @@
-import { useEffect, useState } from 'react';
 import { useAppStore } from '../store';
-import { XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/solid'
-import Twemoji from './Twemoji';
+import { XMarkIcon } from '@heroicons/react/24/solid'
 import { useTranslation } from "react-i18next";
-import LanguageMenu from './LanguageMenu';
 import EmojiCountryCodes from '../data/interface';
 import DropdownMenu from './DropdownMenu';
 
 export default function Settings() {
-  const { t, i18n } = useTranslation();
-
-  const [userLanguageMenuVisible, setUserLanguageMenuVisible] = useState(false)
-  const [emailLanguageMenuVisible, setEmailLanguageMenuVisible] = useState(false)
+  const { t } = useTranslation();
 
   const {
     openAIAPIKey, setOpenAIAPIKey,
