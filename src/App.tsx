@@ -138,7 +138,7 @@ function App() {
   }, [userLanguage]);
 
   return (
-    <div className="App">
+    <div className={`App ${showWelcomePopup && 'fixed'}`}>
       { settingsVisible && (
         <Settings />
       )}
