@@ -21,19 +21,18 @@ export default function Settings() {
   } = useAppStore();
 
   return (
-    <div className="fixed h-full top-0 right-0 bg-white w-1/3 z-30 pt-16 px-4 border-l-4 border-indigo-500">
+    <div className="fixed h-full top-0 right-0 bg-white w-1/3 z-30 pt-16 px-4 border-l-[1px] border-l-grey-300 shadow-xl">
       <XMarkIcon
-        className="w-8 cursor-pointer absolute top-4 right-4 hover:opacity-70"
+        className="w-8 cursor-pointer absolute top-4 right-4 hover:opacity-70 hover:scale-105"
         onClick={ () => setSettingsVisible(false) } />
 
       <div className="mb-6">
         <label
-          htmlFor=""
-          className="font-bold mb-1 block">
+          className="text-base font-bold mb-1 block">
           { t("open_ai_api_key") }
         </label>
         <input
-          className='w-full rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700'
+          className='mt-2 appearance-none text-slate-900 bg-white rounded-md block w-full px-3 h-10 shadow-sm sm:text-md focus:outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-sky-500 ring-1 ring-gray-300'
           onChange={(e) => setOpenAIAPIKey(e.target.value) }
           value={openAIAPIKey}
           placeholder='sk-XXXXXXXXXX...'
@@ -42,7 +41,7 @@ export default function Settings() {
 
       <div className="flex items-center mb-6">
         <div
-          className="font-bold mb-1 block mr-4">
+          className="text-base font-bold mb-1 block mr-4">
           { t("i_know") }
         </div>
 
@@ -55,7 +54,7 @@ export default function Settings() {
 
       <div className="flex items-center">
         <div
-          className="font-bold mb-1 block mr-4">
+          className="text-base font-bold mb-1 block mr-4">
           { t("i_learn") }
         </div>
 
