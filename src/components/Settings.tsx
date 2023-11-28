@@ -3,6 +3,7 @@ import { XMarkIcon } from '@heroicons/react/24/solid'
 import { useTranslation } from "react-i18next";
 import EmojiCountryCodes from '../data/interface';
 import DropdownMenu from './DropdownMenu';
+import { useEffect } from 'react';
 
 export default function Settings() {
   const { t } = useTranslation();
@@ -13,6 +14,14 @@ export default function Settings() {
     userLanguage, setUserLanguage,
     emailLanguage, setEmailLanguage
   } = useAppStore();
+
+  useEffect(() => {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        setSettingsVisible(false)
+      }
+    })
+  }, [])
 
   return (
     <div className="fixed h-full top-0 right-0 bg-white w-1/3 z-30 pt-16 px-4 border-l-[1px] border-l-grey-300 shadow-xl">
