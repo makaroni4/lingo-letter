@@ -1,4 +1,3 @@
-import './App.css';
 import { useAppStore } from './store';
 import { useEffect } from 'react';
 import OpenAI from 'openai';
@@ -102,7 +101,7 @@ function App() {
 
       <Navbar />
 
-      <div className="pb-24 px-12">
+      <div className="container pb-24">
         { showWelcomeBanner && (
           <div className="mb-12">
             <WelcomeBanner />
@@ -110,7 +109,6 @@ function App() {
         ) }
 
         <Assignment />
-
 
         <div className='mb-12'>
           <TextareaAutosize

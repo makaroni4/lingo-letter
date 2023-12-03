@@ -1,6 +1,5 @@
 import { useAppStore } from '../store';
 import { useEffect, useState } from 'react';
-import Twemoji from './Twemoji';
 import { Cog6ToothIcon } from '@heroicons/react/24/solid'
 import { generateIncomingEmail } from '../utils/generate-incoming-email';
 import { useTranslation } from "react-i18next";
@@ -14,14 +13,13 @@ export default function Navbar() {
   const [timerSecondsLeft, setTimerSecondsLeft] = useState(HALF_AN_HOUR)
 
   const {
-    openAIAPIKey, setOpenAIAPIKey,
-    letter, setLetter,
+    openAIAPIKey,
+    setLetter,
     incomingEmail, setIncomingEmail,
-    responseTopics, setResponseTopics,
+    setResponseTopics,
     settingsVisible, setSettingsVisible,
-    originalSentences, setOriginalSentences,
-    verifiedSentences, setVerifiedSentences,
-    userLanguage,
+    setOriginalSentences,
+    setVerifiedSentences,
     emailLanguage
   } = useAppStore();
 
@@ -74,7 +72,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="flex items-center justify-between	p-12 pt-8">
+    <nav className="container flex items-center justify-between	py-8">
       <div>
         <Logo />
       </div>

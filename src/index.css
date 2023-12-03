@@ -97,3 +97,19 @@ a:hover {
 .tooltip-wrapper:hover .tooltip {
   display: inline-block;
 }
+
+.emoji {
+  display: inline-block;
+  width: auto;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
