@@ -59,6 +59,7 @@ export default function Navbar() {
       setIncomingEmail("")
       setResponseTopics([])
       setShowExampleExamBadge(false)
+      setTimerIsOn(false)
 
       const { email, topics } = await generateIncomingEmail({
         apiKey: openAIAPIKey,
@@ -96,7 +97,7 @@ export default function Navbar() {
 
           { !openAIAPIKey && (
             <div className="tooltip absolute z-10 inline-block px-3 py-2 text-sm font-medium  bg-yellow-300	rounded-lg shadow-sm -bottom-1 -left-50 translate-y-full -translate-x-full whitespace-nowrap">
-              { t("set_api_key") }
+              { t("set_open")}
               <div className="tooltip-arrow border-[4px] border-solid border-transparent border-t-0 border-b-yellow-300"></div>
             </div>
           )}
