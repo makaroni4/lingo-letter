@@ -1,13 +1,15 @@
 import { useAppStore } from '../store';
 import { useTranslation } from "react-i18next";
 import Markdownify from './Markdownify';
+import ExampleExamBadge from './ExampleExamBadge';
 
 export default function Assignment() {
   const { t } = useTranslation();
 
   const {
     incomingEmail,
-    responseTopics
+    responseTopics,
+    showExampleExamBadge
   } = useAppStore();
 
   return (
@@ -18,7 +20,11 @@ export default function Assignment() {
         { t("you_have_received_an_email") }
       </div>
 
-      <div className="text-lg p-8 leading-8 bg-slate-100 rounded-md font-serif mb-8">
+      <div className="relative text-lg p-8 leading-8 bg-slate-100 rounded-md font-serif mb-8">
+        { showExampleExamBadge && (<div className="absolute top-4 -right-8 rotate-[30deg]">
+          <ExampleExamBadge />
+        </div>)}
+
         <Markdownify>
           { incomingEmail }
         </Markdownify>

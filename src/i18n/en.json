@@ -17,6 +17,7 @@
     "minuteWithCount_one": "minute left",
     "minuteWithCount_other": "minutes left",
     "restart_alert_question": "Are you sure you want to restart the exam?",
+    "example": "Example",
     "languages": {
       "en": "English",
       "es": "Spanish",
