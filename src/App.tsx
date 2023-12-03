@@ -172,7 +172,7 @@ function App() {
 
         <div className='mb-12'>
           <TextareaAutosize
-            className="mb-3 p-4 text-lg w-full shadow-sm sm:text-md leading-10 focus:outline-none focus:ring-2 focus:ring-sky-500 ring-1 ring-gray-300 rounded-md font-serif"
+            className="mb-3 p-4 text-lg w-full shadow-sm leading-10 focus:outline-none focus:ring-2 focus:ring-sky-500 ring-1 ring-gray-300 rounded-md font-serif"
             value={letter}
             minRows={8}
             onChange={(e) => setLetter(e.target.value) } />
@@ -188,21 +188,21 @@ function App() {
         { verifiedSentences.length > 0 && (
           <div className="mb-16">
             <div className='grid grid-cols-2 gap-4 mb-4'>
-              <div><h3 className="text-left text-2xl">{ t("original_sentences") }</h3></div>
-              <div><h3 className="text-left text-2xl">{ t("fixed_sentences") }</h3></div>
+              <div><h2 className="text-3xl font-bold mb-3 mt-8">{ t("original_sentences") }</h2></div>
+              <div><h2 className="text-3xl font-bold mb-3 mt-8">{ t("fixed_sentences") }</h2></div>
             </div>
 
             { verifiedSentences.map((verifiedSentence, index) => (
               <div
                 key={`original-sentence-${originalSentences[index]}`}
-                className='grid grid-cols-2 gap-4 mb-4'>
+                className='grid grid-cols-2 gap-4 mb-4 text-lg leading-10 font-serif'>
                 <div
-                  className='text-left w-50'
+                  className='w-50'
                   dangerouslySetInnerHTML={highlightedOriginalSentence(originalSentences[index], verifiedSentence)} ></div>
 
                 <div>
                   <div
-                    className='text-left w-50 corrected-sentence'
+                    className='w-50 corrected-sentence'
                     dangerouslySetInnerHTML={highlightedFixedSentence(originalSentences[index], verifiedSentence)} ></div>
                 </div>
               </div>

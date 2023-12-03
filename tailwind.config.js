@@ -8,6 +8,9 @@ module.exports = {
       'serif': 'Libre Baskerville, serif',
       'sans': 'Mulish, sans-serif'
     },
+    container: {
+      center: true,
+    },
   },
   plugins: [],
 }

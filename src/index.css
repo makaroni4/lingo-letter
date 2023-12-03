@@ -10,14 +10,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.corrected-sentence {
-  font-size: 0;
-}
-
-.corrected-sentence span {
-  font-size: 16px;
-}
-
 .mistake-highlight {
   position: relative;
   display: inline-block;
@@ -74,6 +66,10 @@ a:hover {
 
   .markdown-copy a {
     @apply underline;
+  }
+
+  .corrected-sentence span {
+    @apply text-lg;
   }
 
   button:disabled {
