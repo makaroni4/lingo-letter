@@ -21,7 +21,6 @@ export default function Navbar() {
     settingsVisible, setSettingsVisible,
     originalSentences, setOriginalSentences,
     verifiedSentences, setVerifiedSentences,
-    topicsVerification, setTopicsVerification,
     userLanguage,
     emailLanguage
   } = useAppStore();
@@ -60,7 +59,6 @@ export default function Navbar() {
       setVerifiedSentences([])
       setIncomingEmail("")
       setResponseTopics([])
-      setTopicsVerification({})
 
       const { email, topics } = await generateIncomingEmail({
         apiKey: openAIAPIKey,
