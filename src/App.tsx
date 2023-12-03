@@ -12,8 +12,8 @@ import Footer from './components/Footer';
 import Button from './components/Button';
 import WelcomePopup from './components/WelcomePopup';
 import TextareaAutosize from 'react-textarea-autosize';
-import Markdownify from './components/Markdownify';
 import VerifiedSubmission from './components/VerifiedSubmission';
+import Assignment from './components/Assignment';
 
 function App() {
   const { t } = useTranslation();
@@ -109,41 +109,7 @@ function App() {
           </div>
         ) }
 
-        <div className='mb-12'>
-          <h1 className="text-3xl font-bold mb-3 mt-8">{ t("writing_test") }</h1>
-
-          <div className="mb-8 text-lg">
-            { t("you_have_received_an_email") }
-          </div>
-
-          <div className="text-lg p-8 leading-8 bg-slate-100 rounded-md font-serif mb-8">
-            <Markdownify>
-              { incomingEmail }
-            </Markdownify>
-          </div>
-
-          <div className="mb-5 text-lg">
-            { t("answer_the_email_and_cover_topics") }
-          </div>
-
-          <div className='mb-10'>
-            <ul className='list-disc list-inside'>
-              { responseTopics.map((topic) => {
-                return (
-                  <li
-                    className="text-lg mb-4 last:mb-0"
-                    key={topic}>
-                    { topic }
-                  </li>
-                )
-              }) }
-            </ul>
-          </div>
-
-          <div className='text-lg'>
-            { t("writing_instructions") }
-          </div>
-        </div>
+        <Assignment />
 
 
         <div className='mb-12'>
