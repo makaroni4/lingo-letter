@@ -5,7 +5,7 @@ export default function Footer() {
 
       <div className="flex justify-between pt-6 pb-10 text-md text-slate-600">
         <div>
-          © Made with ❤️ by <a className="underline" href="https://twitter.com/makaroni4">Anatoli Makarevich</a>
+          Made with ❤️ by <a className="underline" href="https://twitter.com/makaroni4">Anatoli Makarevich</a>
         </div>
 
         <div>
