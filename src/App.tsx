@@ -13,6 +13,7 @@ import WelcomePopup from './components/WelcomePopup';
 import TextareaAutosize from 'react-textarea-autosize';
 import VerifiedSubmission from './components/VerifiedSubmission';
 import Assignment from './components/Assignment';
+import ExampleExamBadge from './components/ExampleExamBadge';
 
 function App() {
   const { t } = useTranslation();
@@ -29,7 +30,8 @@ function App() {
     userLanguage,
     emailLanguage,
     showWelcomeBanner,
-    showWelcomePopup
+    showWelcomePopup,
+    showExampleExamBadge
   } = useAppStore();
 
   let openai: any;
@@ -110,7 +112,11 @@ function App() {
 
         <Assignment />
 
-        <div className='mb-12'>
+        <div className='relative mb-12'>
+          { showExampleExamBadge && (<div className="absolute top-4 -right-8 rotate-[30deg]">
+            <ExampleExamBadge />
+          </div>)}
+
           <TextareaAutosize
             className="mb-3 p-4 text-lg w-full shadow-sm leading-10 focus:outline-none focus:ring-2 focus:ring-sky-500 ring-1 ring-gray-300 rounded-md font-serif"
             value={letter}
@@ -125,7 +131,13 @@ function App() {
           </div>
         </div>
 
-        <VerifiedSubmission />
+        <div className="relative">
+          { showExampleExamBadge && (<div className="absolute top-12 -right-4 rotate-[30deg]">
+            <ExampleExamBadge />
+          </div>)}
+
+          <VerifiedSubmission />
+        </div>
       </div>
 
       <Footer />
