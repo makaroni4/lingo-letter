@@ -21,7 +21,9 @@ export default function Navbar() {
     setOriginalSentences,
     setVerifiedSentences,
     emailLanguage,
-    setShowExampleExamBadge
+    setShowExampleExamBadge,
+    setErrorMessage,
+    setShowErrorMessage
   } = useAppStore();
 
   useEffect(() => {
@@ -61,16 +63,21 @@ export default function Navbar() {
       setShowExampleExamBadge(false)
       setTimerIsOn(false)
 
-      const { email, topics } = await generateIncomingEmail({
-        apiKey: openAIAPIKey,
-        emailLanguage: t(`languages.${emailLanguage}`)
-      })
+      try {
+        const { email, topics } = await generateIncomingEmail({
+          apiKey: openAIAPIKey,
+          emailLanguage: t(`languages.${emailLanguage}`)
+        })
 
-      setIncomingEmail(email)
-      setResponseTopics(topics)
+        setIncomingEmail(email)
+        setResponseTopics(topics)
 
-      setTimerSecondsLeft(HALF_AN_HOUR)
-      setTimerIsOn(true)
+        setTimerSecondsLeft(HALF_AN_HOUR)
+        setTimerIsOn(true)
+      } catch(error) {
+        setErrorMessage(t("cant_generate_exam"))
+        setShowErrorMessage(true)
+      }
     }
   }
 

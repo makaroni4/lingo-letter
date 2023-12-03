@@ -14,6 +14,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 import VerifiedSubmission from './components/VerifiedSubmission';
 import Assignment from './components/Assignment';
 import ExampleExamBadge from './components/ExampleExamBadge';
+import ErrorMessage from './components/ErrorMessage';
 
 function App() {
   const { t } = useTranslation();
@@ -31,7 +32,9 @@ function App() {
     emailLanguage,
     showWelcomeBanner,
     showWelcomePopup,
-    showExampleExamBadge
+    showExampleExamBadge,
+    errorMessage,
+    showErrorMessage
   } = useAppStore();
 
   let openai: any;
@@ -99,6 +102,10 @@ function App() {
 
       { showWelcomePopup && (
         <WelcomePopup />
+      )}
+
+      { errorMessage && showErrorMessage && (
+        <ErrorMessage />
       )}
 
       <Navbar />

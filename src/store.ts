@@ -36,6 +36,10 @@ interface AppStore {
   setWelcomeBannerCopy: (key: string) => void,
   showExampleExamBadge: boolean,
   setShowExampleExamBadge: (key: boolean) => void,
+  errorMessage: string,
+  setErrorMessage: (key: string) => void,
+  showErrorMessage: boolean,
+  setShowErrorMessage: (key: boolean) => void,
 }
 
 export const useAppStore = create<AppStore>()(
@@ -91,6 +95,10 @@ export const useAppStore = create<AppStore>()(
       setWelcomeBannerCopy: (key) => set({ welcomeBannerCopy: key }),
       showExampleExamBadge: true,
       setShowExampleExamBadge: (key) => set({ showExampleExamBadge: key }),
+      errorMessage: "",
+      setErrorMessage: (key) => set({ errorMessage: key }),
+      showErrorMessage: false,
+      setShowErrorMessage: (key) => set({ showErrorMessage: key }),
     }),
     {
       name: 'email-writing-exam-storage',

@@ -18,6 +18,7 @@
     "minuteWithCount_other": "minutes left",
     "restart_alert_question": "Are you sure you want to restart the exam?",
     "example": "Example",
+    "cant_generate_exam": "Chat GPT API hasn't responden with a valid exam 3 times in a row. Please, try again in a minute.",
     "languages": {
       "en": "English",
       "es": "Spanish",
