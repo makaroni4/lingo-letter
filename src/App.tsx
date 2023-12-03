@@ -3,7 +3,6 @@ import { useAppStore } from './store';
 import { useEffect } from 'react';
 import OpenAI from 'openai';
 import { splitIntoSentences } from './utils/split-into-sentences';
-import diff from 'fast-diff'
 import Settings from "./components/Settings"
 import Navbar from './components/Navbar';
 import { verifyEmailSubmission } from './utils/verify-email-submission';
@@ -14,6 +13,7 @@ import Button from './components/Button';
 import WelcomePopup from './components/WelcomePopup';
 import TextareaAutosize from 'react-textarea-autosize';
 import Markdownify from './components/Markdownify';
+import VerifiedSubmission from './components/VerifiedSubmission';
 
 function App() {
   const { t } = useTranslation();
@@ -40,30 +40,6 @@ function App() {
       apiKey: openAIAPIKey,
       dangerouslyAllowBrowser: true
     });
-  }
-
-  const highlightedOriginalSentence = (original: string, corrected: string): { __html: string } => {
-    const sentenceDiff = diff(original, corrected);
-    const sentence = sentenceDiff.filter(d => d[0] === 0 || d[0] === -1).map(d => {
-      const className = d[1] !== "\n" && d[0] === -1 ? "bg-red-300 mistake-highlight" : ""
-      return `<span class="${className}">${d[1].replace("\n", "<br>")}</span>`
-    }).join("")
-
-    return {
-      __html: sentence
-    }
-  }
-
-  const highlightedFixedSentence = (original: string, corrected: string): { __html: string } => {
-    const sentenceDiff = diff(original, corrected);
-    const sentence = sentenceDiff.filter(d => d[0] === 0 || d[0] === 1).map(d => {
-      const className = d[0] === 1 ? "bg-red-300 mistake-highlight" : ""
-      return `<span class="${className}">${d[1].replace("\n", "<br>")}</span>`
-    }).join("")
-
-    return {
-      __html: sentence
-    }
   }
 
   const handleFormSubmit = async () => {
@@ -185,30 +161,7 @@ function App() {
           </div>
         </div>
 
-        { verifiedSentences.length > 0 && (
-          <div className="mb-16">
-            <div className='grid grid-cols-2 gap-4 mb-4'>
-              <div><h2 className="text-3xl font-bold mb-3 mt-8">{ t("original_sentences") }</h2></div>
-              <div><h2 className="text-3xl font-bold mb-3 mt-8">{ t("fixed_sentences") }</h2></div>
-            </div>
-
-            { verifiedSentences.map((verifiedSentence, index) => (
-              <div
-                key={`original-sentence-${originalSentences[index]}`}
-                className='grid grid-cols-2 gap-4 mb-4 text-lg leading-10 font-serif'>
-                <div
-                  className='w-50'
-                  dangerouslySetInnerHTML={highlightedOriginalSentence(originalSentences[index], verifiedSentence)} ></div>
-
-                <div>
-                  <div
-                    className='w-50 corrected-sentence'
-                    dangerouslySetInnerHTML={highlightedFixedSentence(originalSentences[index], verifiedSentence)} ></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+        <VerifiedSubmission />
       </div>
 
       <Footer />
