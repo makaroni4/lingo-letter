@@ -7,7 +7,6 @@ import diff from 'fast-diff'
 import Settings from "./components/Settings"
 import Navbar from './components/Navbar';
 import { verifyEmailSubmission } from './utils/verify-email-submission';
-import { verifyTopics } from './utils/verify-topics';
 import { useTranslation } from "react-i18next";
 import WelcomeBanner from './components/WelcomeBanner';
 import Footer from './components/Footer';
@@ -27,7 +26,6 @@ function App() {
     settingsVisible, setSettingsVisible,
     originalSentences, setOriginalSentences,
     verifiedSentences, setVerifiedSentences,
-    topicsVerification, setTopicsVerification,
     welcomeBannerCopy, setWelcomeBannerCopy,
     userLanguage,
     emailLanguage,
@@ -76,7 +74,6 @@ function App() {
 
     setOriginalSentences([])
     setVerifiedSentences([])
-    setTopicsVerification({})
 
     setOriginalSentences(splitIntoSentences(letter))
 
@@ -88,28 +85,6 @@ function App() {
       const fixedSentences = splitIntoSentences(verifiedEmail)
       setVerifiedSentences(fixedSentences)
     })
-
-    verifyTopics({
-      apiKey: openAIAPIKey,
-      topics: responseTopics,
-      letter,
-      emailLanguage: t(`languages.${emailLanguage}`)
-    }).then(verifiedTopics => {
-      setTopicsVerification(verifiedTopics);
-    })
-  }
-
-  const topicGradeBgColor = (grade: number | undefined): string => {
-    let className = "py-1 px-3 rounded-xl "
-    if (grade === 0) {
-      className += "bg-red-300"
-    } else if (grade === 1) {
-      className += "bg-amber-300"
-    } else if (grade === 2) {
-      className += "bg-emerald-400"
-    }
-
-    return className
   }
 
   useEffect(() => {
@@ -197,7 +172,7 @@ function App() {
 
         <div className='mb-12'>
           <TextareaAutosize
-            className="mb-3 p-4 text-lg w-full shadow-sm sm:text-md focus:outline-none focus:ring-2 focus:ring-sky-500 ring-1 ring-gray-300 rounded-md font-serif"
+            className="mb-3 p-4 text-lg w-full shadow-sm sm:text-md leading-10 focus:outline-none focus:ring-2 focus:ring-sky-500 ring-1 ring-gray-300 rounded-md font-serif"
             value={letter}
             minRows={8}
             onChange={(e) => setLetter(e.target.value) } />
@@ -232,32 +207,6 @@ function App() {
                 </div>
               </div>
             ))}
-          </div>
-        )}
-
-        { Object.keys(topicsVerification).length > 0 && (
-          <div
-            className='grid grid-cols-2 gap-4 mb-4'>
-            <div>
-
-            </div>
-            <div className="text-left">
-              <h2 className="text-2xl mb-6">
-                Your coverage of topics
-              </h2>
-
-              <div>
-                { Object.keys(topicsVerification).length > 0 && responseTopics.map((topic) => {
-                  return (
-                    <div
-                      className='mb-4'
-                      key={topic}>
-                      <strong className={topicGradeBgColor(topicsVerification[topic]?.grade)}>{ topic }</strong> { topicsVerification[topic]?.comment }
-                    </div>
-                  )
-                }) }
-              </div>
-            </div>
           </div>
         )}
       </div>

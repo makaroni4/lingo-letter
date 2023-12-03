@@ -28,8 +28,6 @@ interface AppStore {
   setOriginalSentences: (key: string[]) => void
   verifiedSentences: string[]
   setVerifiedSentences: (key: string[]) => void
-  topicsVerification: TopicVerifications
-  setTopicsVerification: (obj: TopicVerifications) => void,
   showWelcomeBanner: boolean,
   setShowWelcomeBanner: (key: boolean) => void,
   showWelcomePopup: boolean,
@@ -59,8 +57,6 @@ export const useAppStore = create<AppStore>()(
       setOriginalSentences: (key) => set({ originalSentences: key }),
       verifiedSentences: [],
       setVerifiedSentences: (key) => set({ verifiedSentences: key }),
-      topicsVerification: {},
-      setTopicsVerification: (obj) => set({ topicsVerification: obj}),
       showWelcomeBanner: true,
       setShowWelcomeBanner: (val) => set({ showWelcomeBanner: val }),
       showWelcomePopup: false,
