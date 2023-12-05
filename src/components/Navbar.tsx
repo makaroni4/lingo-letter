@@ -96,7 +96,7 @@ export default function Navbar() {
 
         <div className='relative tooltip-wrapper'>
           <Button
-            className="mr-8"
+            className="mr-8 js-start-exam"
             onClick={handleRestart}
             disabled={ !openAIAPIKey }>
             { incomingEmail ? t("reset_exam") : t("start_exam") }

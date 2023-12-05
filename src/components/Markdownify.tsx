@@ -21,7 +21,7 @@ export default function Markdownify({ children, className }: { className?: strin
   }
 
   return (
-    <Markdown rehypePlugins={[rehypeRaw]} className="markdown-copy">
+    <Markdown rehypePlugins={[rehypeRaw]} className={`markdown-copy ${className}`}>
       {twemojify(stripIndent(children))}
     </Markdown>
   )
