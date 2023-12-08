@@ -23,7 +23,9 @@ export default function Navbar() {
     emailLanguage,
     setShowExampleExamBadge,
     setErrorMessage,
-    setShowErrorMessage
+    setShowErrorMessage,
+    generatingExam, setGeneratingExam,
+    setShowWelcomeBanner
   } = useAppStore();
 
   useEffect(() => {
@@ -64,6 +66,8 @@ export default function Navbar() {
       setTimerIsOn(false)
 
       try {
+        setGeneratingExam(true)
+
         const { email, topics } = await generateIncomingEmail({
           apiKey: openAIAPIKey,
           emailLanguage: t(`languages.${emailLanguage}`)
@@ -74,11 +78,22 @@ export default function Navbar() {
 
         setTimerSecondsLeft(HALF_AN_HOUR)
         setTimerIsOn(true)
+        setShowWelcomeBanner(false)
       } catch(error) {
         setErrorMessage(t("cant_generate_exam"))
         setShowErrorMessage(true)
+      } finally {
+        setGeneratingExam(false)
       }
     }
+  }
+
+  const startCTACopy = () => {
+    if (generatingExam) {
+      return t("starting_exam")
+    }
+
+    return incomingEmail ? t("reset_exam") : t("start_exam")
   }
 
   return (
@@ -98,8 +113,8 @@ export default function Navbar() {
           <Button
             className="mr-8 js-start-exam"
             onClick={handleRestart}
-            disabled={ !openAIAPIKey }>
-            { incomingEmail ? t("reset_exam") : t("start_exam") }
+            disabled={ generatingExam || !openAIAPIKey }>
+            { startCTACopy() }
           </Button>
 
           { !openAIAPIKey && (

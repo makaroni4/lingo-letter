@@ -1,6 +1,7 @@
 {
   "translation": {
     "start_exam": "Start exam",
+    "starting_exam": "Generating exam...",
     "reset_exam": "Reset exam",
     "writing_test": "Writing exam",
     "you_have_received_an_email": "You have received the following email:",

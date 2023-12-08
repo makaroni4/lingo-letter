@@ -40,6 +40,8 @@ interface AppStore {
   setErrorMessage: (key: string) => void,
   showErrorMessage: boolean,
   setShowErrorMessage: (key: boolean) => void,
+  generatingExam: boolean,
+  setGeneratingExam: (key: boolean) => void,
 }
 
 export const useAppStore = create<AppStore>()(
@@ -99,6 +101,8 @@ export const useAppStore = create<AppStore>()(
       setErrorMessage: (key) => set({ errorMessage: key }),
       showErrorMessage: false,
       setShowErrorMessage: (key) => set({ showErrorMessage: key }),
+      generatingExam: false,
+      setGeneratingExam: (key) => set({ generatingExam: key }),
     }),
     {
       name: 'email-writing-exam-storage',

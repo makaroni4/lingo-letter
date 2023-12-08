@@ -49,7 +49,7 @@ a:hover {
   }
 
   .markdown-copy p {
-    @apply text-lg inline-block;
+    @apply text-lg inline-block leading-10;
   }
 
   .markdown-copy p:not(:last-child) {

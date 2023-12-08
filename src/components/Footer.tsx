@@ -5,9 +5,6 @@ export default function Footer() {
 
       <div className="flex flex-col md:flex-row justify-between py-6 text-md text-slate-600">
         <div className="mb-4 md:mb-0">
-          <div className="mb-3">
-            © {new Date().getFullYear()} Lingo Email
-          </div>
           <a
             className="flex mb-3 mr-4 underline"
             href="https://github.com/makaroni4/lingo-email">

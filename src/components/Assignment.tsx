@@ -39,7 +39,7 @@ export default function Assignment() {
           { responseTopics.map((topic) => {
             return (
               <li
-                className="text-lg mb-4 last:mb-0"
+                className="text-lg mb-4 last:mb-0 font-serif"
                 key={topic}>
                 { topic }
               </li>
