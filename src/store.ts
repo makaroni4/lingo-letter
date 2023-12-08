@@ -1,6 +1,7 @@
 import { create } from "zustand"
 import { persist, createJSONStorage } from "zustand/middleware"
 import EmojiCountryCodes from "./data/interface"
+import i18next from "./i18n"
 
 export interface TopicVerifications {
   [key: string]: {
@@ -46,6 +47,11 @@ interface AppStore {
   setProcessingSubmission: (key: boolean) => void,
 }
 
+const defaultLetter = i18next.t("example_letter", { lng: "de" })
+const defaultIncomingEmail = i18next.t("example_email", { lng: "de" })
+const defaultOriginalSentences: string[] = i18next.t("example_original_sentences", { lng: "de", returnObjects: true })
+const defaultVerifiedSentences: string[] = i18next.t("example_verified_sentences", { lng: "de", returnObjects: true })
+
 export const useAppStore = create<AppStore>()(
   persist(
     (set, get) => ({
@@ -57,39 +63,15 @@ export const useAppStore = create<AppStore>()(
       setEmailLanguage: (key) => set({ emailLanguage: key }),
       settingsVisible: false,
       setSettingsVisible: (key) => set({ settingsVisible: key }),
-      letter: "Lieber Marta, vielen Dank für deinen E-Mail! Es geht mich wirklich gut. Ich habe mich total darüber gefreut, von dir zu hören. Dein Angebot für eines gemeinsamen Urlaub in Spanien clingt wirklich fantastisch! Ich mag der Idee eine Woche am Strand zu verbringen. Die Hotels, die du gefunden hast, hören sich auch toll an. Ich habe, in Moment keinen konkreten Planen für meines Urlaub gemacht, also bin ich definitiv interessert! Ich denke Spanien ist eine großartige Idee aber ich bin auch offen für andere Vorschläge. Fielleicht könnten wir gemeinsam überlegen, wohin es gehen könnte. Lass mich wissen, was du denken! Liebe Grüße, Sophie",
+      letter: defaultLetter,
       setLetter: (text) => set({ letter: text }),
-      incomingEmail: "Liebe Sophie,\n\nich hoffe es geht dir gut! Lange haben wir uns nicht mehr geschrieben, deshalb wollte ich dir mal wieder eine E-Mail schicken. Ich bin gerade dabei, meinen nächsten Urlaub zu planen und wollte dich fragen, ob du Lust hast mitzukommen?! 😄🏖️\n\nIch habe mir überlegt, dass wir nach Spanien fliegen könnten. Wie wäre es mit einer Woche am Strand? Ich habe schon ein paar tolle Hotels gefunden, die nicht zu teuer sind. Was denkst du dazu? Hast du vielleicht andere Vorschläge für unser Reiseziel?\n\nUnd wie sieht es eigentlich bei dir mit deinem Urlaub aus? Hast du schon Pläne gemacht?\n\nLiebe Grüße,\nMarta",
+      incomingEmail: defaultIncomingEmail,
       setIncomingEmail: (text) => set({ incomingEmail: text }),
       responseTopics: ["Urlaubspläne", "Reiseziel", "Urlaub von Sophie"],
       setResponseTopics: (arr) => set({ responseTopics: arr }),
-      originalSentences: [
-        "Lieber Marta, vielen Dank für deinen E-Mail!",
-        "Es geht mich wirklich gut.",
-        "Ich habe mich total darüber gefreut, von dir zu hören.",
-        "Dein Angebot für eines gemeinsamen Urlaub in Spanien clingt wirklich fantastisch!",
-        "Ich mag der Idee eine Woche am Strand zu verbringen.",
-        "Die Hotels, die du gefunden hast, hören sich auch toll an.",
-        "Ich habe, in Moment keinen konkreten Planen für meines Urlaub gemacht, also bin ich definitiv interessert!",
-        "Ich denke Spanien ist eine großartige Idee aber ich bin auch offen für andere Vorschläge.",
-        "Fielleicht könnten wir gemeinsam überlegen, wohin es gehen könnte.",
-        "Lass mich wissen, was du denken!",
-        "Liebe Grüße, Sophie\n\n\n\n"
-      ],
+      originalSentences: defaultOriginalSentences,
       setOriginalSentences: (key) => set({ originalSentences: key }),
-      verifiedSentences: [
-        "Lieber Marta, vielen Dank für deine E-Mail!",
-        "Es geht mir wirklich gut.",
-        "Ich habe mich total darüber gefreut, von dir zu hören.",
-        "Dein Angebot für einen gemeinsamen Urlaub in Spanien klingt wirklich fantastisch!",
-        "Ich mag die Idee, eine Woche am Strand zu verbringen.",
-        "Die Hotels, die du gefunden hast, hören sich auch toll an.",
-        "Ich habe im Moment keine konkreten Pläne für meinen Urlaub gemacht, also bin ich definitiv interessiert!",
-        "Ich denke, Spanien ist eine großartige Idee, aber ich bin auch offen für andere Vorschläge.",
-        "Vielleicht könnten wir gemeinsam überlegen, wohin es gehen könnte.",
-        "Lass mich wissen, was du denkst!",
-        "Liebe Grüße, Sophie"
-      ],
+      verifiedSentences: defaultVerifiedSentences,
       setVerifiedSentences: (key) => set({ verifiedSentences: key }),
       showWelcomeBanner: true,
       setShowWelcomeBanner: (val) => set({ showWelcomeBanner: val }),

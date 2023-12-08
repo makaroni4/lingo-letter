@@ -28,6 +28,10 @@
       "de": "German",
       "it": "Italian",
       "pt": "Portuguese"
-    }
+    },
+    "example_letter": "",
+    "example_email": "",
+    "example_original_sentences": "",
+    "example_verified_sentences": ""
   }
 }
