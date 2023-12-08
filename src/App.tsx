@@ -1,6 +1,5 @@
 import { useAppStore } from './store';
 import { useEffect } from 'react';
-import OpenAI from 'openai';
 import { splitIntoSentences } from './utils/split-into-sentences';
 import Settings from "./components/Settings"
 import Navbar from './components/Navbar';
@@ -34,23 +33,18 @@ function App() {
     showWelcomePopup,
     showExampleExamBadge,
     errorMessage,
-    showErrorMessage
+    showErrorMessage,
+    generatingExam,
+    processingSubmission, setProcessingSubmission
   } = useAppStore();
-
-  let openai: any;
-
-  if (openAIAPIKey) {
-    openai = new OpenAI({
-      apiKey: openAIAPIKey,
-      dangerouslyAllowBrowser: true
-    });
-  }
 
   const handleFormSubmit = async () => {
     if(!letter) {
       console.log("--> empty handleFormSubmit")
       return;
     }
+
+    setProcessingSubmission(true)
 
     setOriginalSentences([])
     setVerifiedSentences([])
@@ -64,6 +58,8 @@ function App() {
     }).then(verifiedEmail => {
       const fixedSentences = splitIntoSentences(verifiedEmail)
       setVerifiedSentences(fixedSentences)
+    }).finally(() => {
+      setProcessingSubmission(false)
     })
   }
 
@@ -94,6 +90,13 @@ function App() {
     loadTranslations();
   }, [userLanguage]);
 
+  const submitButtonDisabled = () => {
+    if (!letter) {
+      return true
+    }
+
+    return generatingExam || processingSubmission
+  }
   return (
     <div className={`App ${showWelcomePopup && 'fixed'}`}>
       { settingsVisible && (
@@ -132,8 +135,9 @@ function App() {
 
           <div className='flex justify-end'>
             <Button
+              disabled={submitButtonDisabled()}
               onClick={handleFormSubmit}>
-              { t("submit") }
+              { processingSubmission ? t("processing_submission") : t("submit") }
             </Button>
           </div>
         </div>
