@@ -19,6 +19,34 @@
       "de": "Deutsch",
       "it": "Italienisch",
       "pt": "Portugiesisch"
-    }
+    },
+    "example_email": "Liebe Sophie,\n\nich hoffe es geht dir gut! Lange haben wir uns nicht mehr geschrieben, deshalb wollte ich dir mal wieder eine E-Mail schicken. Ich bin gerade dabei, meinen nächsten Urlaub zu planen und wollte dich fragen, ob du Lust hast mitzukommen?! 😄🏖️\n\nIch habe mir überlegt, dass wir nach Spanien fliegen könnten. Wie wäre es mit einer Woche am Strand? Ich habe schon ein paar tolle Hotels gefunden, die nicht zu teuer sind. Was denkst du dazu? Hast du vielleicht andere Vorschläge für unser Reiseziel?\n\nUnd wie sieht es eigentlich bei dir mit deinem Urlaub aus? Hast du schon Pläne gemacht?\n\nLiebe Grüße,\nMarta",
+    "example_letter": "Lieber Marta, vielen Dank für deinen E-Mail! Es geht mich wirklich gut. Ich habe mich total darüber gefreut, von dir zu hören. Dein Angebot für eines gemeinsamen Urlaub in Spanien clingt wirklich fantastisch! Ich mag der Idee eine Woche am Strand zu verbringen. Die Hotels, die du gefunden hast, hören sich auch toll an. Ich habe, in Moment keinen konkreten Planen für meines Urlaub gemacht, also bin ich definitiv interessert! Ich denke Spanien ist eine großartige Idee aber ich bin auch offen für andere Vorschläge. Fielleicht könnten wir gemeinsam überlegen, wohin es gehen könnte. Lass mich wissen, was du denken! Liebe Grüße, Sophie",
+    "example_original_sentences": [
+      "Lieber Marta, vielen Dank für deinen E-Mail!",
+      "Es geht mich wirklich gut.",
+      "Ich habe mich total darüber gefreut, von dir zu hören.",
+      "Dein Angebot für eines gemeinsamen Urlaub in Spanien clingt wirklich fantastisch!",
+      "Ich mag der Idee eine Woche am Strand zu verbringen.",
+      "Die Hotels, die du gefunden hast, hören sich auch toll an.",
+      "Ich habe, in Moment keinen konkreten Planen für meines Urlaub gemacht, also bin ich definitiv interessert!",
+      "Ich denke Spanien ist eine großartige Idee aber ich bin auch offen für andere Vorschläge.",
+      "Fielleicht könnten wir gemeinsam überlegen, wohin es gehen könnte.",
+      "Lass mich wissen, was du denken!",
+      "Liebe Grüße, Sophie\n\n\n\n"
+    ],
+    "example_verified_sentences": [
+      "Lieber Marta, vielen Dank für deine E-Mail!",
+      "Es geht mir wirklich gut.",
+      "Ich habe mich total darüber gefreut, von dir zu hören.",
+      "Dein Angebot für einen gemeinsamen Urlaub in Spanien klingt wirklich fantastisch!",
+      "Ich mag die Idee, eine Woche am Strand zu verbringen.",
+      "Die Hotels, die du gefunden hast, hören sich auch toll an.",
+      "Ich habe im Moment keine konkreten Pläne für meinen Urlaub gemacht, also bin ich definitiv interessiert!",
+      "Ich denke, Spanien ist eine großartige Idee, aber ich bin auch offen für andere Vorschläge.",
+      "Vielleicht könnten wir gemeinsam überlegen, wohin es gehen könnte.",
+      "Lass mich wissen, was du denkst!",
+      "Liebe Grüße, Sophie"
+    ]
   }
 }

@@ -1,6 +1,6 @@
-import { create } from 'zustand'
-import { persist, createJSONStorage } from 'zustand/middleware'
-import EmojiCountryCodes from './data/interface';
+import { create } from "zustand"
+import { persist, createJSONStorage } from "zustand/middleware"
+import EmojiCountryCodes from "./data/interface"
 
 export interface TopicVerifications {
   [key: string]: {
@@ -109,7 +109,7 @@ export const useAppStore = create<AppStore>()(
       setProcessingSubmission: (key) => set({ processingSubmission: key }),
     }),
     {
-      name: 'email-writing-exam-storage',
+      name: "email-writing-exam-storage",
       storage: createJSONStorage(() => localStorage)
     }
   )
