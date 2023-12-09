@@ -11,6 +11,7 @@ export const verifyEmailSubmission = async ({
 }) => {
   if (!apiKey) {
     alert("Please, set Open AI API key")
+    return
   }
 
   const openai = new OpenAI({
