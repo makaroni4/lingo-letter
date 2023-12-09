@@ -14,7 +14,6 @@
     "i_know": "Ich weiß",
     "i_learn": "Ich lerne",
     "open_ai_api_key": "OpenAI API-Schlüssel",
-    "welcome_banner_copy": "Hallo, hier ist [Anatoli](https://www.x.com/makaroni4), der Entwickler des **E-Mail-Schreibtrainers**! 👋\n Ich habe dies erstellt, um vor einer offiziellen [TELC B1 Deutschprüfung](https://www.telc.net/sprachpruefungen/deutsch/zertifikat-deutsch-telc-deutsch-b1) zu üben, die eine schriftliche Aufgabe zum Beantworten einer E-Mail beinhaltet. Dieser Trainer imitiert die genaue Struktur des TELC E-Mail-Tests.\n Die E-Mail wird über Chat GPT generiert, daher müssen Sie Ihren API-Schlüssel in den Einstellungen festlegen ([eine Notiz dazu, wo Sie den API-Schlüssel erhalten](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key)). \n\n EWT \"unterstützt\" (es ist lustig, \"unterstützt\" zu schreiben, weil alles KI-generiert ist) die folgenden Sprachen:",
     "set_api_key": "Bitte setzen Sie den Open AI API-Schlüssel",
     "minuteWithCount_one": "Minute übrig",
     "minuteWithCount_other": "Minuten übrig",

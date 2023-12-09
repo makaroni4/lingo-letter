@@ -14,7 +14,6 @@
     "i_know": "I know",
     "i_learn": "I learn",
     "open_ai_api_key": "OpenAI API Key",
-    "welcome_banner_copy": "Hi, it's [Anatoli](https://www.x.com/makaroni4), maker of the **Email Writing Trainer**! 👋\n I built this to practice before taking an official [TELC B1 German Test](https://www.telc.net/sprachpruefungen/deutsch/zertifikat-deutsch-telc-deutsch-b1), which has a written assignment about responding to an E-mail. This trainer mimics the exact structure of the TELC E-mail test.\nThe E-mail is gerenated via Chat GPT, so you'll have to set your API key in the settings ([a note on where to get API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key)). \n\n EWT \"supports\" (it's funny to write supports, because it's all AI-generated) the following languages:",
     "set_api_key": "Please, set Open AI API key",
     "minuteWithCount_one": "minute left",
     "minuteWithCount_other": "minutes left",
