@@ -53,14 +53,14 @@ const defaultLetter = i18next.t("example_letter", { lng: defaultEmailLanguage })
 const defaultIncomingEmail = i18next.t("example_email", {
   lng: defaultEmailLanguage
 })
-const defaultOriginalSentences: string[] = i18next.t(
-  "example_original_sentences",
-  { lng: defaultEmailLanguage, returnObjects: true }
-)
-const defaultVerifiedSentences: string[] = i18next.t(
-  "example_verified_sentences",
-  { lng: defaultEmailLanguage, returnObjects: true }
-)
+const defaultOriginalSentences: string[] = i18next.t("example_original_sentences", {
+  lng: defaultEmailLanguage,
+  returnObjects: true
+})
+const defaultVerifiedSentences: string[] = i18next.t("example_verified_sentences", {
+  lng: defaultEmailLanguage,
+  returnObjects: true
+})
 const defaultResponseTopics: string[] = i18next.t("example_response_topics", {
   lng: defaultEmailLanguage,
   returnObjects: true

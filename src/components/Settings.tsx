@@ -65,9 +65,7 @@ export default function Settings() {
       setIncomingEmail(t("example_email", { lng: language }))
       setLetter(t("example_letter", { lng: language }))
 
-      setResponseTopics(
-        t("example_response_topics", { lng: language, returnObjects: true })
-      )
+      setResponseTopics(t("example_response_topics", { lng: language, returnObjects: true }))
 
       setOriginalSentences(
         t("example_original_sentences", { lng: language, returnObjects: true })
@@ -87,9 +85,7 @@ export default function Settings() {
       />
 
       <div className="mb-6">
-        <label className="text-base font-medium mb-1 block">
-          {t("open_ai_api_key")}
-        </label>
+        <label className="text-base font-medium mb-1 block">{t("open_ai_api_key")}</label>
         <input
           className="mt-2 appearance-none text-slate-900 bg-white rounded-md block w-full px-3 h-10 shadow-sm sm:text-md focus:outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-sky-500 ring-1 ring-gray-300"
           onChange={(e) => setOpenAIAPIKey(e.target.value)}
@@ -100,9 +96,7 @@ export default function Settings() {
       </div>
 
       <div className="flex items-center mb-6">
-        <div className="text-base font-medium mb-1 block mr-4">
-          {t("i_know")}
-        </div>
+        <div className="text-base font-medium mb-1 block mr-4">{t("i_know")}</div>
 
         <div>
           <DropdownMenu
@@ -113,9 +107,7 @@ export default function Settings() {
       </div>
 
       <div className="flex items-center">
-        <div className="text-base font-medium mb-1 block mr-4">
-          {t("i_learn")}
-        </div>
+        <div className="text-base font-medium mb-1 block mr-4">{t("i_learn")}</div>
 
         <div>
           <DropdownMenu
@@ -140,11 +132,7 @@ export default function Settings() {
           rel="noreferrer"
           href="https://github.com/makaroni4/lingo-email"
         >
-          <img
-            className="w-5 mr-2"
-            src="./lingo-email/github.svg"
-            alt="Github repo"
-          />
+          <img className="w-5 mr-2" src="./lingo-email/github.svg" alt="Github repo" />
           Source code
         </a>
       </div>

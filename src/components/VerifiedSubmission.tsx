@@ -15,8 +15,7 @@ export default function VerifiedSubmission() {
     const sentence = sentenceDiff
       .filter((d) => d[0] === 0 || d[0] === -1)
       .map((d) => {
-        const className =
-          d[1] !== "\n" && d[0] === -1 ? "bg-red-300 mistake-highlight" : ""
+        const className = d[1] !== "\n" && d[0] === -1 ? "bg-red-300 mistake-highlight" : ""
         return `<span class="${className}">${d[1].replace("\n", "<br>")}</span>`
       })
       .join("")
@@ -50,14 +49,10 @@ export default function VerifiedSubmission() {
         <div className="mb-16">
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
-              <h2 className="text-3xl font-bold mb-3 mt-8">
-                {t("original_sentences")}
-              </h2>
+              <h2 className="text-3xl font-bold mb-3 mt-8">{t("original_sentences")}</h2>
             </div>
             <div>
-              <h2 className="text-3xl font-bold mb-3 mt-8">
-                {t("fixed_sentences")}
-              </h2>
+              <h2 className="text-3xl font-bold mb-3 mt-8">{t("fixed_sentences")}</h2>
             </div>
           </div>
 

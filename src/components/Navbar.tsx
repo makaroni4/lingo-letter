@@ -53,9 +53,7 @@ export default function Navbar() {
   }
 
   const handleRestart = async () => {
-    const result = incomingEmail
-      ? window.confirm(t("restart_alert_question"))
-      : true
+    const result = incomingEmail ? window.confirm(t("restart_alert_question")) : true
 
     if (!openAIAPIKey) {
       alert(t("set_api_key"))
@@ -142,11 +140,7 @@ export default function Navbar() {
           target="_blank"
           rel="noreferrer"
         >
-          <img
-            className="w-7 mr-8"
-            src="./lingo-email/github.svg"
-            alt="Github repo"
-          />
+          <img className="w-7 mr-8" src="./lingo-email/github.svg" alt="Github repo" />
         </a>
         {!settingsVisible && (
           <Cog6ToothIcon

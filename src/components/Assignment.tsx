@@ -24,9 +24,7 @@ export default function Assignment() {
         <Markdownify>{incomingEmail}</Markdownify>
       </div>
 
-      <div className="mb-5 text-lg">
-        {t("answer_the_email_and_cover_topics")}
-      </div>
+      <div className="mb-5 text-lg">{t("answer_the_email_and_cover_topics")}</div>
 
       <div className="mb-10">
         <ul className="list-disc list-inside">

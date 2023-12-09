@@ -19,10 +19,7 @@ export default function DropdownMenu({
       <div>
         <Menu.Button className="inline-flex items-center w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 ">
           <CountryTwemoji className="mr-3" countryCode={excludeLanguage} />
-          <ChevronDownIcon
-            className="-mr-1 h-5 w-5 text-gray-400"
-            aria-hidden="true"
-          />
+          <ChevronDownIcon className="-mr-1 h-5 w-5 text-gray-400" aria-hidden="true" />
         </Menu.Button>
       </div>
 
@@ -45,14 +42,10 @@ export default function DropdownMenu({
                     <div
                       className="flex items-center justify-center px-3 py-2 cursor-pointer hover:bg-slate-100"
                       onClick={() => {
-                        languageSelected(
-                          languageCode as keyof EmojiCountryCodes
-                        )
+                        languageSelected(languageCode as keyof EmojiCountryCodes)
                       }}
                     >
-                      <CountryTwemoji
-                        countryCode={languageCode as keyof EmojiCountryCodes}
-                      />
+                      <CountryTwemoji countryCode={languageCode as keyof EmojiCountryCodes} />
                     </div>
                   )}
                 </Menu.Item>
