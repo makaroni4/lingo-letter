@@ -16,7 +16,13 @@ export default function Settings() {
     userLanguage,
     setUserLanguage,
     emailLanguage,
-    setEmailLanguage
+    setEmailLanguage,
+    showExampleExamBadge,
+    setIncomingEmail,
+    setLetter,
+    setResponseTopics,
+    setOriginalSentences,
+    setVerifiedSentences
   } = useAppStore()
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -50,6 +56,27 @@ export default function Settings() {
   const handleUserLanguageSelected = (language: keyof EmojiCountryCodes) => {
     setUserLanguage(language)
     i18n.changeLanguage(language)
+  }
+
+  const handleEmailLanguageSelected = (language: keyof EmojiCountryCodes) => {
+    setEmailLanguage(language)
+
+    if (showExampleExamBadge) {
+      setIncomingEmail(t("example_email", { lng: language }))
+      setLetter(t("example_letter", { lng: language }))
+
+      setResponseTopics(
+        t("example_response_topics", { lng: language, returnObjects: true })
+      )
+
+      setOriginalSentences(
+        t("example_original_sentences", { lng: language, returnObjects: true })
+      )
+
+      setVerifiedSentences(
+        t("example_verified_sentences", { lng: language, returnObjects: true })
+      )
+    }
   }
 
   return (
@@ -93,9 +120,7 @@ export default function Settings() {
         <div>
           <DropdownMenu
             excludeLanguage={emailLanguage}
-            languageSelected={(language: keyof EmojiCountryCodes) =>
-              setEmailLanguage(language)
-            }
+            languageSelected={handleEmailLanguageSelected}
           />
         </div>
       </div>

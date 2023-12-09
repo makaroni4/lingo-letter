@@ -29,11 +29,39 @@
       "it": "Italian",
       "pt": "Portuguese"
     },
-    "example_letter": "",
-    "example_email": "",
-    "example_original_sentences": [],
-    "example_verified_sentences": [],
-    "example_response_topics": [],
+    "example_letter": "Hi Emma!\n\nIm doing wel, thanks for asking. It's really nice to hear you! \n\nI'd love join you for the movie night this Friday. New romantic comedy sounds like a lot of fun. \n\nAs for movie recommendations I recently watched a great drama called \"The Silver Lining\" – you might enjoy it. \n\nthanks for the invite and I apreciate your thoughtfulness about snacks. I'm good with anything, so surprise me! \n\nLooking forward to catching up with you and the gang. Take care! Lisa\n",
+    "example_email": "Hey Lisa! 🌸🌞\n\nI hope this email finds you well. It's been a while since we last caught up. How have you been? 💕\n\nI wanted to reach out and invite you to a movie night at my place this Friday. We're planning on watching the new romantic comedy that everyone's been talking about. 🎥🍿 It would be great if you could join us!\n\nBy the way, have you seen any good movies lately? I'm always looking for recommendations. 🎬\n\nLet me know if you can make it and if there's anything specific you'd like us to prepare for snacks. Can't wait to catch up with you! 😊\n\nTake care,\nEmma",
+    "example_original_sentences": [
+      "Hi Emma!",
+      "Im doing wel, thanks for asking.",
+      "It's really nice to hear you!",
+      "I'd love join you for the movie night this Friday.",
+      "New romantic comedy sounds like a lot of fun.",
+      "As for movie recommendations I recently watched a great drama called \"The Silver Lining\" – you might enjoy it.",
+      "thanks for the invite and I apreciate your thoughtfulness about snacks.",
+      "I'm good with anything, so surprise me!",
+      "Looking forward to catching up with you and the gang.",
+      "Take care!",
+      "Lisa\n"
+    ],
+    "example_verified_sentences": [
+      "Hi Emma!",
+      "I'm doing well, thanks for asking.",
+      "It's really nice to hear from you!",
+      "I'd love to join you for the movie night this Friday.",
+      "A new romantic comedy sounds like a lot of fun.",
+      "As for movie recommendations, I recently watched a great drama called \"The Silver Lining\" – you might enjoy it.",
+      "Thanks for the invite and I appreciate your thoughtfulness about snacks.",
+      "I'm good with anything, so surprise me!",
+      "Looking forward to catching up with you and the gang.",
+      "Take care!",
+      "Lisa"
+    ],
+    "example_response_topics": [
+      "Movie recommendations",
+      "Availability for the movie night",
+      "Snack preferences"
+    ],
     "source_code": "Source code",
     "feedback": "Feedback",
     "made_with_love": "Made with ❤️ by [Anatoli Makarevich](https://twitter.com/makaroni4)"
