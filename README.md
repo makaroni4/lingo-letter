@@ -15,7 +15,7 @@ Writing language exam simulator built with React and GPT.
 
 ## How it works?
 
-Lingo Letter draws inspiration from the [TELC B1 German Exam](https://www.telc.net/sprachpruefungen/deutsch/zertifikat-deutsch-telc-deutsch-b1). In the TELC exam, one of the tasks is to compose a response to a given email within 30 minutes. Essentially, Lingo Letter serves as a simulator for TELC email assignments.
+Lingo Letter draws inspiration from the [TELC B1 German Exam](https://www.telc.net/sprachpruefungen/deutsch/zertifikat-deutsch-telc-deutsch-b1). In the TELC exam, one of the tasks is to compose a response to a given letter within 30 minutes. Essentially, Lingo Letter serves as a simulator for TELC letter assignments.
 
 Currently, Lingo Letter supports the following languages:
 
