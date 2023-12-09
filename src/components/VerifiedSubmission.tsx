@@ -64,13 +64,15 @@ export default function VerifiedSubmission() {
           {verifiedSentences.map((verifiedSentence, index) => (
             <div
               key={`original-sentence-${originalSentences[index]}`}
-              className="grid grid-cols-2 gap-4 mb-4 text-lg leading-10 font-serif">
+              className="grid grid-cols-2 gap-4 mb-4 text-lg leading-10 font-serif"
+            >
               <div
                 className="w-50"
                 dangerouslySetInnerHTML={highlightedOriginalSentence(
                   originalSentences[index],
                   verifiedSentence
-                )}></div>
+                )}
+              ></div>
 
               <div>
                 <div
@@ -78,7 +80,8 @@ export default function VerifiedSubmission() {
                   dangerouslySetInnerHTML={highlightedFixedSentence(
                     originalSentences[index],
                     verifiedSentence
-                  )}></div>
+                  )}
+                ></div>
               </div>
             </div>
           ))}

@@ -119,13 +119,14 @@ export default function Navbar() {
           <Button
             className="mr-8 js-start-exam"
             onClick={handleRestart}
-            disabled={generatingExam || !openAIAPIKey}>
+            disabled={generatingExam || !openAIAPIKey}
+          >
             {startCTACopy()}
           </Button>
 
           {!openAIAPIKey && (
             <div className="tooltip absolute z-10 inline-block px-3 py-2 text-sm font-medium  bg-yellow-300	rounded-lg shadow-sm -bottom-1 -left-50 translate-y-full -translate-x-full whitespace-nowrap">
-              {t("set_open")}
+              {t("set_api_key")}
               <div className="tooltip-arrow border-[4px] border-solid border-transparent border-t-0 border-b-yellow-300"></div>
             </div>
           )}
@@ -134,7 +135,8 @@ export default function Navbar() {
         <a
           href="https://github.com/makaroni4/email_simulator"
           target="_blank"
-          rel="noreferrer">
+          rel="noreferrer"
+        >
           <img className="w-7 mr-8" src="./github.svg" alt="Github repo" />
         </a>
         {!settingsVisible && (

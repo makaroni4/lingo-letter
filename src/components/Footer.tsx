@@ -12,21 +12,21 @@ export default function Footer() {
         <div className="mb-4 md:mb-0">
           <a
             className="flex mb-3 mr-4 underline"
-            href="https://github.com/makaroni4/lingo-email">
+            href="https://github.com/makaroni4/lingo-email"
+          >
             <img className="w-4 mr-2" src="./github.svg" alt="Github repo" />
-            { t("source_code") }
+            {t("source_code")}
           </a>
           <a
             className="block underline"
-            href="https://github.com/makaroni4/lingo-email/issues">
-            { t("feedback") }
+            href="https://github.com/makaroni4/lingo-email/issues"
+          >
+            {t("feedback")}
           </a>
         </div>
 
         <div>
-          <Markdownify>
-            { t("made_with_love") }
-          </Markdownify>
+          <Markdownify>{t("made_with_love")}</Markdownify>
         </div>
       </div>
     </footer>

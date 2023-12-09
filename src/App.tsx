@@ -143,7 +143,8 @@ function App() {
           <div className="flex justify-end">
             <Button
               disabled={submitButtonDisabled()}
-              onClick={handleFormSubmit}>
+              onClick={handleFormSubmit}
+            >
               {processingSubmission ? t("processing_submission") : t("submit")}
             </Button>
           </div>

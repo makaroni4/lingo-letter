@@ -15,7 +15,8 @@ export default function Button({
     <button
       className={`py-1.5 px-4 bg-indigo-500 text-lg font-medium	hover:bg-indigo-700 text-white rounded-md ${className}`}
       disabled={disabled}
-      onClick={onClick}>
+      onClick={onClick}
+    >
       {children}
     </button>
   )
