@@ -7,7 +7,7 @@ export default function Logo() {
     <div className="-rotate-12">
       <img
         className="block w-12 cursor-pointer"
-        src="/logo.svg"
+        src="/lingo-email/logo.svg"
         alt="Email Simulator"
         onClick={() => {
           setShowWelcomePopup(true)
