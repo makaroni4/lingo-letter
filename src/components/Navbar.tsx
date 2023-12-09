@@ -105,7 +105,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="container flex items-center justify-between	py-8">
+    <nav className="container px-4 py-8 flex items-center justify-between">
       <div>
         <Logo />
       </div>

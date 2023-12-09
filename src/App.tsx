@@ -114,7 +114,7 @@ function App() {
 
       <Navbar />
 
-      <div className="container pb-24">
+      <div className="container px-4 pb-24">
         {showWelcomeBanner && (
           <div className="mb-12">
             <WelcomeBanner />

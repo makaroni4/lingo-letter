@@ -27,7 +27,7 @@ export default function ErrorMessage() {
   return (
     <div className="fixed top-0 left-0 w-screen h-screen flex items-start justify-center z-40 overflow-scroll md:overflow-auto md:items-center">
       <div className="absolute top-0 left-0 w-screen h-screen bg-white flex items-center justify-center z-50 opacity-90"></div>
-      <div className="container md:p-12">
+      <div className="container px-4 md:p-12">
         <div className="js-error-message p-8 bg-gradient-to-r from-red-50 to-orange-100 rounded-md relative opacity-100 z-50">
           <XMarkIcon
             onClick={() => {

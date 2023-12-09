@@ -5,7 +5,7 @@ export default function Footer() {
   const { t } = useTranslation()
 
   return (
-    <footer className="container">
+    <footer className="container px-4">
       <hr className="mb-4" />
 
       <div className="flex flex-col md:flex-row justify-between py-6 text-lg text-slate-600">
