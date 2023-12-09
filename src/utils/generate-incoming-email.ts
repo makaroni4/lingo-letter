@@ -1,17 +1,24 @@
-import OpenAI from 'openai';
+import OpenAI from "openai"
 
-const MAX_RETRIES = 3;
+const MAX_RETRIES = 3
 
-const makeAPICall = async ({ apiKey, emailLanguage }: { apiKey: string | undefined, emailLanguage: string }) => {
+const makeAPICall = async ({
+  apiKey,
+  emailLanguage
+}: {
+  apiKey: string | undefined
+  emailLanguage: string
+}) => {
   const openai = new OpenAI({
     apiKey,
     dangerouslyAllowBrowser: true
-  });
+  })
 
   const chatCompletion = await openai.chat.completions.create({
-    messages: [{
-      role: "user",
-      content: `Forget everything that we've discussed before. We're starting from scratch.
+    messages: [
+      {
+        role: "user",
+        content: `Forget everything that we've discussed before. We're starting from scratch.
 
       You're a teacher. You're teaching writing E-mails in ${emailLanguage}.
 
@@ -25,35 +32,51 @@ const makeAPICall = async ({ apiKey, emailLanguage }: { apiKey: string | undefin
         "email: "",
         "topics": [""]
       }`
-    }],
-    model: 'gpt-3.5-turbo',
-  });
+      }
+    ],
+    model: "gpt-3.5-turbo"
+  })
 
   const responseMessage = chatCompletion.choices[0].message
 
   return JSON.parse(responseMessage.content || "{}")
 }
 
-async function callWithRetries(apiCallFunc: ({ apiKey, emailLanguage }: { apiKey: string | undefined, emailLanguage: string }) => Promise<any>, apiKey: string, emailLanguage: string): Promise<any> {
-  let retries = 0;
+async function callWithRetries(
+  apiCallFunc: ({
+    apiKey,
+    emailLanguage
+  }: {
+    apiKey: string | undefined
+    emailLanguage: string
+  }) => Promise<any>,
+  apiKey: string,
+  emailLanguage: string
+): Promise<any> {
+  let retries = 0
 
   while (retries < MAX_RETRIES) {
     try {
-      const emailContent = await apiCallFunc({ apiKey, emailLanguage });
+      const emailContent = await apiCallFunc({ apiKey, emailLanguage })
 
-      return emailContent;
+      return emailContent
     } catch (error) {
-      console.error("--> ");
-      retries++;
-      console.log(`Retrying... (Attempt ${retries} of ${MAX_RETRIES})`);
+      console.error("--> ")
+      retries++
+      console.log(`Retrying... (Attempt ${retries} of ${MAX_RETRIES})`)
     }
   }
 
-  throw new Error(`Failed after ${MAX_RETRIES} attempts`);
+  throw new Error(`Failed after ${MAX_RETRIES} attempts`)
 }
 
-
-export const generateIncomingEmail = async ({ apiKey, emailLanguage }: { apiKey: string, emailLanguage: string }) => {
+export const generateIncomingEmail = async ({
+  apiKey,
+  emailLanguage
+}: {
+  apiKey: string
+  emailLanguage: string
+}) => {
   const emailContent = await callWithRetries(makeAPICall, apiKey, emailLanguage)
 
   return emailContent

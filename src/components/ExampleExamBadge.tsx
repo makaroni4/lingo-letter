@@ -1,10 +1,10 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next"
 
 export default function ExampleExamBadge() {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   return (
     <div className="py-4 px-8 text-lg font-bold uppercase tracking-widest bg-yellow-200	rounded-md font-serif">
-      { t("example") }
+      {t("example")}
     </div>
   )
 }

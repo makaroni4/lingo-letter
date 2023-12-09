@@ -29,28 +29,38 @@ interface AppStore {
   setOriginalSentences: (key: string[]) => void
   verifiedSentences: string[]
   setVerifiedSentences: (key: string[]) => void
-  showWelcomeBanner: boolean,
-  setShowWelcomeBanner: (key: boolean) => void,
-  showWelcomePopup: boolean,
-  setShowWelcomePopup: (key: boolean) => void,
-  welcomeBannerCopy: string,
-  setWelcomeBannerCopy: (key: string) => void,
-  showExampleExamBadge: boolean,
-  setShowExampleExamBadge: (key: boolean) => void,
-  errorMessage: string,
-  setErrorMessage: (key: string) => void,
-  showErrorMessage: boolean,
-  setShowErrorMessage: (key: boolean) => void,
-  generatingExam: boolean,
-  setGeneratingExam: (key: boolean) => void,
-  processingSubmission: boolean,
-  setProcessingSubmission: (key: boolean) => void,
+  showWelcomeBanner: boolean
+  setShowWelcomeBanner: (key: boolean) => void
+  showWelcomePopup: boolean
+  setShowWelcomePopup: (key: boolean) => void
+  welcomeBannerCopy: string
+  setWelcomeBannerCopy: (key: string) => void
+  showExampleExamBadge: boolean
+  setShowExampleExamBadge: (key: boolean) => void
+  errorMessage: string
+  setErrorMessage: (key: string) => void
+  showErrorMessage: boolean
+  setShowErrorMessage: (key: boolean) => void
+  generatingExam: boolean
+  setGeneratingExam: (key: boolean) => void
+  processingSubmission: boolean
+  setProcessingSubmission: (key: boolean) => void
 }
 
 const defaultLetter = i18next.t("example_letter", { lng: "de" })
 const defaultIncomingEmail = i18next.t("example_email", { lng: "de" })
-const defaultOriginalSentences: string[] = i18next.t("example_original_sentences", { lng: "de", returnObjects: true })
-const defaultVerifiedSentences: string[] = i18next.t("example_verified_sentences", { lng: "de", returnObjects: true })
+const defaultOriginalSentences: string[] = i18next.t(
+  "example_original_sentences",
+  { lng: "de", returnObjects: true }
+)
+const defaultVerifiedSentences: string[] = i18next.t(
+  "example_verified_sentences",
+  { lng: "de", returnObjects: true }
+)
+const defaultResponseTopics: string[] = i18next.t("example_response_topics", {
+  lng: "de",
+  returnObjects: true
+})
 
 export const useAppStore = create<AppStore>()(
   persist(
@@ -67,7 +77,7 @@ export const useAppStore = create<AppStore>()(
       setLetter: (text) => set({ letter: text }),
       incomingEmail: defaultIncomingEmail,
       setIncomingEmail: (text) => set({ incomingEmail: text }),
-      responseTopics: ["Urlaubspläne", "Reiseziel", "Urlaub von Sophie"],
+      responseTopics: defaultResponseTopics,
       setResponseTopics: (arr) => set({ responseTopics: arr }),
       originalSentences: defaultOriginalSentences,
       setOriginalSentences: (key) => set({ originalSentences: key }),
@@ -88,7 +98,7 @@ export const useAppStore = create<AppStore>()(
       generatingExam: false,
       setGeneratingExam: (key) => set({ generatingExam: key }),
       processingSubmission: false,
-      setProcessingSubmission: (key) => set({ processingSubmission: key }),
+      setProcessingSubmission: (key) => set({ processingSubmission: key })
     }),
     {
       name: "email-writing-exam-storage",

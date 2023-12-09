@@ -47,6 +47,7 @@
       "Vielleicht könnten wir gemeinsam überlegen, wohin es gehen könnte.",
       "Lass mich wissen, was du denkst!",
       "Liebe Grüße, Sophie"
-    ]
+    ],
+    "example_response_topics": ["Urlaubspläne", "Reiseziel", "Urlaub von Sophie"]
   }
 }

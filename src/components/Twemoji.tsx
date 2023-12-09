@@ -1,18 +1,20 @@
 import * as countryCodesJSON from "../data/flag_twemoji_codes.json"
-import EmojiCountryCodes from '../data/interface';
-import { MouseEventHandler } from "react";
+import EmojiCountryCodes from "../data/interface"
+import { MouseEventHandler } from "react"
 
-const countryCodes: EmojiCountryCodes = countryCodesJSON;
+const countryCodes: EmojiCountryCodes = countryCodesJSON
 
 const getEmojiCode = (key: keyof EmojiCountryCodes): any => {
-  return countryCodes[key];
+  return countryCodes[key]
 }
 
 export default function Twemoji({
-  countryCode, className = "", onClick = () => {}
+  countryCode,
+  className = "",
+  onClick = () => {}
 }: {
-  countryCode: keyof EmojiCountryCodes,
-  className?: string,
+  countryCode: keyof EmojiCountryCodes
+  className?: string
   onClick?: MouseEventHandler
 }) {
   const emojiCode = getEmojiCode(countryCode)
