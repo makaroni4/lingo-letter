@@ -53,7 +53,7 @@ export default function Navbar() {
   }
 
   const handleRestart = async () => {
-    const result = incomingEmail ? window.confirm(t("restart_alert_question")) : true
+    const result = showExampleExamBadge ? true : window.confirm(t("restart_alert_question"))
 
     if (!openAIAPIKey) {
       alert(t("set_api_key"))
