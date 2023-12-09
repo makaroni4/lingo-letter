@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.0d2064d5.css",
-    "main.js": "/static/js/main.6d99cbc8.js",
-    "static/js/787.11e06b81.chunk.js": "/static/js/787.11e06b81.chunk.js",
-    "index.html": "/index.html",
-    "main.0d2064d5.css.map": "/static/css/main.0d2064d5.css.map",
-    "main.6d99cbc8.js.map": "/static/js/main.6d99cbc8.js.map",
-    "787.11e06b81.chunk.js.map": "/static/js/787.11e06b81.chunk.js.map"
+    "main.css": "/lingo-email/static/css/main.0d2064d5.css",
+    "main.js": "/lingo-email/static/js/main.cc8734b6.js",
+    "static/js/787.11e06b81.chunk.js": "/lingo-email/static/js/787.11e06b81.chunk.js",
+    "index.html": "/lingo-email/index.html",
+    "main.0d2064d5.css.map": "/lingo-email/static/css/main.0d2064d5.css.map",
+    "main.cc8734b6.js.map": "/lingo-email/static/js/main.cc8734b6.js.map",
+    "787.11e06b81.chunk.js.map": "/lingo-email/static/js/787.11e06b81.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0d2064d5.css",
-    "static/js/main.6d99cbc8.js"
+    "static/js/main.cc8734b6.js"
   ]
 }
