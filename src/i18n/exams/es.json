@@ -1,24 +1,46 @@
 {
   "translation": {
-    "reset_exam": "Reiniciar examen",
-    "writing_test": "Examen de escritura",
-    "you_have_received_an_email": "Has recibido el siguiente correo electrónico:",
-    "answer_the_email_and_cover_topics": "Responde al correo electrónico. Escribe algo sobre todos los siguientes temas:",
-    "writing_instructions": "Antes de escribir, piensa en un orden adecuado de temas, un asunto adecuado, un saludo adecuado, una introducción adecuada y una conclusión adecuada.",
-    "submit": "Enviar",
-    "original_sentences": "Oraciones originales",
-    "fixed_sentences": "Oraciones corregidas",
-    "feedback_on_topics": "Retroalimentación sobre los temas",
-    "i_know": "Sé",
-    "i_learn": "Aprendo",
-    "open_ai_api_key": "Clave de API de OpenAI",
-    "languages": {
-      "en": "Inglés",
-      "es": "Español",
-      "fr": "Francés",
-      "de": "Alemán",
-      "it": "Italiano",
-      "pt": "Portugués"
-    }
+    "example_email": "Hola Marta,\n\n¡Espero que estés bien! ¿Cómo ha estado tu semana? 🌞✨\n\nTe escribo para contarte sobre mis planes de vacaciones. Este año, tengo la suerte de poder ir a la playa con mi familia. 🏖️🌊 Estaremos en una pequeña casa cerca del mar. ¡Estoy emocionado por pasar tiempo al sol y disfrutar del agua! ¿Tienes algún plan de vacaciones? Me encantaría saber qué vas a hacer. 🌴😎\n\nPor cierto, ¿me puedes recomendar algunos libros interesantes para leer en la playa? Me encanta sumergirme en una buena historia mientras descanso bajo el sol. 📚🌞¡Tus recomendaciones siempre son geniales!\n\nEspero que me respondas pronto. Cuídate mucho y nos vemos pronto. ¡Disfruta tus vacaciones! 🌺🌴\n\nUn abrazo,\nJuan",
+    "example_letter": "Hola Juan,\nEspero que estés bien. Cómo ha sido tu semana?\nTe escribo para contarte sobre mis planes de vacaciones. Este año, tengo la suerte de poder ir a la playa con mi familia. Estaremos en una pequeña casa cerca del mar. Etoy por pasar emocionado tiempo al sol y disfrutar del agua.\nTienes algun plan de vacaciones? Me encantaría saber qué vas a hacer.\nPor certo, me puedes recomendar algunos libros interesantes para leer en la playa? Me encanta sumergeme en un bueno historia mientras descanso bajo el sol. ¡Tu recomendaciones siempre son geniales!\nEspero que me respondas pronto. Cuídate mucho y nos vemos pronto. ¡Disfruta tus vacaciones!\nUn abraz,\nMarta",
+    "example_original_sentences": [
+      "Hola Juan,\nEspero que estés bien.",
+      "Cómo ha sido tu semana?",
+      "Te escribo para contarte sobre mis planes de vacaciones.",
+      "Este año, tengo la suerte de poder ir a la playa con mi familia.",
+      "Estaremos en una pequeña casa cerca del mar.",
+      "Etoy por pasar emocionado tiempo al sol y disfrutar del agua.",
+      "Tienes algun plan de vacaciones?",
+      "Me encantaría saber qué vas a hacer.",
+      "Por certo, me puedes recomendar algunos libros interesantes para leer en la playa?",
+      "Me encanta sumergeme en un bueno historia mientras descanso bajo el sol.",
+      "¡Tu recomendaciones siempre son geniales!",
+      "Espero que me respondas pronto.",
+      "Cuídate mucho y nos vemos pronto.",
+      "¡Disfruta tus vacaciones!",
+      "Un abraz,\nMarta"
+    ],
+    "example_verified_sentences": [
+      "Hola Juan,\nEspero que estés bien.",
+      "¿Cómo ha sido tu semana?",
+      "Te escribo para contarte sobre mis planes de vacaciones.",
+      "Este año, tengo la suerte de poder ir a la playa con mi familia.",
+      "Estaremos en una pequeña casa cerca del mar.",
+      "Estoy emocionado por pasar tiempo al sol y disfrutar del agua.",
+      "¿Tienes algún plan de vacaciones?",
+      "Me encantaría saber qué vas a hacer.",
+      "Por cierto, ¿me puedes recomendar algunos libros interesantes para leer en la playa?",
+      "Me encanta sumergirme en una buena historia mientras descanso bajo el sol.",
+      "¡Tus recomendaciones siempre son geniales!",
+      "Espero que me respondas pronto.",
+      "Cuídate mucho y nos vemos pronto.",
+      "¡Disfruta tus vacaciones!",
+      "Un abrazo,\nMarta"
+    ],
+    "example_response_topics": [
+      "Planes de Vacaciones",
+      "Recomendación de Libros",
+      "Planes Personales de Vacaciones",
+      "Actividades Favoritas en la Playa"
+    ]
   }
 }

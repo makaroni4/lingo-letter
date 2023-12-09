@@ -1,24 +1,44 @@
 {
   "translation": {
-    "reset_exam": "Redefinir exame",
-    "writing_test": "Exame de escrita",
-    "you_have_received_an_email": "Você recebeu o seguinte e-mail:",
-    "answer_the_email_and_cover_topics": "Responda ao e-mail. Escreva algo sobre todos os seguintes tópicos:",
-    "writing_instructions": "Antes de escrever, pense em uma ordem adequada dos tópicos, um assunto adequado, uma saudação adequada, uma introdução adequada e uma conclusão adequada.",
-    "submit": "Enviar",
-    "original_sentences": "Frases originais",
-    "fixed_sentences": "Frases corrigidas",
-    "feedback_on_topics": "Feedback sobre os tópicos",
-    "i_know": "Eu sei",
-    "i_learn": "Eu aprendo",
-    "open_ai_api_key": "Chave de API OpenAI",
-    "languages": {
-      "en": "Inglês",
-      "es": "Espanhol",
-      "fr": "Francês",
-      "de": "Alemão",
-      "it": "Italiano",
-      "pt": "Português"
-    }
+    "example_email": "Oi João!\n\nTudo bem? Espero que esteja tudo indo bem aí! 👋😊\n\nSabe, estou planejando minhas férias e queria te convidar para se juntar a mim! 🏖️✈️\n\nEu estava pensando em irmos para a praia no litoral sul do Brasil. O que você acha? ☀️🌴\n\nA ideia é aproveitar o sol, descansar e curtir as belezas naturais da região. Além disso, podemos experimentar a comida local, fazer trilhas e até mesmo praticar esportes aquáticos, se você gostar! 🏄‍♀️🌊\n\nO que você acha da ideia? Você tem algum período específico que esteja livre para as férias? E também gostaria de saber se você tem alguma sugestão ou preferência de local para darmos uma olhada!\n\nFico no aguardo, espero que possamos planejar nossas férias juntos. Mal posso esperar para aproveitar dias incríveis com você! 😄🌸\n\nGrande abraço,\nMaria",
+    "example_letter": "Oi João! Tudo bem! Espero que esteja tudo indo bem aí!\nSabe, estou planejando minhas férias e queria te convidar para se juntar a mim!\nEu estava pensando em irmos para a praia no litoral sul do Brasil. que você acha?\nA ideia é aprovetar o sol, descansar e curtir as belezas naturais da região.\nAlém disso, podemos experimentar a comida local, faser trilhas e até memo praticar esportes aquáticos, se você gostar!\nO que acha da idea você? Você tem algum período específico que esteja livre para as férias?\nE também gostaria de saber se você tem alguma sugestão ou preferência de local para darmos uma olhada!\nFico no aguardo, espero que possamos planejar nossas férias juntos. Mal poso esperar para aproveitar dias incríves com você!\nGrande abraço, Maria",
+    "example_original_sentences": [
+      "Oi João!",
+      "Tudo bem!",
+      "Espero que esteja tudo indo bem aí!",
+      "Sabe, estou planejando minhas férias e queria te convidar para se juntar a mim!",
+      "Eu estava pensando em irmos para a praia no litoral sul do Brasil.",
+      "que você acha?",
+      "A ideia é aprovetar o sol, descansar e curtir as belezas naturais da região.",
+      "Além disso, podemos experimentar a comida local, faser trilhas e até memo praticar esportes aquáticos, se você gostar!",
+      "O que acha da idea você?",
+      "Você tem algum período específico que esteja livre para as férias?",
+      "E também gostaria de saber se você tem alguma sugestão ou preferência de local para darmos uma olhada!",
+      "Fico no aguardo, espero que possamos planejar nossas férias juntos.",
+      "Mal poso esperar para aproveitar dias incríves com você!",
+      "Grande abraço, Maria"
+    ],
+    "example_verified_sentences": [
+      "Oi João!",
+      "Tudo bem?",
+      "Espero que esteja tudo indo bem aí!",
+      "Sabe, estou planejando minhas férias e queria te convidar para se juntar a mim!",
+      "Eu estava pensando em irmos para a praia no litoral sul do Brasil.",
+      "O que você acha?",
+      "A ideia é aproveitar o sol, descansar e curtir as belezas naturais da região.",
+      "Além disso, podemos experimentar a comida local, fazer trilhas e até mesmo praticar esportes aquáticos, se você gostar!",
+      "O que acha da ideia?",
+      "Você tem algum período específico em que esteja livre para as férias?",
+      "E também gostaria de saber se você tem alguma sugestão ou preferência de local para darmos uma olhada!",
+      "Fico no aguardo, espero que possamos planejar nossas férias juntos.",
+      "Mal posso esperar para aproveitar dias incríveis com você!",
+      "Grande abraço, Maria"
+    ],
+    "example_response_topics": [
+      "Destino de férias",
+      "Período disponível",
+      "Sugestões de locais",
+      "Atividades preferidas"
+    ]
   }
 }

@@ -1,24 +1,50 @@
 {
   "translation": {
-    "reset_exam": "Réinitialiser l'examen",
-    "writing_test": "Examen écrit",
-    "you_have_received_an_email": "Vous avez reçu le courriel suivant :",
-    "answer_the_email_and_cover_topics": "Répondez au courriel. Écrivez quelque chose sur tous les sujets suivants :",
-    "writing_instructions": "Avant d'écrire, pensez à un ordre approprié des sujets, un sujet approprié, un salut approprié, une introduction appropriée et une conclusion appropriée.",
-    "submit": "Soumettre",
-    "original_sentences": "Phrases originales",
-    "fixed_sentences": "Phrases corrigées",
-    "feedback_on_topics": "Commentaires sur les sujets",
-    "i_know": "Je sais",
-    "i_learn": "J'apprends",
-    "open_ai_api_key": "Clé d'API OpenAI",
-    "languages": {
-      "en": "Anglais",
-      "es": "Espagnol",
-      "fr": "Français",
-      "de": "Allemand",
-      "it": "Italien",
-      "pt": "Portugais"
-    }
+    "example_email": "Cher François,\n\nComment ça va? Ça fait longtemps depuis qu'on a discuté la dernière fois. J'espère que tout va bien pour toi. Bon, j'ai une super nouvelle à partager avec toi! J'ai enfin décidé de planifier mes prochaines vacances et je voulais te demander ton avis.\n\nJ'ai pensé à partir en Espagne cet été. J'ai toujours rêvé de visiter Barcelone et de passer du temps sur les belles plages de la Costa Brava. Qu'en penses-tu? As-tu déjà visité l'Espagne? Si oui, aurais-tu des recommandations ou des endroits à ne pas rater?\n\nAh, et au fait, je fête mon anniversaire le mois prochain et j'organise une petite soirée. Je t'invite officiellement! Ce sera une soirée décontractée chez moi avec des amis proches. Est-ce que tu pourras venir? Je vais te donner tous les détails plus tard. 😄🎉\n\nA bientôt j'espère!\n\nAmicalement,\nEmma",
+    "example_letter": "Cher François,\nComment ca va? Ça fait longtemps depuis qu'on a discuté dernière fois. J'espère que tout va bien pour toi.\nBon, j'ai une super nouvelle à partager avec toi! J'ai enfin décidé planifier mes prochaines vacances et je voulais te demandr ton avis. J'ai pensé à partir en Espagne cet été. J'ai toujours rêvé de visiter Barcelone et de passer du temp sur les belles plages de Costa Brava. Qu'en penses-tu? As-tu déjà visité l'Espagne? Si oui, aurais-tu des recommandations ou des endroits à ne pas rater?\nAh, au fait, je fête anniversaire mon le mois prochain et j'organise une petite soirée. Je t'invite officiellement! Ce sera une soirée décontractée chez moi avec des amis proches. Est-ce venir que tu pourras? Je vais te donner tous les détails plus tard.\nA bientôt j'espère!\nAmicalement,\nEmma",
+    "example_original_sentences": [
+      "Cher François,\nComment ca va?",
+      "Ça fait longtemps depuis qu'on a discuté dernière fois.",
+      "J'espère que tout va bien pour toi.",
+      "Bon, j'ai une super nouvelle à partager avec toi!",
+      "J'ai enfin décidé planifier mes prochaines vacances et je voulais te demandr ton avis.",
+      "J'ai pensé à partir en Espagne cet été.",
+      "J'ai toujours rêvé de visiter Barcelone et de passer du temp sur les belles plages de Costa Brava.",
+      "Qu'en penses-tu?",
+      "As-tu déjà visité l'Espagne?",
+      "Si oui, aurais-tu des recommandations ou des endroits à ne pas rater?",
+      "Ah, au fait, je fête anniversaire mon le mois prochain et j'organise une petite soirée.",
+      "Je t'invite officiellement!",
+      "Ce sera une soirée décontractée chez moi avec des amis proches.",
+      "Est-ce venir que tu pourras?",
+      "Je vais te donner tous les détails plus tard.",
+      "A bientôt j'espère!",
+      "Amicalement,\nEmma"
+    ],
+    "example_verified_sentences": [
+      "Cher François,\nComment ça va ?",
+      "Ça fait longtemps depuis qu'on a discuté la dernière fois.",
+      "J'espère que tout va bien pour toi.",
+      "Bon, j'ai une super nouvelle à partager avec toi !",
+      "J'ai enfin décidé de planifier mes prochaines vacances et je voulais te demander ton avis.",
+      "J'ai pensé à partir en Espagne cet été.",
+      "J'ai toujours rêvé de visiter Barcelone et de passer du temps sur les belles plages de Costa Brava.",
+      "Qu'en penses-tu ?",
+      "As-tu déjà visité l'Espagne ?",
+      "Si oui, aurais-tu des recommandations ou des endroits à ne pas rater ?",
+      "Ah, au fait, je fête mon anniversaire le mois prochain et j'organise une petite soirée.",
+      "Je t'invite officiellement !",
+      "Ce sera une soirée décontractée chez moi avec des amis proches.",
+      "Est-ce que tu pourras venir ?",
+      "Je vais te donner tous les détails plus tard.",
+      "A bientôt j'espère !",
+      "Amicalement,\nEmma"
+    ],
+    "example_response_topics": [
+      "Les plans de vacances",
+      "Recommandations pour l'Espagne",
+      "Invitation pour mon anniversaire",
+      "Espérons te voir bientôt!"
+    ]
   }
 }

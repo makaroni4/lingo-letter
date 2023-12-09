@@ -1,24 +1,40 @@
 {
   "translation": {
-    "reset_exam": "Resetta esame",
-    "writing_test": "Esame di scrittura",
-    "you_have_received_an_email": "Hai ricevuto la seguente email:",
-    "answer_the_email_and_cover_topics": "Rispondi all'email. Scrivi qualcosa su tutti i seguenti argomenti:",
-    "writing_instructions": "Prima di scrivere, pensa a un ordine adeguato degli argomenti, un soggetto adatto, un saluto adeguato, un'introduzione adeguata e una conclusione adeguata.",
-    "submit": "Invia",
-    "original_sentences": "Frasi originali",
-    "fixed_sentences": "Frasi corrette",
-    "feedback_on_topics": "Feedback sugli argomenti",
-    "i_know": "So",
-    "i_learn": "Apprendo",
-    "open_ai_api_key": "Chiave API di OpenAI",
-    "languages": {
-      "en": "Inglese",
-      "es": "Spagnolo",
-      "fr": "Francese",
-      "de": "Tedesco",
-      "it": "Italiano",
-      "pt": "Portoghese"
-    }
+    "example_email": "Caro Marco, 😊\n\nSpero che tu stia bene! Ti scrivo perché ho dei piani per le vacanze estive e volevo condividerli con te. Quest'anno, ho intenzione di andare in vacanza al mare con la mia famiglia. Ci siamo decisi per la bellissima città di Positano sulla Costiera Amalfitana. Abbiamo prenotato un hotel vicino alla spiaggia e non vedo l'ora di rilassarmi al sole e fare lunghe nuotate. Mi chiedevo se hai dei consigli su cosa vedere o fare a Positano. Hai mai visitato quella zona? Inoltre, volevo chiederti se hai qualche raccomandazione di ristoranti o piatti tipici da assaggiare. Attendo con ansia di sentire le tue idee e spero che tu possa unirti a noi per una nuotata nell'affascinante mare italiano! 🌊🏖️\n\nUn abbraccio, \nSilvia",
+    "example_letter": "Caro Silvia,\nGrazie per la tua email! Mi fa piacere sapere che hai dei piani interessanti per le vacanze estive. Anch'io sto bene, grazie!\nPositano sulla Costiera Amalfitana è una scelta meravigliosa! Sono sicuro che trascorete una vacanza indimenticabile. Prenotare un hotel vicino ala spiagia è una decisione saggia per godere appieno del mare.\nPersonalmente non ho mai visitato Positano, ma ho sentito parlare della sua beleza. Sarà la tua prima volta in quela zona?\nPer quanto riguarda i di visitare la spiaggia consigli suggerirei di Fornillo e di assaporare la cucina locale nei ristoranti tipici lungo la costa.\nSpero che tu e la tua famiglia abbiate un tempo fantastico a Positano! Purtroppo non poso unirmi a voi per la nuotata ma vi auguro tanta felicità.\nUn caro saluto,\nMarco",
+    "example_original_sentences": [
+      "Caro Silvia,\nGrazie per la tua email!",
+      "Mi fa piacere sapere che hai dei piani interessanti per le vacanze estive.",
+      "Anch'io sto bene, grazie!",
+      "Positano sulla Costiera Amalfitana è una scelta meravigliosa!",
+      "Sono sicuro che trascorete una vacanza indimenticabile.",
+      "Prenotare un hotel vicino ala spiagia è una decisione saggia per godere appieno del mare.",
+      "Personalmente non ho mai visitato Positano, ma ho sentito parlare della sua beleza.",
+      "Sarà la tua prima volta in quela zona?",
+      "Per quanto riguarda i di visitare la spiaggia consigli suggerirei di Fornillo e di assaporare la cucina locale nei ristoranti tipici lungo la costa.",
+      "Spero che tu e la tua famiglia abbiate un tempo fantastico a Positano!",
+      "Purtroppo non poso unirmi a voi per la nuotata ma vi auguro tanta felicità.",
+      "Un caro saluto,\nMarco"
+    ],
+    "example_verified_sentences": [
+      "Caro Silvia,\nGrazie per la tua email!",
+      "Mi fa piacere sapere che hai dei piani interessanti per le vacanze estive.",
+      "Anch'io sto bene, grazie!",
+      "Positano sulla Costiera Amalfitana è una scelta meravigliosa!",
+      "Sono sicuro che trascorrerete una vacanza indimenticabile.",
+      "Prenotare un hotel vicino alla spiaggia è una decisione saggia per godere appieno del mare.",
+      "Personalmente non ho mai visitato Positano, ma ho sentito parlare della sua bellezza.",
+      "Sarà la tua prima volta in quella zona?",
+      "Per quanto riguarda i luoghi da visitare, consiglierei Fornillo e di assaporare la cucina locale nei ristoranti tipici lungo la costa.",
+      "Spero che tu e la tua famiglia abbiate un tempo fantastico a Positano!",
+      "Purtroppo non posso unirmi a voi per la nuotata, ma vi auguro tanta felicità.",
+      "Un caro saluto,\nMarco"
+    ],
+    "example_response_topics": [
+      "Consigli su cosa vedere o fare a Positano",
+      "Raccomandazioni di ristoranti o piatti tipici",
+      "Esperienze di viaggio in zona",
+      "Possibile partecipazione di Marco"
+    ]
   }
 }
