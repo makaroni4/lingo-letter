@@ -63,11 +63,11 @@ npm test
 
 ## Maintainers
 
-Schema Visualizer is a project of Anatoli of [SQL Habit](https://www.sqlhabit.com/). Hi from Berlin! :wave: :beers:
+Lingo Email is a project of Anatoli of [SQL Habit](https://www.sqlhabit.com/). Hi from Berlin! :wave: :beers:
 
 Anatoli Makarevich • [Twitter](https://twitter.com/makaroni4) • [Github](https://github.com/makaroni4)
 
 
 ## License
 
-SQL Schema Visualizer is [MIT licensed](https://github.com/makaroni4/lingo-email/blob/main/LICENSE).
+Lingo Email is [MIT licensed](https://github.com/makaroni4/lingo-email/blob/main/LICENSE).
