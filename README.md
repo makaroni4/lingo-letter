@@ -1,23 +1,23 @@
-![Lingo Email screenshot](https://github.com/makaroni4/lingo-email/blob/main/.README/snapshot.png?raw=true)
+![Lingo Letter screenshot](https://github.com/makaroni4/lingo-letter/blob/main/.README/snapshot.png?raw=true)
 
 <div align="center">
 
-# Lingo Email
+# Lingo Letter
 
 ![GitHub License MIT](https://img.shields.io/github/license/makaroni4/lingo-email?color=%2347A3F3)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/makaroni4/lingo-email?color=%2347A3F3)
 
 Writing language exam simulator built with React and GPT.
 
-[:microscope: How it works](https://github.com/makaroni4/lingo-email#how-it-works) | [:handshake: Contributing](https://github.com/makaroni4/lingo-email#contributing)
+[:microscope: How it works](https://github.com/makaroni4/lingo-letter#how-it-works) | [:handshake: Contributing](https://github.com/makaroni4/lingo-letter#contributing)
 
 </div>
 
 ## How it works?
 
-Lingo Email draws inspiration from the [TELC B1 German Exam](https://www.telc.net/sprachpruefungen/deutsch/zertifikat-deutsch-telc-deutsch-b1). In the TELC exam, one of the tasks is to compose a response to a given email within 30 minutes. Essentially, Lingo Email serves as a simulator for TELC email assignments.
+Lingo Letter draws inspiration from the [TELC B1 German Exam](https://www.telc.net/sprachpruefungen/deutsch/zertifikat-deutsch-telc-deutsch-b1). In the TELC exam, one of the tasks is to compose a response to a given email within 30 minutes. Essentially, Lingo Letter serves as a simulator for TELC email assignments.
 
-Currently, Lingo Email supports the following languages:
+Currently, Lingo Letter supports the following languages:
 
 * 🇬🇧 English
 * 🇪🇸 Spanish
@@ -26,7 +26,7 @@ Currently, Lingo Email supports the following languages:
 * 🇮🇹 Italian
 * 🇵🇹 Portuguese
 
-:warning: Lingo Email is a browser-only app. You'll need to set **your own OpenAI API key**.
+:warning: Lingo Letter is a browser-only app. You'll need to set **your own OpenAI API key**.
 
 ## Contributing
 
@@ -39,7 +39,7 @@ Some ideas:
 * Add audio
 * %YOUR_IDEA%
 
-Just make sure to check out the [contribution guidelines](https://github.com/makaroni4/lingo-email/blob/main/CONTRIBUTING.md). :pray:
+Just make sure to check out the [contribution guidelines](https://github.com/makaroni4/lingo-letter/blob/main/CONTRIBUTING.md). :pray:
 
 ## Development
 
@@ -63,11 +63,11 @@ npm test
 
 ## Maintainers
 
-Lingo Email is a project of Anatoli of [SQL Habit](https://www.sqlhabit.com/). Hi from Berlin! :wave: :beers:
+Lingo Letter is a project of Anatoli of [SQL Habit](https://www.sqlhabit.com/). Hi from Berlin! :wave: :beers:
 
 Anatoli Makarevich • [Twitter](https://twitter.com/makaroni4) • [Github](https://github.com/makaroni4)
 
 
 ## License
 
-Lingo Email is [MIT licensed](https://github.com/makaroni4/lingo-email/blob/main/LICENSE).
+Lingo Letter is [MIT licensed](https://github.com/makaroni4/lingo-letter/blob/main/LICENSE).

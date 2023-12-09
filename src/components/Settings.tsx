@@ -122,7 +122,7 @@ export default function Settings() {
           className="underline mr-6 font-medium"
           target="_blank"
           rel="noreferrer"
-          href="https://github.com/makaroni4/lingo-email/issues"
+          href="https://github.com/makaroni4/lingo-letter/issues"
         >
           Feedback
         </a>
@@ -130,7 +130,7 @@ export default function Settings() {
           className="underline flex items-center font-medium"
           target="_blank"
           rel="noreferrer"
-          href="https://github.com/makaroni4/lingo-email"
+          href="https://github.com/makaroni4/lingo-letter"
         >
           <img className="w-5 mr-2" src="/lingo-email/github.svg" alt="Github repo" />
           Source code

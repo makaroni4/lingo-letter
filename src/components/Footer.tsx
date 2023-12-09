@@ -12,14 +12,14 @@ export default function Footer() {
         <div className="mb-4 md:mb-0">
           <a
             className="flex mb-3 mr-4 underline"
-            href="https://github.com/makaroni4/lingo-email"
+            href="https://github.com/makaroni4/lingo-letter"
           >
             <img className="w-4 mr-2" src="/lingo-email/github.svg" alt="Github repo" />
             {t("source_code")}
           </a>
           <a
             className="block underline"
-            href="https://github.com/makaroni4/lingo-email/issues"
+            href="https://github.com/makaroni4/lingo-letter/issues"
           >
             {t("feedback")}
           </a>

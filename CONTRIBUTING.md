@@ -1,16 +1,16 @@
-# Lingo Email Contribution Guidelines
+# Lingo Letter Contribution Guidelines
 
-First of all, thank you for your interest in contributing to the Lingo Email :raised_hands: Every form of contribution is appreciated. From issues to pull requests and documentation.
+First of all, thank you for your interest in contributing to the Lingo Letter :raised_hands: Every form of contribution is appreciated. From issues to pull requests and documentation.
 
-Please, check out [existing issues](https://github.com/makaroni4/lingo-email/issues) before you open a new one.
+Please, check out [existing issues](https://github.com/makaroni4/lingo-letter/issues) before you open a new one.
 
 ## Bugs and Features
 
-If you have a **question**, **feature request** or a **bug report** simply create a [new issue](https://github.com/makaroni4/lingo-email/issues/new/choose).
+If you have a **question**, **feature request** or a **bug report** simply create a [new issue](https://github.com/makaroni4/lingo-letter/issues/new/choose).
 
 ## Pull Requests
 
-Before submitting a substantial PR, please, open a [new issue](https://github.com/makaroni4/lingo-email/issues/new/choose). Let's discuss and plan it first. :pray:
+Before submitting a substantial PR, please, open a [new issue](https://github.com/makaroni4/lingo-letter/issues/new/choose). Let's discuss and plan it first. :pray:
 
 ### :mag: Anatomy of a great PR
 
