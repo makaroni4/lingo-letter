@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="container">
       <hr className="mb-4" />
 
-      <div className="flex flex-col md:flex-row justify-between py-6 text-md text-slate-600">
+      <div className="flex flex-col md:flex-row justify-between py-6 text-lg text-slate-600">
         <div className="mb-4 md:mb-0">
           <a
             className="flex mb-3 mr-4 underline"
