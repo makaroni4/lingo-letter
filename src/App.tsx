@@ -16,7 +16,7 @@ import ExampleExamBadge from "./components/ExampleExamBadge"
 import ErrorMessage from "./components/ErrorMessage"
 
 function App() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   const {
     openAIAPIKey,
@@ -83,6 +83,8 @@ function App() {
         setSettingsVisible(true)
       }
     })
+
+    i18n.changeLanguage(userLanguage)
   }, [])
 
   useEffect(() => {

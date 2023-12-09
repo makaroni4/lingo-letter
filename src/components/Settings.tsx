@@ -6,7 +6,7 @@ import DropdownMenu from "./DropdownMenu"
 import { useEffect } from "react"
 
 export default function Settings() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   const {
     openAIAPIKey,
@@ -47,6 +47,11 @@ export default function Settings() {
     }
   }, [settingsVisible])
 
+  const handleUserLanguageSelected = (language: keyof EmojiCountryCodes) => {
+    setUserLanguage(language)
+    i18n.changeLanguage(language)
+  }
+
   return (
     <div className="fixed h-full top-0 right-0 bg-white w-1/3 z-30 pt-16 px-4 border-l-[1px] border-l-grey-300 shadow-xl js-settings">
       <XMarkIcon
@@ -75,9 +80,7 @@ export default function Settings() {
         <div>
           <DropdownMenu
             excludeLanguage={userLanguage}
-            languageSelected={(language: keyof EmojiCountryCodes) =>
-              setUserLanguage(language)
-            }
+            languageSelected={handleUserLanguageSelected}
           />
         </div>
       </div>
