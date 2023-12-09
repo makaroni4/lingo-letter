@@ -132,7 +132,7 @@ export default function Settings() {
           rel="noreferrer"
           href="https://github.com/makaroni4/lingo-email"
         >
-          <img className="w-5 mr-2" src="./lingo-email/github.svg" alt="Github repo" />
+          <img className="w-5 mr-2" src="/github.svg" alt="Github repo" />
           Source code
         </a>
       </div>

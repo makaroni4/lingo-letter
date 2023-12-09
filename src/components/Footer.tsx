@@ -14,7 +14,7 @@ export default function Footer() {
             className="flex mb-3 mr-4 underline"
             href="https://github.com/makaroni4/lingo-email"
           >
-            <img className="w-4 mr-2" src="./lingo-email/github.svg" alt="Github repo" />
+            <img className="w-4 mr-2" src="/github.svg" alt="Github repo" />
             {t("source_code")}
           </a>
           <a

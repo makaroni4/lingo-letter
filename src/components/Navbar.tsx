@@ -140,7 +140,7 @@ export default function Navbar() {
           target="_blank"
           rel="noreferrer"
         >
-          <img className="w-7 mr-8" src="./lingo-email/github.svg" alt="Github repo" />
+          <img className="w-7 mr-8" src="/github.svg" alt="Github repo" />
         </a>
         {!settingsVisible && (
           <Cog6ToothIcon
