@@ -1,4 +1,9 @@
+import { useTranslation } from "react-i18next"
+import Markdownify from "./Markdownify"
+
 export default function Footer() {
+  const { t } = useTranslation()
+
   return (
     <footer className="container">
       <hr className="mb-4" />
@@ -9,20 +14,19 @@ export default function Footer() {
             className="flex mb-3 mr-4 underline"
             href="https://github.com/makaroni4/lingo-email">
             <img className="w-4 mr-2" src="./github.svg" alt="Github repo" />
-            Source Code
+            { t("source_code") }
           </a>
           <a
             className="block underline"
             href="https://github.com/makaroni4/lingo-email/issues">
-            Feedback
+            { t("feedback") }
           </a>
         </div>
 
         <div>
-          Made with ❤️ by{" "}
-          <a className="underline" href="https://twitter.com/makaroni4">
-            Anatoli Makarevich
-          </a>
+          <Markdownify>
+            { t("made_with_love") }
+          </Markdownify>
         </div>
       </div>
     </footer>

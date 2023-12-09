@@ -1,9 +1,10 @@
 {
   "doubleQuotes": true,
   "trailingComma": "none",
-  "jsxBracketSameLine": true,
+  "jsxBracketSameLine": false,
   "printWidth": 80,
   "tabWidth": 2,
   "useTabs": false,
-  "semi": false
+  "semi": false,
+  "bracketSpacing": true
 }

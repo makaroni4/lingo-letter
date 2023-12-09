@@ -33,6 +33,9 @@
     "example_email": "",
     "example_original_sentences": [],
     "example_verified_sentences": [],
-    "example_response_topics": []
+    "example_response_topics": [],
+    "source_code": "Source code",
+    "feedback": "Feedback",
+    "made_with_love": "Made with ❤️ by [Anatoli Makarevich](https://twitter.com/makaroni4)"
   }
 }
