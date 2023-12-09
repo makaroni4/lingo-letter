@@ -26,6 +26,8 @@ Currently, Lingo Email supports the following languages:
 * 🇮🇹 Italian
 * 🇵🇹 Portuguese
 
+:warning: Lingo Email is a browser-only app. You'll need to set **your own OpenAI API key**.
+
 ## Contributing
 
 You're more than welcome to contribute. In fact, I'm really looking forward to it! :rocket:
