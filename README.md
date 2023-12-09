@@ -69,3 +69,5 @@ Anatoli Makarevich • [Twitter](https://twitter.com/makaroni4) • [Github](htt
 ## License
 
 SQL Schema Visualizer is [MIT licensed](https://github.com/makaroni4/lingo-email/blob/main/LICENSE).
+
+BUMP
