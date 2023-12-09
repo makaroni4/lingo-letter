@@ -23,6 +23,7 @@ export default function Navbar() {
     setOriginalSentences,
     setVerifiedSentences,
     emailLanguage,
+    showExampleExamBadge,
     setShowExampleExamBadge,
     setErrorMessage,
     setShowErrorMessage,
@@ -98,7 +99,11 @@ export default function Navbar() {
       return t("starting_exam")
     }
 
-    return incomingEmail ? t("reset_exam") : t("start_exam")
+    if (showExampleExamBadge) {
+      return t("start_exam")
+    }
+
+    return t("reset_exam")
   }
 
   return (
