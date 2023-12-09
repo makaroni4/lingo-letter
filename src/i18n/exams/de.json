@@ -1,34 +1,5 @@
 {
   "translation": {
-    "start_exam": "Prüfung starten",
-    "starting_exam": "Prüfung wird generiert...",
-    "reset_exam": "Prüfung zurücksetzen",
-    "writing_test": "Prüfung schreiben",
-    "you_have_received_an_email": "Sie haben folgende E-Mail erhalten:",
-    "answer_the_email_and_cover_topics": "Antworten Sie auf die E-Mail. Schreiben Sie etwas zu allen folgenden Themen:",
-    "writing_instructions": "Denken Sie vor dem Schreiben über eine geeignete Reihenfolge der Themen, einen geeigneten Betreff, eine geeignete Anrede, Einleitung und einen geeigneten Schluss nach.",
-    "submit": "Einreichen",
-    "processing_submission": "Verarbeitung...",
-    "original_sentences": "Ihre Einreichung",
-    "fixed_sentences": "Korrigierte Einreichung",
-    "i_know": "Ich weiß",
-    "i_learn": "Ich lerne",
-    "open_ai_api_key": "OpenAI API-Schlüssel",
-    "welcome_banner_copy": "Hallo, hier ist [Anatoli](https://www.x.com/makaroni4), der Entwickler des **E-Mail-Schreibtrainers**! 👋\n Ich habe dies erstellt, um vor einer offiziellen [TELC B1 Deutschprüfung](https://www.telc.net/sprachpruefungen/deutsch/zertifikat-deutsch-telc-deutsch-b1) zu üben, die eine schriftliche Aufgabe zum Beantworten einer E-Mail beinhaltet. Dieser Trainer imitiert die genaue Struktur des TELC E-Mail-Tests.\n Die E-Mail wird über Chat GPT generiert, daher müssen Sie Ihren API-Schlüssel in den Einstellungen festlegen ([eine Notiz dazu, wo Sie den API-Schlüssel erhalten](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key)). \n\n EWT \"unterstützt\" (es ist lustig, \"unterstützt\" zu schreiben, weil alles KI-generiert ist) die folgenden Sprachen:",
-    "set_api_key": "Bitte setzen Sie den Open AI API-Schlüssel",
-    "minuteWithCount_one": "Minute übrig",
-    "minuteWithCount_other": "Minuten übrig",
-    "restart_alert_question": "Sind Sie sicher, dass Sie die Prüfung neu starten möchten?",
-    "example": "Beispiel",
-    "cant_generate_exam": "Die Chat GPT API hat drei Mal hintereinander nicht mit einer gültigen Prüfung geantwortet. Bitte versuchen Sie es in einer Minute erneut.",
-    "languages": {
-      "en": "Englisch",
-      "es": "Spanisch",
-      "fr": "Französisch",
-      "de": "Deutsch",
-      "it": "Italienisch",
-      "pt": "Portugiesisch"
-    },
     "example_email": "Liebe Sophie,\n\nich hoffe es geht dir gut! Lange haben wir uns nicht mehr geschrieben, deshalb wollte ich dir mal wieder eine E-Mail schicken. Ich bin gerade dabei, meinen nächsten Urlaub zu planen und wollte dich fragen, ob du Lust hast mitzukommen?! 😄🏖️\n\nIch habe mir überlegt, dass wir nach Spanien fliegen könnten. Wie wäre es mit einer Woche am Strand? Ich habe schon ein paar tolle Hotels gefunden, die nicht zu teuer sind. Was denkst du dazu? Hast du vielleicht andere Vorschläge für unser Reiseziel?\n\nUnd wie sieht es eigentlich bei dir mit deinem Urlaub aus? Hast du schon Pläne gemacht?\n\nLiebe Grüße,\nMarta",
     "example_letter": "Lieber Marta, vielen Dank für deinen E-Mail! Es geht mich wirklich gut. Ich habe mich total darüber gefreut, von dir zu hören. Dein Angebot für eines gemeinsamen Urlaub in Spanien clingt wirklich fantastisch! Ich mag der Idee eine Woche am Strand zu verbringen. Die Hotels, die du gefunden hast, hören sich auch toll an. Ich habe, in Moment keinen konkreten Planen für meines Urlaub gemacht, also bin ich definitiv interessert! Ich denke Spanien ist eine großartige Idee aber ich bin auch offen für andere Vorschläge. Fielleicht könnten wir gemeinsam überlegen, wohin es gehen könnte. Lass mich wissen, was du denken! Liebe Grüße, Sophie",
     "example_original_sentences": [
@@ -61,9 +32,6 @@
       "Urlaubspläne",
       "Reiseziel",
       "Urlaub von Sophie"
-    ],
-    "source_code": "Quellcode",
-    "feedback": "Feedback",
-    "made_with_love": "Hergestellt mit ❤️ von [Anatoli Makarevich](https://twitter.com/makaroni4)"
+    ]
   }
 }

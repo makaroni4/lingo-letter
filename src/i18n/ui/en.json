@@ -1,0 +1,36 @@
+{
+  "translation": {
+    "start_exam": "Start exam",
+    "starting_exam": "Generating exam...",
+    "reset_exam": "Reset exam",
+    "writing_test": "Writing exam",
+    "you_have_received_an_email": "You have received the following email:",
+    "answer_the_email_and_cover_topics": "Reply to the email. Write something about all following topics:",
+    "writing_instructions": "Before writing, think about a suitable order of topics, a suitable subject, a suitable salutation, introduction and a suitable conclusion.",
+    "submit": "Submit",
+    "processing_submission": "Processing...",
+    "original_sentences": "Your submission",
+    "fixed_sentences": "Corrected submission",
+    "i_know": "I know",
+    "i_learn": "I learn",
+    "open_ai_api_key": "OpenAI API Key",
+    "welcome_banner_copy": "Hi, it's [Anatoli](https://www.x.com/makaroni4), maker of the **Email Writing Trainer**! 👋\n I built this to practice before taking an official [TELC B1 German Test](https://www.telc.net/sprachpruefungen/deutsch/zertifikat-deutsch-telc-deutsch-b1), which has a written assignment about responding to an E-mail. This trainer mimics the exact structure of the TELC E-mail test.\nThe E-mail is gerenated via Chat GPT, so you'll have to set your API key in the settings ([a note on where to get API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-api-key)). \n\n EWT \"supports\" (it's funny to write supports, because it's all AI-generated) the following languages:",
+    "set_api_key": "Please, set Open AI API key",
+    "minuteWithCount_one": "minute left",
+    "minuteWithCount_other": "minutes left",
+    "restart_alert_question": "Are you sure you want to restart the exam?",
+    "example": "Example",
+    "cant_generate_exam": "Chat GPT API hasn't responden with a valid exam 3 times in a row. Please, try again in a minute.",
+    "languages": {
+      "en": "English",
+      "es": "Spanish",
+      "fr": "French",
+      "de": "German",
+      "it": "Italian",
+      "pt": "Portuguese"
+    },
+    "source_code": "Source code",
+    "feedback": "Feedback",
+    "made_with_love": "Made with ❤️ by [Anatoli Makarevich](https://twitter.com/makaroni4)"
+  }
+}
