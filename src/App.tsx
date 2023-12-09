@@ -36,7 +36,8 @@ function App() {
     showErrorMessage,
     generatingExam,
     processingSubmission,
-    setProcessingSubmission
+    setProcessingSubmission,
+    setShowWelcomePopup
   } = useAppStore()
 
   const handleFormSubmit = async () => {
@@ -73,6 +74,7 @@ function App() {
 
       if (hash === "#settings") {
         event.preventDefault()
+        setShowWelcomePopup(false)
         setSettingsVisible(true)
       }
     })
