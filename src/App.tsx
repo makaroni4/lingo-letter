@@ -85,7 +85,7 @@ function App() {
   useEffect(() => {
     const loadTranslations = async () => {
       try {
-        const response = await fetch(`/lingo-email/i18n/welcome_banner/${userLanguage}.md`)
+        const response = await fetch(`/lingo-letter/i18n/welcome_banner/${userLanguage}.md`)
         const markdown = await response.text()
 
         setWelcomeBannerCopy(markdown)

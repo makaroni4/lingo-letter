@@ -4,8 +4,8 @@
 
 # Lingo Letter
 
-![GitHub License MIT](https://img.shields.io/github/license/makaroni4/lingo-email?color=%2347A3F3)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/makaroni4/lingo-email?color=%2347A3F3)
+![GitHub License MIT](https://img.shields.io/github/license/makaroni4/lingo-letter?color=%2347A3F3)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/makaroni4/lingo-letter?color=%2347A3F3)
 
 Writing language exam simulator built with React and GPT.
 

@@ -7,7 +7,7 @@ export default function Logo() {
     <div className="js-open-welcome-popup -rotate-12">
       <img
         className="block w-12 cursor-pointer"
-        src="/lingo-email/logo.svg"
+        src="/lingo-letter/logo.svg"
         alt="Email Simulator"
         onClick={() => {
           setShowWelcomePopup(true)

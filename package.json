@@ -1,7 +1,7 @@
 {
-  "name": "lingo-email",
+  "name": "lingo-letter",
   "version": "1.0.0",
-  "homepage": "https://makaroni4.github.io/lingo-email/",
+  "homepage": "https://makaroni4.github.io/lingo-letter/",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.17",
