@@ -47,18 +47,22 @@ interface AppStore {
   setProcessingSubmission: (key: boolean) => void
 }
 
-const defaultLetter = i18next.t("example_letter", { lng: "de" })
-const defaultIncomingEmail = i18next.t("example_email", { lng: "de" })
+const defaultUserLanguage = "en"
+const defaultEmailLanguage = "de"
+const defaultLetter = i18next.t("example_letter", { lng: defaultEmailLanguage })
+const defaultIncomingEmail = i18next.t("example_email", {
+  lng: defaultEmailLanguage
+})
 const defaultOriginalSentences: string[] = i18next.t(
   "example_original_sentences",
-  { lng: "de", returnObjects: true }
+  { lng: defaultEmailLanguage, returnObjects: true }
 )
 const defaultVerifiedSentences: string[] = i18next.t(
   "example_verified_sentences",
-  { lng: "de", returnObjects: true }
+  { lng: defaultEmailLanguage, returnObjects: true }
 )
 const defaultResponseTopics: string[] = i18next.t("example_response_topics", {
-  lng: "de",
+  lng: defaultEmailLanguage,
   returnObjects: true
 })
 
@@ -67,9 +71,9 @@ export const useAppStore = create<AppStore>()(
     (set, get) => ({
       openAIAPIKey: "",
       setOpenAIAPIKey: (key) => set({ openAIAPIKey: key }),
-      userLanguage: "en",
+      userLanguage: defaultUserLanguage,
       setUserLanguage: (key) => set({ userLanguage: key }),
-      emailLanguage: "de",
+      emailLanguage: defaultEmailLanguage,
       setEmailLanguage: (key) => set({ emailLanguage: key }),
       settingsVisible: false,
       setSettingsVisible: (key) => set({ settingsVisible: key }),
