@@ -59,7 +59,7 @@ function App() {
       emailLanguage: t(`languages.${emailLanguage}`)
     })
       .then((verifiedEmail) => {
-        const fixedSentences = splitIntoSentences(verifiedEmail)
+        const fixedSentences = splitIntoSentences(verifiedEmail as string)
         setVerifiedSentences(fixedSentences)
       })
       .finally(() => {
