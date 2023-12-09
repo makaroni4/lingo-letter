@@ -1,17 +1,25 @@
 {
   "translation": {
-    "reset_exam": "Redefinir exame",
-    "writing_test": "Exame de escrita",
+    "start_exam": "Iniciar exame",
+    "starting_exam": "Gerando exame...",
+    "reset_exam": "Reiniciar exame",
+    "writing_test": "Escrevendo exame",
     "you_have_received_an_email": "Você recebeu o seguinte e-mail:",
     "answer_the_email_and_cover_topics": "Responda ao e-mail. Escreva algo sobre todos os seguintes tópicos:",
     "writing_instructions": "Antes de escrever, pense em uma ordem adequada dos tópicos, um assunto adequado, uma saudação adequada, uma introdução adequada e uma conclusão adequada.",
     "submit": "Enviar",
-    "original_sentences": "Frases originais",
-    "fixed_sentences": "Frases corrigidas",
-    "feedback_on_topics": "Feedback sobre os tópicos",
+    "processing_submission": "Processando...",
+    "original_sentences": "Sua submissão",
+    "fixed_sentences": "Submissão corrigida",
     "i_know": "Eu sei",
     "i_learn": "Eu aprendo",
-    "open_ai_api_key": "Chave de API OpenAI",
+    "open_ai_api_key": "Chave API da OpenAI",
+    "set_api_key": "Por favor, defina a chave API da Open AI",
+    "minuteWithCount_one": "minuto restante",
+    "minuteWithCount_other": "minutos restantes",
+    "restart_alert_question": "Você tem certeza de que deseja reiniciar o exame?",
+    "example": "Exemplo",
+    "cant_generate_exam": "A API Chat GPT não respondeu com um exame válido 3 vezes seguidas. Por favor, tente novamente em um minuto.",
     "languages": {
       "en": "Inglês",
       "es": "Espanhol",
@@ -19,6 +27,9 @@
       "de": "Alemão",
       "it": "Italiano",
       "pt": "Português"
-    }
+    },
+    "source_code": "Código-fonte",
+    "feedback": "Feedback",
+    "made_with_love": "Feito com ❤️ por [Anatoli Makarevich](https://twitter.com/makaroni4)"
   }
 }

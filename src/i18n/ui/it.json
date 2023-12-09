@@ -1,17 +1,25 @@
 {
   "translation": {
+    "start_exam": "Inizia esame",
+    "starting_exam": "Generazione dell'esame...",
     "reset_exam": "Resetta esame",
-    "writing_test": "Esame di scrittura",
+    "writing_test": "Scrivendo l'esame",
     "you_have_received_an_email": "Hai ricevuto la seguente email:",
-    "answer_the_email_and_cover_topics": "Rispondi all'email. Scrivi qualcosa su tutti i seguenti argomenti:",
-    "writing_instructions": "Prima di scrivere, pensa a un ordine adeguato degli argomenti, un soggetto adatto, un saluto adeguato, un'introduzione adeguata e una conclusione adeguata.",
+    "answer_the_email_and_cover_topics": "Rispondi alla email. Scrivi qualcosa su tutti i seguenti argomenti:",
+    "writing_instructions": "Prima di scrivere, pensa a un ordine adatto degli argomenti, un soggetto adatto, un saluto adatto, un'introduzione adatta e una conclusione adatta.",
     "submit": "Invia",
-    "original_sentences": "Frasi originali",
-    "fixed_sentences": "Frasi corrette",
-    "feedback_on_topics": "Feedback sugli argomenti",
-    "i_know": "So",
-    "i_learn": "Apprendo",
-    "open_ai_api_key": "Chiave API di OpenAI",
+    "processing_submission": "Elaborazione...",
+    "original_sentences": "La tua presentazione",
+    "fixed_sentences": "Presentazione corretta",
+    "i_know": "Lo so",
+    "i_learn": "Imparo",
+    "open_ai_api_key": "Chiave API OpenAI",
+    "set_api_key": "Per favore, imposta la chiave API OpenAI",
+    "minuteWithCount_one": "minuto rimasto",
+    "minuteWithCount_other": "minuti rimasti",
+    "restart_alert_question": "Sei sicuro di voler riavviare l'esame?",
+    "example": "Esempio",
+    "cant_generate_exam": "L'API di Chat GPT non ha risposto con un esame valido per 3 volte di fila. Per favore, riprova tra un minuto.",
     "languages": {
       "en": "Inglese",
       "es": "Spagnolo",
@@ -19,6 +27,9 @@
       "de": "Tedesco",
       "it": "Italiano",
       "pt": "Portoghese"
-    }
+    },
+    "source_code": "Codice sorgente",
+    "feedback": "Feedback",
+    "made_with_love": "Realizzato con ❤️ da [Anatoli Makarevich](https://twitter.com/makaroni4)"
   }
 }

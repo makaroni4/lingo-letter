@@ -1,17 +1,25 @@
 {
   "translation": {
+    "start_exam": "Iniciar examen",
+    "starting_exam": "Generando examen...",
     "reset_exam": "Reiniciar examen",
-    "writing_test": "Examen de escritura",
+    "writing_test": "Escribiendo examen",
     "you_have_received_an_email": "Has recibido el siguiente correo electrónico:",
     "answer_the_email_and_cover_topics": "Responde al correo electrónico. Escribe algo sobre todos los siguientes temas:",
-    "writing_instructions": "Antes de escribir, piensa en un orden adecuado de temas, un asunto adecuado, un saludo adecuado, una introducción adecuada y una conclusión adecuada.",
+    "writing_instructions": "Antes de escribir, piensa en un orden adecuado de los temas, un asunto adecuado, un saludo adecuado, una introducción adecuada y una conclusión adecuada.",
     "submit": "Enviar",
-    "original_sentences": "Oraciones originales",
-    "fixed_sentences": "Oraciones corregidas",
-    "feedback_on_topics": "Retroalimentación sobre los temas",
-    "i_know": "Sé",
+    "processing_submission": "Procesando...",
+    "original_sentences": "Tu envío",
+    "fixed_sentences": "Envío corregido",
+    "i_know": "Lo sé",
     "i_learn": "Aprendo",
-    "open_ai_api_key": "Clave de API de OpenAI",
+    "open_ai_api_key": "Clave API de OpenAI",
+    "set_api_key": "Por favor, configura la clave API de Open AI",
+    "minuteWithCount_one": "minuto restante",
+    "minuteWithCount_other": "minutos restantes",
+    "restart_alert_question": "¿Estás seguro de que quieres reiniciar el examen?",
+    "example": "Ejemplo",
+    "cant_generate_exam": "La API de Chat GPT no ha respondido con un examen válido 3 veces seguidas. Por favor, inténtalo nuevamente en un minuto.",
     "languages": {
       "en": "Inglés",
       "es": "Español",
@@ -19,6 +27,9 @@
       "de": "Alemán",
       "it": "Italiano",
       "pt": "Portugués"
-    }
+    },
+    "source_code": "Código fuente",
+    "feedback": "Comentarios",
+    "made_with_love": "Hecho con ❤️ por [Anatoli Makarevich](https://twitter.com/makaroni4)"
   }
 }
