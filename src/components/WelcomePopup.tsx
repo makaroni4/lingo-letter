@@ -24,12 +24,15 @@ export default function WelcomePopup() {
 
   useEffect(() => {
     if (showWelcomePopup) {
+      document.querySelector("body")?.classList.add("overflow-hidden")
+
       document.addEventListener("keydown", handleEsc)
       document.addEventListener("click", handleClickOutside)
 
       return () => {
         document.removeEventListener("keydown", handleEsc)
         document.removeEventListener("click", handleClickOutside)
+        document.querySelector("body")?.classList.remove("overflow-hidden")
       }
     }
   }, [showWelcomePopup])

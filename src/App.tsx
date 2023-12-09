@@ -105,7 +105,7 @@ function App() {
     return generatingExam || processingSubmission
   }
   return (
-    <div className={`App ${showWelcomePopup && "fixed"}`}>
+    <div className="App">
       {settingsVisible && <Settings />}
 
       {showWelcomePopup && <WelcomePopup />}
