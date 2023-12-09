@@ -83,7 +83,7 @@ function App() {
   useEffect(() => {
     const loadTranslations = async () => {
       try {
-        const response = await fetch(`/i18n/welcome_banner/${userLanguage}.md`)
+        const response = await fetch(`/lingo-email/i18n/welcome_banner/${userLanguage}.md`)
         const markdown = await response.text()
 
         setWelcomeBannerCopy(markdown)
@@ -136,10 +136,7 @@ function App() {
           />
 
           <div className="flex justify-end">
-            <Button
-              disabled={submitButtonDisabled()}
-              onClick={handleFormSubmit}
-            >
+            <Button disabled={submitButtonDisabled()} onClick={handleFormSubmit}>
               {processingSubmission ? t("processing_submission") : t("submit")}
             </Button>
           </div>
