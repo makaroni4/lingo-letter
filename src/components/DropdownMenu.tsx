@@ -3,7 +3,7 @@ import { Menu, Transition } from "@headlessui/react"
 import { ChevronDownIcon } from "@heroicons/react/20/solid"
 import EmojiCountryCodes from "../data/interface"
 import { useTranslation } from "react-i18next"
-import Twemoji from "./Twemoji"
+import CountryTwemoji from "./CountryTwemoji"
 
 export default function DropdownMenu({
   excludeLanguage,
@@ -18,7 +18,7 @@ export default function DropdownMenu({
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="inline-flex items-center w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 ">
-          <Twemoji className="mr-3" countryCode={excludeLanguage} />
+          <CountryTwemoji className="mr-3" countryCode={excludeLanguage} />
           <ChevronDownIcon
             className="-mr-1 h-5 w-5 text-gray-400"
             aria-hidden="true"
@@ -50,7 +50,7 @@ export default function DropdownMenu({
                         )
                       }}
                     >
-                      <Twemoji
+                      <CountryTwemoji
                         countryCode={languageCode as keyof EmojiCountryCodes}
                       />
                     </div>

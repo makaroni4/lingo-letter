@@ -8,7 +8,7 @@ const getEmojiCode = (key: keyof EmojiCountryCodes): any => {
   return countryCodes[key]
 }
 
-export default function Twemoji({
+export default function CountryTwemoji({
   countryCode,
   className = "",
   onClick = () => {}
