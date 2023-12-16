@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -85,7 +89,7 @@ a:hover {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translateX(-100%) translateY(-100%);
+  transform: translateX(-4px) translateY(-100%);
   width: 0;
   height: 0;
 }

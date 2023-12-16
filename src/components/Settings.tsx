@@ -78,7 +78,7 @@ export default function Settings() {
   }
 
   return (
-    <div className="fixed h-full top-0 right-0 bg-white w-1/3 z-30 pt-16 px-4 border-l-[1px] border-l-grey-300 shadow-xl js-settings">
+    <div className="fixed h-full top-0 right-0 bg-white w-full md:w-1/3 z-30 pt-16 px-4 border-l-[1px] border-l-grey-300 shadow-xl js-settings">
       <XMarkIcon
         className="w-8 cursor-pointer absolute top-4 right-4 hover:opacity-70 hover:scale-105"
         onClick={() => setSettingsVisible(false)}

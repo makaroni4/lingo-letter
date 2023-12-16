@@ -102,10 +102,10 @@ function App() {
       return true
     }
 
-    return generatingExam || processingSubmission
+    return generatingExam || processingSubmission || !openAIAPIKey
   }
   return (
-    <div className="App">
+    <div className="px-2 md:px-8 overflow-x-hidden">
       {settingsVisible && <Settings />}
 
       {showWelcomePopup && <WelcomePopup />}
@@ -138,9 +138,22 @@ function App() {
           />
 
           <div className="flex justify-end">
-            <Button disabled={submitButtonDisabled()} onClick={handleFormSubmit}>
-              {processingSubmission ? t("processing_submission") : t("submit")}
-            </Button>
+            <div className="relative tooltip-wrapper">
+              <Button
+                className="px-8 py-4 text-xl"
+                disabled={submitButtonDisabled()}
+                onClick={handleFormSubmit}
+              >
+                {processingSubmission ? t("processing_submission") : t("submit")}
+              </Button>
+
+              {!openAIAPIKey && (
+                <div className="tooltip absolute z-10 inline-block px-3 py-2 text-sm font-medium  bg-yellow-300	rounded-lg shadow-sm -bottom-1 left-1/2 translate-y-full -translate-x-1/2	 whitespace-nowrap">
+                  {t("set_api_key")}
+                  <div className="tooltip-arrow border-[4px] border-solid border-transparent border-t-0 border-b-yellow-300"></div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
