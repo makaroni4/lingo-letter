@@ -9,7 +9,7 @@
 
 Writing language exam simulator built with React and GPT.
 
-[:microscope: How it works](https://github.com/makaroni4/lingo-letter#how-it-works) | [:handshake: Contributing](https://github.com/makaroni4/lingo-letter#contributing)
+[:link: Try it out](https://makaroni4.github.io/lingo-letter/) | [:microscope: How it works](https://github.com/makaroni4/lingo-letter#how-it-works) | [:handshake: Contributing](https://github.com/makaroni4/lingo-letter#contributing)
 
 </div>
 
