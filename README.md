@@ -1,4 +1,4 @@
-Try out the live version at :link: **https://makaroni4.github.io/lingo-letter/** */.
+Try out the live version at :link: **https://makaroni4.github.io/lingo-letter/**
 
 ![Lingo Letter screenshot](https://github.com/makaroni4/lingo-letter/blob/main/.README/snapshot.png?raw=true)
 
